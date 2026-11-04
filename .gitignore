@@ -9,3 +9,4 @@ wallets/
 __pycache__/
 *.pyc
 .claude/settings.local.json
+lbgv6-website-upload.zip

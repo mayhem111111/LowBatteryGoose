@@ -41,3 +41,13 @@
 .bingo-status{font-size:12px;min-height:18px;line-height:1.5;margin:4px 0 0}.channel-direct-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}.channel-direct-links .button{font-size:12px}
 @media(max-width:980px){.bingo-layout{grid-template-columns:1fr;gap:42px}.bingo-game{max-width:690px;width:100%;margin-inline:auto}.bingo-intro h2{font-size:clamp(65px,13vw,100px)}}
 @media(max-width:540px){.bingo-section{padding:65px 0}.bingo-game{padding:12px;box-shadow:6px 6px 0 var(--ink)}.bingo-grid{gap:5px}.bingo-tile{min-height:108px;padding:6px 3px}.bingo-tile span{font-size:25px}.bingo-tile b{font-size:9px}.bingo-card-head{font-size:10px}.bingo-actions{flex-direction:column}.bingo-secondary{flex-direction:column;align-items:stretch}.bingo-secondary button{text-align:center}.channel-direct-links{flex-direction:column}}
+
+
+/* Launch mode: contract box shown only when site-config.js holds a verified mint. */
+.ca-box{margin-top:26px;padding:20px;border:var(--hair);border-radius:16px;background:var(--cream);box-shadow:6px 6px 0 var(--ink);display:grid;gap:12px;max-width:640px}
+.ca-label{font-size:11px;font-weight:950;letter-spacing:.1em}
+.ca-value{display:block;font:700 15px/1.4 ui-monospace,Menlo,Consolas,monospace;word-break:break-all;background:#fff;border:2px solid var(--ink);border-radius:10px;padding:10px 12px}
+.ca-actions{display:flex;flex-wrap:wrap;gap:10px}.ca-actions .button{font-size:11px;padding:13px 14px}
+.ca-note{font-size:12px;margin:0;line-height:1.5}
+.ca-inline{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;word-break:break-all}
+@media(max-width:540px){.ca-actions{flex-direction:column}.ca-actions .button{justify-content:space-between}}

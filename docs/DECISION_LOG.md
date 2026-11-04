@@ -93,3 +93,12 @@ Merged main (site `lbgv6/` + creator kit) into the working branch. Full findings
 - Presale/allocation models (D_founder_v2, presale_2wk) kept for reference; they do not apply on Pump.fun
   (fixed 1B supply, no pre-set allocations). Pending founder confirmation of launch time, creator-reward
   setting and founder buy size.
+
+## 2026-11-04: Pump.fun launch prep (founder request)
+- Founder: proceed toward Pump.fun; asked for website, X, Telegram and bot updates with a contract placeholder.
+- Site: launch mode driven by `site-config.js` `mint` (validated base58; pump.fun link derived). Prelaunch rendering
+  unchanged; live mode tested in Chromium at 1280px and 375px with a dummy address (no errors, no overflow).
+- Bot: `bot/honk-commander.js` (drop-in for the lbg-honk-commander Worker): /launch, /contract, /pumpfun, /safety
+  driven by `TOKEN_ADDRESS` and optional `LAUNCH_TIME` settings; invalid addresses ignored.
+- Posts: `docs/LAUNCH_KIT.md` (X posts all under 280 chars, Telegram posts, create-screen values, first-10-minutes steps).
+- Pending from founder: launch time, founder buy size, creator-fee share to community fund.

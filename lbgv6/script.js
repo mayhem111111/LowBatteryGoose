@@ -38,6 +38,32 @@
     const socialState = $('social-state');
     if (socialState) socialState.textContent = 'NO OFFICIAL TOKEN MINT VERIFIED · USE ONLY LINKS ON THIS PAGE';
   }
+  // Launch mode: switches the page to "live" only when site-config.js holds a valid Solana address.
+  (() => {
+    const mint = typeof links.mint === 'string' ? links.mint.trim() : '';
+    if (!/^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(mint)) return;
+    let pump = `https://pump.fun/coin/${mint}`;
+    if (typeof links.pumpFun === 'string') {
+      try {
+        const u = new URL(links.pumpFun);
+        if (u.protocol === 'https:' && (u.hostname === 'pump.fun' || u.hostname === 'www.pump.fun') && u.pathname.includes(mint)) pump = u.href;
+      } catch { /* keep the derived link */ }
+    }
+    document.documentElement.classList.add('lbg-live');
+    document.querySelectorAll('[data-live-text]').forEach(el => { el.textContent = el.getAttribute('data-live-text'); });
+    document.querySelectorAll('[data-live-only]').forEach(el => { el.hidden = false; });
+    document.querySelectorAll('[data-ca], [data-live-ca]').forEach(el => { el.textContent = mint; el.classList.remove('status-pending'); el.classList.add('ca-inline'); });
+    document.querySelectorAll('[data-pumpfun-link]').forEach(a => { a.href = pump; });
+    document.querySelectorAll('[data-solscan-link]').forEach(a => { a.href = `https://solscan.io/token/${mint}`; });
+    const caStatus = document.querySelector('[data-ca-status]');
+    document.querySelectorAll('[data-ca-copy]').forEach(btn => btn.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(mint); if (caStatus) caStatus.textContent = 'Address copied. Compare the first and last characters before you trade.'; }
+      catch { if (caStatus) caStatus.textContent = 'Copy failed here. Select the address above and copy it manually.'; }
+    }));
+    const socialState = $('social-state');
+    if (socialState) socialState.textContent = 'OFFICIAL CONTRACT SHOWN ON THIS SITE · WE NEVER DM FIRST';
+  })();
+
   const fallbackReason = 'opened my inbox.';
   const image = new Image();
   image.src = 'assets/goose.png';

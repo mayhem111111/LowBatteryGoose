@@ -27,12 +27,14 @@ docs/         ECOSYSTEM_PLAN.md, TOKENOMICS.md, PLATFORM_DECISION.md, PRESALE_RU
 .claude/      agents/, skills/, settings.json (permissions)
 programs/     (future) Anchor/SPL programs: staking, governance
 lbgv6/        live static site (Cloudflare Pages root): index, Honk Bingo, arcade, _headers CSP
+bot/          Honk Commander Telegram bot (Cloudflare Worker); TOKEN_ADDRESS set in Cloudflare, never in code
 ```
 
 ## Website rules
 - `lbgv6/` deploys as-is to lowbatterygoose.pages.dev. Treat edits as public statements.
 - Editing the inline `<script>` in `honk-arcade-v6.html` requires regenerating its sha256 in `lbgv6/_headers`.
 - Never set `mint`/`pumpFun` in `site-config.js` until the address is verified on-chain and approved.
+  Setting a valid `mint` switches the whole site to live mode (banner, contract box, facts); invalid values are ignored.
 - Public facts (launch venue, presale, supply) must match `tokenomics/config.json` and `docs/DECISION_LOG.md`.
 
 ## Commands
