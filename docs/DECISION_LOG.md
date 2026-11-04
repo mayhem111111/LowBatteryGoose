@@ -172,3 +172,16 @@ Merged main (site `lbgv6/` + creator kit) into the working branch. Full findings
 - Founder saw an old site after uploading; verified live site already had goose.js, Goose Guess and image fix
   (browser cache). Added ?v= version tags to CSS/JS in index.html and `Cache-Control: no-cache` in _headers so
   future uploads (incl. tonight's contract address in site-config.js) show immediately.
+
+## 2026-11-04: goose brand + games (founder)
+- Goose redesigned as the brand mascot: tired eyes with bags, tuft, battery chest, coffee mug; coffee breaks, yawns,
+  naps, zoomies, crashes, letter theft.
+- Annoy the Goose: clicks raise anger (annoyed -> mad -> RAGE: chases cursor, steals letters, calms with coffee);
+  score + best saved per visitor; tap to copy a share post.
+- Hide & seek quiz: goose hides on a card; finding him opens a question about $LBG/community/safety.
+  Right: +10 Honk Points (streak bonus). Wrong: -3 points and streak. Founder asked for losing real tokens on wrong
+  answers ("like a bet"): NOT built, since staking tokens on outcomes is gambling; points have no token value.
+- Real micro-airdrops and AI-generated questions need a server (answer checking, wallets, anti-bot, API key):
+  proposed as phase 2 after launch (points feed the weekly Flock Drop).
+- Letters now fly off-screen fading out and fade back into place (no more dead stops).
+- Tested: hide, quiz right/wrong scoring, rage, letter return; no errors.
