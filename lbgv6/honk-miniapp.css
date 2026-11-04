@@ -1,0 +1,20 @@
+/* Telegram-specific layout; full site styles are preserved. */
+html{scroll-behavior:smooth}
+body.telegram-app{background:#cdf45c;min-height:100vh;min-height:100dvh}
+.telegram-app .app-topline{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:14px max(18px,env(safe-area-inset-right)) 14px max(18px,env(safe-area-inset-left));background:#19251e;color:#fffceb;font-weight:950;font-size:11px;letter-spacing:.045em}
+.telegram-app .bingo-section{padding:22px 0 44px;border:0}
+.telegram-app .bingo-layout{display:flex;flex-direction:column;gap:22px;max-width:650px}
+.telegram-app .bingo-intro h2{font-size:clamp(52px,12vw,76px);margin:14px 0 12px}
+.telegram-app .bingo-intro p{font-size:15px;margin:12px 0}
+.telegram-app .bingo-label{margin-top:12px}
+.telegram-app .bingo-rules{display:none}
+.telegram-app .bingo-disclaimer{font-size:12px}
+.telegram-app .bingo-game{order:-1;width:100%;max-width:620px;margin:0 auto;box-shadow:6px 6px 0 #19251e}
+.telegram-app .bingo-tile{min-height:98px}
+.telegram-app .bingo-tile span{font-size:27px}
+.telegram-app .bingo-tile b{font-size:10px}
+.telegram-app .bingo-actions{gap:8px}
+.telegram-app .app-footer{text-align:center;padding:16px 20px max(24px,env(safe-area-inset-bottom));font-size:11px;line-height:1.5;font-weight:900}
+.telegram-app .app-footer p{margin:7px 0}
+.telegram-app .app-footer a{color:#19251e}
+@media(max-width:450px){.telegram-app .bingo-section{padding:20px 0 32px}.telegram-app .bingo-game{padding:12px}.telegram-app .bingo-tile{min-height:91px}.telegram-app .bingo-intro h2{font-size:54px}.telegram-app .bingo-intro>p{font-size:14px}.telegram-app .app-topline{font-size:10px}}

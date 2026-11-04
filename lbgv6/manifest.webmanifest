@@ -1,0 +1,17 @@
+{
+  "name": "Low Battery Goose",
+  "short_name": "Battery Goose",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#CDF45C",
+  "background_color": "#FFFCEB",
+  "description": "Running on 1%. Still honking.",
+  "icons": [
+    {
+      "src": "/assets/goose.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#CDF45C">
+  <meta name="description" content="Play Low Battery Goose 1% Honk Bingo in Telegram. Free, no wallet required.">
+  <title>Honk Arcade · 1% Honk Bingo</title>
+  <link rel="icon" href="assets/goose.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="honk-miniapp.css">
+  <script src="https://telegram.org/js/telegram-web-app.js" defer></script>
+  <script src="honk-game.js" defer></script>
+</head>
+<body class="telegram-app">
+  <div class="app-topline" role="banner">
+    <span>🪿 LOW BATTERY GOOSE</span><span>🔋 HONK ARCADE</span>
+  </div>
+  <main>
+<section class="bingo-section" id="honk-bingo" aria-labelledby="bingo-title">
+      <div class="wrap bingo-layout">
+        <div class="bingo-intro">
+          <div class="section-kicker">04 / A GAME FOR THE EXHAUSTED</div>
+          <span class="bingo-label">🪿 THE FLOCK'S FREE MINI-GAME</span>
+          <h2 id="bingo-title">1% HONK<br><em>BINGO.</em></h2>
+          <p>Every square is something that drained your battery. Tap the ones you've survived. Get <strong>three in a row</strong> to unlock your own <strong>Certified Honker</strong> digital badge.</p>
+          <p>Then post your Honk Bingo result in <a href="https://t.me/LowBatteryFlock" target="_blank" rel="noopener noreferrer">The Low Battery Flock</a> and ask: <em>who else is running on 1%?</em></p>
+          <p><a class="button button-dark" href="https://t.me/LowBatteryGooseGamesBot?startapp" target="_blank" rel="noopener noreferrer">🪿 OPEN HONK ARCADE IN TELEGRAM ↗</a></p>
+          <div class="bingo-rules"><strong>HOW TO HONK</strong><span>1. Tap your drained squares</span><span>2. Finish a row, column, or diagonal</span><span>3. Save your badge, copy your result, and share it in Telegram</span></div>
+          <p class="bingo-disclaimer">Free entertainment only. Your selections stay in your browser. No score is submitted automatically, and a badge is not a crypto token, airdrop, or contest prize.</p>
+        </div>
+        <div class="bingo-game">
+          <div class="bingo-card-head"><span>LOW BATTERY GOOSE / BINGO</span><span>🔋 1%</span></div>
+          <div class="bingo-grid" id="bingo-grid" aria-label="Honk Bingo board: choose the battery drains you've experienced">
+            <button type="button" class="bingo-tile" aria-pressed="false"><span aria-hidden="true">📅</span><b>ANOTHER MEETING</b></button>
+            <button type="button" class="bingo-tile" aria-pressed="false"><span aria-hidden="true">💬</span><b>99+ UNREAD</b></button>
+            <button type="button" class="bingo-tile" aria-pressed="false"><span aria-hidden="true">😴</span><b>ZERO SLEEP</b></button>
+            <button type="button" class="bingo-tile" aria-pressed="false"><span aria-hidden="true">📉</span><b>CHART WENT DOWN</b></button>
+            <button type="button" class="bingo-tile" aria-pressed="false"><span aria-hidden="true">☕</span><b>COFFEE FAILED</b></button>
+            <button type="button" class="bingo-tile" aria-pressed="false"><span aria-hidden="true">📱</span><b>PHONE AT 1%</b></button>
+            <button type="button" class="bingo-tile" aria-pressed="false"><span aria-hidden="true">🛒</span><b>ONE MORE ERRAND</b></button>
+            <button type="button" class="bingo-tile" aria-pressed="false"><span aria-hidden="true">📶</span><b>WI-FI GAVE UP</b></button>
+            <button type="button" class="bingo-tile" aria-pressed="false"><span aria-hidden="true">🪿</span><b>STILL HONKING</b></button>
+          </div>
+          <div class="bingo-result" role="status" aria-live="polite" id="bingo-result">0 / 9 drains marked. Three in a row earns a honk!</div>
+          <div class="bingo-actions"><button class="button button-dark" type="button" id="bingo-copy">COPY MY HONK <span aria-hidden="true">↗</span></button><a class="button button-orange" href="https://t.me/LowBatteryFlock" target="_blank" rel="noopener noreferrer">POST IN TELEGRAM <span aria-hidden="true">↗</span></a></div>
+          <div class="bingo-secondary"><button type="button" id="bingo-badge" disabled>🔒 SAVE CERTIFIED HONKER BADGE</button><button type="button" id="bingo-reset">↻ RESET BOARD</button></div>
+          <p id="bingo-status" class="bingo-status" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="app-footer">
+    <p>FREE TO PLAY · NO WALLET · NO TOKEN OR AIRDROP PROMISED</p>
+    <p><a href="https://t.me/LowBatteryFlock" target="_blank" rel="noopener noreferrer">JOIN THE FLOCK</a> · <a href="https://lowbatterygoose.pages.dev/" target="_blank" rel="noopener noreferrer">OFFICIAL WEBSITE</a></p>
+  </footer>
+</body>
+</html>
