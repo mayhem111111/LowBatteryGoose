@@ -6,7 +6,7 @@ Low Battery Goose is a static community website and free mini-game built around 
 
 ## Project Status
 
-This is a prelaunch community project. A Solana community presale is planned, but **no official token has been deployed or verified, and trading is not live**. The proposed ticker is `$LBG`; it is not a token address or proof of an official token. Do not send funds or share wallet credentials with anyone claiming otherwise.
+This is a prelaunch community project. A Solana token launch on Pump.fun has been planned, but **no official token has been deployed or verified, and trading is not live**. The proposed ticker is `$LBG`; it is not a token address or proof of an official token. Do not send funds or share wallet credentials with anyone claiming otherwise.
 
 The website and games are free to use and do not require a wallet. Game selections and battery-check content stay in the browser unless a visitor chooses to share or save them. There is no backend or automatic score submission.
 

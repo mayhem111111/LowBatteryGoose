@@ -85,3 +85,11 @@ Merged main (site `lbgv6/` + creator kit) into the working branch. Full findings
 - Platform: tiers need a tier-capable contract (audit) or platform; PinkSale is single-price (set step to 0%).
 - Files: `tokenomics/presale_2wk.py`, `tokenomics/build_workbook.py`, `docs/LBG_tokenomics_2wk_presale.xlsx`
   (618 formulas, recalculated with 0 errors, values cross-checked against the Python model).
+
+## 2026-11-04: founder leaning to Pump.fun launch (no presale)
+- Founder: "I could use pump.fun again... I'm not worried about the liquidity pool as much as getting it out there."
+- Live site (checked 2026-11-04) already says "Pump.fun launch planned; no token live". Reverted this PR's
+  presale wording in `lbgv6/index.html` and README so merging cannot contradict the live site.
+- Presale/allocation models (D_founder_v2, presale_2wk) kept for reference; they do not apply on Pump.fun
+  (fixed 1B supply, no pre-set allocations). Pending founder confirmation of launch time, creator-reward
+  setting and founder buy size.
