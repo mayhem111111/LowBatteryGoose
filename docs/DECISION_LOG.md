@@ -70,3 +70,18 @@ Merged main (site `lbgv6/` + creator kit) into the working branch. Full findings
   100x vs presale = ~672 SOL net buying; plus ~99 SOL to absorb year-one unlock stress, ~771 SOL total.
 - Timeline is arithmetic, not a forecast: 771 SOL / monthly net buying (50 SOL/mo ≈ 15 months; 100 ≈ 7.7; 150 ≈ 5.1).
 - `tokenomics/export_dashboard.py` feeds the private dashboard "LBG Price Ladder" (claude.ai artifact).
+
+## 2026-11-04: 2-week tiered presale (revision of founder's lowbatt_tokenomics_model_2.xlsx)
+- Founder request: revised tokenomics for a 2-week presale, uploading model_2.xlsx ($LOWBATT, 1B no burn, 2,000 SOL cap,
+  9 tiers at +6%, 5 SOL wallet cap, founder 6+18 vesting).
+- **Conflicts resolved toward this session's founder instructions** (CONFIRM): $LBG, 100M after burn, D_founder_v2
+  allocation (founder 5M, Tony 2.5M, mkt+dev 10M, community 35%), 20% at launch + 20% every 3 months for all buckets.
+- **Adopted from model_2:** verified-waitlist Tier 0, solved tier pricing, LP share of raise, launch >= last tier check,
+  staking 50/30/20 emission split and lock multipliers, checklist.
+- Terms: 14 days = Tier 0 (days 1-2, 10% of presale tokens) + 6 tiers x 2 days, 5% step; hard cap 100 SOL, soft 50,
+  0.05-1 SOL per wallet; 86% of net raise to LP. Tier prices 292,825 -> 218,511 LBG/SOL (avg 250,000);
+  launch 208,078 LBG/SOL = 1.05x last tier, 1.20x average. LP 81.7 SOL + 17M LBG; treasury 13.3 SOL.
+  Soft cap reached end of day 8 on an even pace (~7.1 SOL/day, ~14 buyers/day at 0.5 SOL).
+- Platform: tiers need a tier-capable contract (audit) or platform; PinkSale is single-price (set step to 0%).
+- Files: `tokenomics/presale_2wk.py`, `tokenomics/build_workbook.py`, `docs/LBG_tokenomics_2wk_presale.xlsx`
+  (618 formulas, recalculated with 0 errors, values cross-checked against the Python model).

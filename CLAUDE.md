@@ -38,6 +38,7 @@ lbgv6/        live static site (Cloudflare Pages root): index, Honk Bingo, arcad
 ## Commands
 - Run the model: `python3 tokenomics/model.py [--sol-usd <price>]`
 - Locks, vesting and stress test: `python3 tokenomics/emissions.py`
+- 2-week tiered presale: `python3 tokenomics/presale_2wk.py`; workbook: `python3 tokenomics/build_workbook.py docs/LBG_tokenomics_2wk_presale.xlsx` (then recalc)
 - Tests: `python3 -m unittest discover tests`
 
 ## Agents and skills
