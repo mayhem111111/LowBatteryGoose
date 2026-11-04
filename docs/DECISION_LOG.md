@@ -167,3 +167,8 @@ Merged main (site `lbgv6/` + creator kit) into the working branch. Full findings
   never from contract/safety/fine print), crashes into cards with feathers, naps, zoomies. Click = honk (+ sound
   only after a click). On/off toggle remembered per visitor; off in the Telegram mini-app; still under reduced motion.
   Tested 1366px and 375px: letters restored, no errors, toggle persists.
+
+## 2026-11-04: browser caching fix
+- Founder saw an old site after uploading; verified live site already had goose.js, Goose Guess and image fix
+  (browser cache). Added ?v= version tags to CSS/JS in index.html and `Cache-Control: no-cache` in _headers so
+  future uploads (incl. tonight's contract address in site-config.js) show immediately.
