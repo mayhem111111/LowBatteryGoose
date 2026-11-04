@@ -122,3 +122,11 @@ Merged main (site `lbgv6/` + creator kit) into the working branch. Full findings
 - Jason 50,000,000 LBG (5%) and Tony 25,000,000 LBG (2.5%): 25% at launch (Nov 4, 2026), then 25% on Feb 4, May 4,
   Aug 4, 2027. Fully unlocked at 9 months. Locked in Streamflow (not staked; no staking program exists yet).
 - Creator fees: Jason 75% / Tony 25%. Disclosure posts updated, including "no team sales during launch week".
+
+## 2026-11-04: FINAL: Pump.fun launch tonight, no burn (founder)
+- Launch on Pump.fun tonight 6:00 PM (PT assumed). Supply fixed at 1,000,000,000 LBG; no 900M burn (not possible on Pump.fun).
+- Team holdings are bought at creation: Jason 50M (5%) ~1.48 SOL, Tony 25M (2.5%) ~0.80 SOL (estimates from the classic
+  curve: 30 SOL / 1.073B virtual reserves, 1.25% fee; the create screen is authoritative).
+- Vesting 25% at launch, then Feb 4, May 4, Aug 4, 2027. Creator fees Jason 75% / Tony 25%.
+- Optional later: public buy-and-burn from creator fees. No burn claims in launch posts.
+- Presale-era models (100M supply, D_founder_v2, presale_2wk) are shelved and do not describe this launch.
