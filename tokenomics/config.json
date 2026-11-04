@@ -10,9 +10,9 @@
     "freeze_authority_revoked": true
   },
   "sol_usd": {
-    "price": 93.85,
+    "price": 92.77,
     "source": "Crypto.com Exchange SOL_USD last",
-    "as_of": "2026-11-04T11:36:00Z"
+    "as_of": "2026-11-04T12:26:14Z"
   },
   "defaults": {
     "listing_premium": 1.25,

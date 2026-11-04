@@ -128,6 +128,17 @@ def pinksale_form(r: Result) -> dict:
     }
 
 
+def net_buy_sol_for_multiple(r: Result, multiple_vs_presale: float, lp_sol: float | None = None) -> float:
+    """Net SOL that must flow INTO the pool (buys minus sells) to lift price to `multiple_vs_presale` x presale price.
+
+    Constant-product pool with no liquidity added or removed: price scales with (SOL in pool)^2,
+    so SOL_needed = SOL_0 * (sqrt(target_price / listing_price) - 1). Below listing price returns 0.
+    """
+    sol0 = pinksale_form(r)["lp_sol_at_hard_cap"] if lp_sol is None else lp_sol
+    ratio = multiple_vs_presale * r.presale_price_sol / r.listing_price_sol
+    return max(0.0, sol0 * (ratio ** 0.5 - 1))
+
+
 def report(r: Result, sol_usd: float, multiples: list[int]) -> str:
     usd = lambda sol: sol * sol_usd  # noqa: E731
     out = [f"=== Scenario {r.name} (SOL/USD {sol_usd}) ==="]
@@ -156,7 +167,8 @@ def report(r: Result, sol_usd: float, multiples: list[int]) -> str:
     out.append("Price targets vs presale price (FDV = fully diluted, 100M supply):")
     for m in multiples:
         px = r.presale_price_sol * m
-        out.append(f"  {m:>4}x  {px:.9f} SOL  ${usd(px):.7f}  FDV ${usd(px)*r.circulating:,.0f}")
+        nb = net_buy_sol_for_multiple(r, m)
+        out.append(f"  {m:>4}x  {px:.9f} SOL  ${usd(px):.7f}  FDV ${usd(px)*r.circulating:,.0f}  net buying needed {nb:,.0f} SOL (${usd(nb):,.0f})")
     return "\n".join(out)
 
 

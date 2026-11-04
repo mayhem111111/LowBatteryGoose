@@ -63,3 +63,10 @@ Merged main (site `lbgv6/` + creator kit) into the working branch. Full findings
 - **Stress finding:** step unlocks put everyone on the same public day: −38% stress on months 3/6/9/12 (≈ 18 SOL buy needed).
   Gradual release over each quarter gives about −18%/month (≈ 7.9 SOL). Offered as an option.
 - Model: tranche schedules + vault support in `emissions.py`; tests updated (20 passing).
+
+## 2026-11-04: price ladder and 100x path (dashboard)
+- SOL/USD refreshed: $92.77 (Crypto.com, 2026-11-04 12:26 UTC).
+- Added `model.net_buy_sol_for_multiple`: net SOL into a constant-product pool to reach a price multiple.
+  100x vs presale = ~672 SOL net buying; plus ~99 SOL to absorb year-one unlock stress, ~771 SOL total.
+- Timeline is arithmetic, not a forecast: 771 SOL / monthly net buying (50 SOL/mo ≈ 15 months; 100 ≈ 7.7; 150 ≈ 5.1).
+- `tokenomics/export_dashboard.py` feeds the private dashboard "LBG Price Ladder" (claude.ai artifact).

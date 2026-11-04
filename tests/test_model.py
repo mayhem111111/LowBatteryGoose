@@ -68,6 +68,13 @@ class TestModel(unittest.TestCase):
         f = model.pinksale_form(model.evaluate("A_as_given", CFG))
         self.assertTrue(any("LP needs" in i for i in f["issues"]))
 
+    def test_net_buy_for_multiple(self):
+        r = model.evaluate("D_founder_v2", CFG)
+        self.assertEqual(model.net_buy_sol_for_multiple(r, 1), 0)
+        self.assertAlmostEqual(model.net_buy_sol_for_multiple(r, 1.25), 0)
+        # 4x listing price needs pool SOL to double
+        self.assertAlmostEqual(model.net_buy_sol_for_multiple(r, 5, lp_sol=100), 100)
+
 
 if __name__ == "__main__":
     unittest.main()
