@@ -23,11 +23,17 @@ This repo holds the tokenomics model, the launch runbooks and (later) on-chain p
 ```
 tokenomics/   config.json (source of truth) + model.py (calculator)
 tests/        python3 -m unittest discover tests
-docs/         TOKENOMICS.md, PRESALE_RUNBOOK.md, CONNECTORS.md, DECISION_LOG.md
+docs/         TOKENOMICS.md, PRESALE_RUNBOOK.md, CONNECTORS.md, DECISION_LOG.md, AUDIT.md
 .claude/      agents/, skills/, settings.json (permissions)
 programs/     (future) Anchor/SPL programs: staking, governance
-web/          (future) presale and landing site
+lbgv6/        live static site (Cloudflare Pages root): index, Honk Bingo, arcade, _headers CSP
 ```
+
+## Website rules
+- `lbgv6/` deploys as-is to lowbatterygoose.pages.dev. Treat edits as public statements.
+- Editing the inline `<script>` in `honk-arcade-v6.html` requires regenerating its sha256 in `lbgv6/_headers`.
+- Never set `mint`/`pumpFun` in `site-config.js` until the address is verified on-chain and approved.
+- Public facts (launch venue, presale, supply) must match `tokenomics/config.json` and `docs/DECISION_LOG.md`.
 
 ## Commands
 - Run the model: `python3 tokenomics/model.py [--sol-usd <price>]`

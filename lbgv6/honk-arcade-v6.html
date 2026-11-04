@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#cdf45c"><title>Honk Arcade — 1% Bingo</title><meta name="description" content="Play 1% Honk Bingo. Free, no wallet required."><style>:root{color-scheme:light;--lime:#cdf45c;--ink:#19251e;--cream:#fffceb;--orange:#ffa454}
+*{box-sizing:border-box}html,body{margin:0}body{background:var(--lime);color:var(--ink);font:16px/1.45 system-ui,-apple-system,Arial,sans-serif;min-height:100dvh}
+header{background:var(--ink);color:var(--cream);padding:13px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:12px;font-weight:900;letter-spacing:.045em}
+main{max-width:680px;margin:0 auto;padding:18px 14px 38px}.eyebrow{font-size:12px;font-weight:900;letter-spacing:.08em}.hero{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}.hero h1{font-size:clamp(32px,7vw,50px);line-height:1;letter-spacing:-.06em;margin:7px 0}.hero p{margin:0;font-size:13px}.mascot{font-size:60px;line-height:1;filter:drop-shadow(3px 3px 0 #19251e)}
+.board{background:var(--cream);border:3px solid var(--ink);border-radius:18px;padding:13px;box-shadow:5px 5px 0 var(--ink)}.board-head{display:flex;justify-content:space-between;gap:10px;padding:5px 3px 12px;border-bottom:2px solid var(--ink);font-size:12px;font-weight:900}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:12px 0}.tile{min-width:0;min-height:98px;border:2px solid var(--ink);border-radius:12px;background:white;color:var(--ink);font:inherit;padding:7px 3px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;touch-action:manipulation}.tile .emoji{font-size:27px}.tile b{font-size:10px;line-height:1.2}.tile[aria-pressed="true"]{background:var(--orange);box-shadow:inset 0 0 0 2px var(--ink)}.tile:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #d04b24;outline-offset:3px}
+#result{font-weight:900;min-height:45px;margin:10px 3px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}.action{border:2px solid var(--ink);border-radius:9px;background:var(--ink);color:white;padding:12px 8px;text-align:center;text-decoration:none;font-weight:900;font-size:12px;cursor:pointer}.action.accent{background:var(--orange);color:var(--ink)}.action[disabled]{opacity:.5;cursor:not-allowed}.full{grid-column:1/-1}.subactions{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}.subactions button{border:0;background:transparent;padding:7px 0;text-decoration:underline;font-weight:800;cursor:pointer;color:var(--ink)}#status{font-size:12px;min-height:22px;margin:7px 3px}
+.info{font-size:13px;padding:22px 3px 0}.info p{margin:8px 0}.info a{color:var(--ink);font-weight:900}footer{margin-top:24px;text-align:center;font-size:11px;font-weight:800}
+@media(max-width:390px){.tile{min-height:88px}.tile .emoji{font-size:24px}.tile b{font-size:9px}.action{font-size:11px}}
+</style></head>
+<body><header><span>🪿 LOW BATTERY GOOSE</span><span>🔋 HONK ARCADE</span></header><main>
+<div class="hero"><div><span class="eyebrow">FREE MINI GAME · NO WALLET</span><h1>1% HONK<br>BINGO.</h1><p>Tap everything that drained your battery today.</p></div><div class="mascot" aria-hidden="true">🪿</div></div>
+<section class="board" aria-label="Honk Bingo game"><div class="board-head"><span>THE FLOCK'S BINGO BOARD</span><span>🔋 1%</span></div><div class="grid" id="board">
+<button class="tile" aria-pressed="false"><span class="emoji">📅</span><b>ANOTHER MEETING</b></button>
+<button class="tile" aria-pressed="false"><span class="emoji">💬</span><b>99+ UNREAD</b></button>
+<button class="tile" aria-pressed="false"><span class="emoji">😴</span><b>ZERO SLEEP</b></button>
+<button class="tile" aria-pressed="false"><span class="emoji">📉</span><b>CHART WENT DOWN</b></button>
+<button class="tile" aria-pressed="false"><span class="emoji">☕</span><b>COFFEE FAILED</b></button>
+<button class="tile" aria-pressed="false"><span class="emoji">📱</span><b>PHONE AT 1%</b></button>
+<button class="tile" aria-pressed="false"><span class="emoji">🛒</span><b>ONE MORE ERRAND</b></button>
+<button class="tile" aria-pressed="false"><span class="emoji">📶</span><b>WI-FI GAVE UP</b></button>
+<button class="tile" aria-pressed="false"><span class="emoji">🪿</span><b>STILL HONKING</b></button>
+</div><p role="status" aria-live="polite" id="result">Loading game…</p>
+<div class="actions"><button id="copy" class="action">COPY RESULT</button><a class="action accent" href="https://t.me/LowBatteryFlock" target="_blank" rel="noopener noreferrer">SHARE IN FLOCK ↗</a><button id="badge" class="action full" disabled>🔒 UNLOCK BADGE WITH 3 IN A ROW</button></div><div class="subactions"><button id="reset">↻ Reset board</button></div><p role="status" aria-live="polite" id="status"></p></section>
+<div class="info"><p><b>How to play:</b> Mark three squares in one row, column or diagonal. Then save your badge and post it to the flock!</p><p><a href="https://t.me/LowBatteryFlock" target="_blank" rel="noopener noreferrer">Join the Low Battery Flock ↗</a> · <a href="https://lowbatterygoose.pages.dev/" target="_blank" rel="noopener noreferrer">Official website ↗</a></p><p>Free for everyone. No wallet connection, airdrop, purchase, or guaranteed rewards.</p></div>
+<footer>RUNNING ON 1%. STILL HONKING. 🪿🔋</footer>
+</main><script>'use strict';
+(function(){
+  // Standalone: all controls work without Telegram JS, bot API keys, or external assets.
+  const tiles=Array.from(document.querySelectorAll('.tile'));
+  const result=document.getElementById('result');
+  const status=document.getElementById('status');
+  const badge=document.getElementById('badge');
+  const lines=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+  let bingo=false;
+  function chosen(){return tiles.map(t=>t.getAttribute('aria-pressed')==='true');}
+  function names(){return tiles.filter(t=>t.getAttribute('aria-pressed')==='true').map(t=>t.querySelector('b').textContent);}
+  function render(){
+    const values=chosen(); const count=values.filter(Boolean).length;
+    const complete=lines.filter(line=>line.every(i=>values[i])).length;
+    bingo=complete>0;badge.disabled=!bingo;
+    badge.textContent=bingo?'🏆 SAVE CERTIFIED HONKER BADGE':'🔒 UNLOCK BADGE WITH 3 IN A ROW';
+    result.textContent=bingo?('🪿 BINGO! '+complete+' completed line'+(complete===1?'':'s')+' — badge unlocked!'):count+'/9 drains selected. Mark three in a row, column, or diagonal!';
+  }
+  tiles.forEach(tile=>tile.addEventListener('click',()=>{tile.setAttribute('aria-pressed',tile.getAttribute('aria-pressed')==='true'?'false':'true');status.textContent='';render();}));
+  document.getElementById('reset').addEventListener('click',()=>{tiles.forEach(t=>t.setAttribute('aria-pressed','false'));status.textContent='Board cleared. Honk again!';render();});
+  function message(){return '🪿🔋 1% HONK BINGO!\n'+(bingo?'🏆 CERTIFIED HONKER!\n':'Still running on 1%!\n')+names().join(' · ')+'\nPlay with the flock: https://t.me/LowBatteryFlock\n#LowBatteryGoose';}
+  document.getElementById('copy').addEventListener('click',async()=>{
+    const msg=message();
+    try{await navigator.clipboard.writeText(msg);status.textContent='Copied! Open the group and paste it.';}
+    catch(err){const field=document.createElement('textarea');field.value=msg;field.style.position='absolute';field.style.left='-9999px';document.body.appendChild(field);field.select();const ok=document.execCommand('copy');field.remove();status.textContent=ok?'Copied! Paste in the Telegram group.':'Copy your selected tiles manually and share in the Telegram group.';}
+  });
+  badge.addEventListener('click',async()=>{
+    if(!bingo)return;
+    try{
+      const c=document.createElement('canvas');c.width=c.height=800;
+      const x=c.getContext('2d');if(!x)throw new Error('No canvas');
+      x.fillStyle='#cdf45c';x.fillRect(0,0,800,800);x.strokeStyle='#19251e';x.lineWidth=15;x.strokeRect(20,20,760,760);
+      x.fillStyle='#19251e';x.textAlign='center';x.font='900 36px Arial';x.fillText('LOW BATTERY GOOSE',400,96);
+      x.font='900 59px Arial';x.fillText('CERTIFIED HONKER',400,190);
+      x.font='180px sans-serif';x.fillText('🪿',400,420);x.font='900 55px Arial';x.fillText('BINGO UNLOCKED!',400,545);
+      x.font='900 25px Arial';x.fillText('RUNNING ON 1%. STILL HONKING.',400,625);x.font='900 24px Arial';x.fillText('t.me/LowBatteryFlock',400,691);
+      const data=c.toDataURL('image/png');const a=document.createElement('a');a.href=data;a.download='certified-honker.png';document.body.appendChild(a);a.click();a.remove();status.textContent='Badge saved. Share it in the flock!';
+    }catch(err){status.textContent='Your device blocked the badge download. Try opening the public game link in a browser.';}
+  });
+  render();
+})();
+</script></body></html>

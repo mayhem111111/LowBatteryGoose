@@ -26,3 +26,9 @@ Earlier plan was Pump.fun, then switched to a presale (Metaplex Genesis suggeste
 LP 15M + 75 SOL locked, founder 15M and team 20M vested. **Awaiting founder decision.**
 
 **Open risks:** No presale contract, mint or multisig exists yet with ~24h to the start. No legal review.
+
+## 2026-11-04: repo audit after founder push (`main` b5a3811)
+Merged main (site `lbgv6/` + creator kit) into the working branch. Full findings in `docs/AUDIT.md`.
+- CRITICAL: Public site/kit say "Pump.fun launch"; the founder plan is a presale with a burn + allocations. Founder must choose.
+- CRITICAL: No on-chain infra exists for a presale on 2026-11-05.
+- Site, CSP and secret scan: clean.
