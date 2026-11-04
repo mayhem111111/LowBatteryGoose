@@ -135,3 +135,10 @@ Merged main (site `lbgv6/` + creator kit) into the working branch. Full findings
 - Tony will not buy his 2.5%. Founder buys 75M LBG (~2.28 SOL est.) at creation and locks 25M in a Streamflow stream
   to Tony's wallet on the agreed schedule (25% at launch, Feb 4, May 4, Aug 4, 2027); optional founder-cancellable.
 - Terms, fee split (75/25) and public disclosure posts unchanged per founder instruction.
+
+## 2026-11-04: Flock Drop airdrop + launch marketing strategy (proposal)
+- Founder: wants a large airdrop for people who sign up. Proposal (to confirm): 10,000,000 LBG (1%) pool bought in the
+  founder's first buy (+~0.33 SOL; first buy ~85M LBG ~2.61 SOL est.), held in a separate disclosed wallet.
+  5,000 LBG base for verified sign-ups (first 1,000), quests up to 15,000 per person, Season 1 to Nov 18, single payout
+  after bot review. Free; no purchase/holding required. Run on a quest platform (Zealy/Galxe/TaskOn).
+- Wording: no profit/"spectacular opportunity"/dollar-value language. Strategy: docs/MARKETING_STRATEGY.md.
