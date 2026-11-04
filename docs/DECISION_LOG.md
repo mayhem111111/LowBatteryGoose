@@ -39,3 +39,14 @@ Merged main (site `lbgv6/` + creator kit) into the working branch. Full findings
 - Model now includes PinkSale's 5% fee: treasury at hard cap ≈ 20.9 SOL; PinkSale liquidity 78%.
 - Site copy (`lbgv6/index.html`) and README: "Pump.fun" changed to "community presale planned, details TBA". No numbers published.
 - Still open: allocation choice (A vs B), hard cap, presale date, legal review, creator kit FAQ update.
+
+## 2026-11-04: ecosystem plan v1 (scenario C_ecosystem)
+- Founder goals: games, challenges, community voting, LBG contest rewards/airdrops, community growth incentives,
+  all value flowing in LBG with liquidity growing over time. Roles: Jason Spear (founder), Tony (community lead/partner).
+- Added `tokenomics/emissions.py`: per-bucket lock/vesting mechanism, monthly circulating vs vesting vs reserve vs LP,
+  and a sell-pressure stress test (+8 tests).
+- Finding: with B, presale tokens (25M) vs pool (14.8M) give a ~58% stress drop at listing. C fixes part of this with
+  LP 17M (89% of net raise), presale vesting 50/25/25, slower team vesting (3+18 mo), and airdrops moved to month 3+.
+- C allocation: presale 25M, LP 17M, community 20M, dev/marketing/team 18M, founder 15M, reserve 5M. Insiders 33%.
+- Treasury at hard cap drops to ~10.5 SOL (deliberate: raise goes into liquidity).
+- Plan: `docs/ECOSYSTEM_PLAN.md`. **Awaiting founder approval.** Unverified: PinkSale Solana contributor vesting.

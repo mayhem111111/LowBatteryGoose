@@ -1,5 +1,7 @@
 # $LBG tokenomics and presale numbers
 
+> **Superseded for planning by `docs/ECOSYSTEM_PLAN.md` (scenario C_ecosystem).** This page keeps the A vs B analysis.
+
 > Generated from `tokenomics/config.json` via `python3 tokenomics/model.py`.
 > SOL/USD = $93.85 (Crypto.com, 2026-11-04 11:36 UTC). **Refresh this on presale morning.**
 > Internal planning only. Nothing here is a price forecast or a promise to buyers.

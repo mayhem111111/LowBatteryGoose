@@ -21,9 +21,9 @@ This repo holds the tokenomics model, the launch runbooks and (later) on-chain p
 
 ## Layout
 ```
-tokenomics/   config.json (source of truth) + model.py (calculator)
+tokenomics/   config.json (source of truth) + model.py (presale) + emissions.py (locks, vesting, stress test)
 tests/        python3 -m unittest discover tests
-docs/         TOKENOMICS.md, PRESALE_RUNBOOK.md, CONNECTORS.md, DECISION_LOG.md, AUDIT.md
+docs/         ECOSYSTEM_PLAN.md, TOKENOMICS.md, PLATFORM_DECISION.md, PRESALE_RUNBOOK.md, CONNECTORS.md, DECISION_LOG.md, AUDIT.md
 .claude/      agents/, skills/, settings.json (permissions)
 programs/     (future) Anchor/SPL programs: staking, governance
 lbgv6/        live static site (Cloudflare Pages root): index, Honk Bingo, arcade, _headers CSP
@@ -37,6 +37,7 @@ lbgv6/        live static site (Cloudflare Pages root): index, Honk Bingo, arcad
 
 ## Commands
 - Run the model: `python3 tokenomics/model.py [--sol-usd <price>]`
+- Locks, vesting and stress test: `python3 tokenomics/emissions.py`
 - Tests: `python3 -m unittest discover tests`
 
 ## Agents and skills
