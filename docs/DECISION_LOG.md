@@ -50,3 +50,16 @@ Merged main (site `lbgv6/` + creator kit) into the working branch. Full findings
 - C allocation: presale 25M, LP 17M, community 20M, dev/marketing/team 18M, founder 15M, reserve 5M. Insiders 33%.
 - Treasury at hard cap drops to ~10.5 SOL (deliberate: raise goes into liquidity).
 - Plan: `docs/ECOSYSTEM_PLAN.md`. **Awaiting founder approval.** Unverified: PinkSale Solana contributor vesting.
+
+## 2026-11-04: founder revision, scenario D_founder_v2 (plan of record pending sign-off)
+- **Founder instruction:** founder (Jason Spear) 5M total; community lead (Tony) 2.5M total; marketing + development ~10M
+  (5M + 5M); allocate the rest appropriately. All locked tokens are always vested. Founder unlocks 1M at launch, +1M every
+  3 months; Tony 500k at launch, +500k every 3 months; community and all holders on the same 20%-per-quarter cadence.
+- **Interpretation (CONFIRM):** "$5 million" etc. read as TOKENS, not dollars. "All token holders" read as every bucket,
+  including presale buyers (20% at listing + 20% per 90 days).
+- **Allocation:** presale 25M, LP 17M, community rewards 35M (contests 12M, staking 8M, airdrops 7M, Flock Builders 5M,
+  Council grants 3M), marketing 5M, development 5M, founder 5M, Tony 2.5M, reserve 5.5M. Insiders 17.5%.
+- Community tokens unlock into a multisig vault; payouts capped at 4% of pool LBG/month (~676k).
+- **Stress finding:** step unlocks put everyone on the same public day: −38% stress on months 3/6/9/12 (≈ 18 SOL buy needed).
+  Gradual release over each quarter gives about −18%/month (≈ 7.9 SOL). Offered as an option.
+- Model: tranche schedules + vault support in `emissions.py`; tests updated (20 passing).

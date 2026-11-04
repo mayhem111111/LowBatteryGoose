@@ -15,20 +15,33 @@ class TestEmissions(unittest.TestCase):
     def test_streams_match_allocation(self):
         emissions.validate(CFG)
 
-    def test_nothing_released_beyond_allocation(self):
+    def test_nothing_unlocked_beyond_allocation(self):
         out = emissions.schedule(CFG)
-        released = sum(r["released"] for r in out["rows"])
+        unlocked = sum(r["unlocked"] for r in out["rows"])
         alloc = CFG["scenarios"][CFG["emissions"]["scenario"]]["allocation"]
-        self.assertLessEqual(released, sum(alloc.values()) - alloc["liquidity_pool"] - alloc["reserve"] + 1e-6)
+        self.assertAlmostEqual(unlocked, sum(alloc.values()) - alloc["liquidity_pool"] - alloc["reserve"], places=3)
 
-    def test_founder_locked_six_months(self):
-        out = emissions.schedule(CFG)
-        self.assertEqual(sum(out["streams"]["founder"][:7]), 0)
+    def test_founder_1m_every_3_months(self):
+        rel = emissions.schedule(CFG)["streams"]["founder"]
+        self.assertEqual([m for m, x in enumerate(rel) if x], [0, 3, 6, 9, 12])
+        self.assertTrue(all(abs(x - 1_000_000) < 1e-6 for x in rel if x))
 
-    def test_team_locked_three_months(self):
+    def test_community_lead_500k_every_3_months(self):
+        rel = emissions.schedule(CFG)["streams"]["community_lead"]
+        self.assertEqual([m for m, x in enumerate(rel) if x], [0, 3, 6, 9, 12])
+        self.assertTrue(all(abs(x - 500_000) < 1e-6 for x in rel if x))
+
+    def test_every_vesting_bucket_unlocks_20pct_quarterly(self):
+        for st in CFG["emissions"]["streams"]:
+            if st.get("in_pool") or st.get("governance_only"):
+                continue
+            rel = emissions.stream_releases(st, 24)
+            self.assertEqual([m for m, x in enumerate(rel) if x], [0, 3, 6, 9, 12], st["name"])
+
+    def test_vault_payouts_respect_cap(self):
         out = emissions.schedule(CFG)
-        self.assertEqual(sum(out["streams"]["development"][:4]), 0)
-        self.assertEqual(sum(out["streams"]["team_community_lead"][:4]), 0)
+        for row in out["rows"]:
+            self.assertLessEqual(row["vault_paid"], out["vault_cap"] + 1e-6)
 
     def test_mismatched_stream_rejected(self):
         bad = copy.deepcopy(CFG)
@@ -39,7 +52,8 @@ class TestEmissions(unittest.TestCase):
     def test_supply_conserved_every_month(self):
         out = emissions.schedule(CFG)
         for row in out["rows"]:
-            total = row["circulating_outside_pool"] + row["still_vesting"] + row["reserve_locked"] + row["lp_in_pool"]
+            total = (row["circulating"] + row["vault_balance"] + row["still_vesting"]
+                     + row["reserve_locked"] + row["lp_in_pool"])
             self.assertAlmostEqual(total, 100_000_000, places=3)
 
     def test_every_stream_has_lock_mechanism(self):

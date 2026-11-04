@@ -68,7 +68,7 @@ def evaluate(name: str, cfg: dict) -> Result:
     lp_from_presale = min(lp_sol_req, net_raise)
     shortfall = max(0.0, lp_sol_req - net_raise)
     treasury = max(0.0, net_raise - lp_sol_req)
-    insiders = sum(alloc[b] for b in cfg["insider_buckets"]) / circ
+    insiders = sum(alloc.get(b, 0) for b in scen.get("insider_buckets", cfg["insider_buckets"])) / circ
     return Result(
         name=name,
         circulating=circ,
@@ -145,7 +145,7 @@ def report(r: Result, sol_usd: float, multiples: list[int]) -> str:
     out.append(f"  SHORTFALL team must add  {r.lp_sol_shortfall:,.0f} SOL (${usd(r.lp_sol_shortfall):,.0f})")
     out.append(f"Platform fee               {r.platform_fee_sol:,.1f} SOL -> net raise {r.net_raise_sol:,.1f} SOL")
     out.append(f"Treasury after LP          {r.treasury_sol:,.1f} SOL (${usd(r.treasury_sol):,.0f})")
-    out.append(f"Insider share (team+fdr)   {r.insider_pct:.0%}")
+    out.append(f"Insider share (team+fdr)   {r.insider_pct:.1%}")
     out.append("Bucket values at listing price:")
     for k, v in r.allocation.items():
         out.append(f"  {k:28s} {v:>12,}  ${usd(v*r.listing_price_sol):>12,.0f}")

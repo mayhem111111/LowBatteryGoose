@@ -87,6 +87,28 @@
         "founder": 15000000,
         "reserve": 5000000
       }
+    },
+    "D_founder_v2": {
+      "description": "CURRENT (founder revision 2026-11-04): founder 5M, community lead 2.5M, marketing+development 10M; every bucket unlocks 20% at launch then 20% every 3 months.",
+      "hard_cap_sol": 100,
+      "soft_cap_sol": 50,
+      "max_buy_sol_per_wallet": 1,
+      "insider_buckets": [
+        "founder",
+        "community_lead",
+        "marketing",
+        "development"
+      ],
+      "allocation": {
+        "presale": 25000000,
+        "liquidity_pool": 17000000,
+        "community_rewards": 35000000,
+        "marketing": 5000000,
+        "development": 5000000,
+        "founder": 5000000,
+        "community_lead": 2500000,
+        "reserve": 5500000
+      }
     }
   },
   "platform": {
@@ -97,129 +119,129 @@
     "lp_lock_days": 365
   },
   "emissions": {
-    "_comment": "Monthly release plan for C_ecosystem. Month 0 = listing day. Community releases are CEILINGS gated by the health rules in docs/ECOSYSTEM_PLAN.md; unspent budget rolls forward (supply is fixed, nothing is minted).",
-    "scenario": "C_ecosystem",
+    "_comment": "Release plan for D_founder_v2. Month 0 = listing day. Every bucket: 20% at launch, +20% every 3 months (months 0,3,6,9,12). Locked tokens are always held in a vesting contract or multisig.",
+    "scenario": "D_founder_v2",
     "horizon_months": 24,
     "stress_sell_ratio": 0.5,
     "presale_sell_ratio_at_listing": 0.3,
+    "vault": {
+      "name": "community",
+      "distribution_start_month": 1,
+      "monthly_cap_pct_of_pool": 0.04
+    },
     "streams": [
       {
         "name": "presale_buyers",
         "parent": "presale",
         "amount": 25000000,
-        "schedule": {
-          "0": 12500000,
-          "1": 6250000,
-          "2": 6250000
-        },
-        "note": "PinkSale contributor vesting 50% / 25% / 25% (verify on Solana form)",
+        "tranche_every_months": 3,
+        "tranches": 5,
         "lock_type": "vesting",
-        "lock_mechanism": "PinkSale contributor vesting (verify on Solana form; fallback Meteora Presale Vault)"
+        "lock_mechanism": "PinkSale contributor vesting: first release 20%, then 20% per 90-day cycle (verify on Solana form)"
       },
       {
         "name": "liquidity_pool",
         "parent": "liquidity_pool",
         "amount": 17000000,
         "in_pool": true,
+        "lock_months": 12,
         "lock_type": "lp_lock",
-        "lock_mechanism": "PinkSale liquidity lockup 365 days; LP tokens burned after the lock if governance votes to",
-        "lock_months": 12
+        "lock_mechanism": "PinkSale liquidity lockup 365 days; LP tokens burned after the lock if governance votes to"
       },
       {
         "name": "contests_and_games",
-        "parent": "staking_airdrops_community",
-        "amount": 8000000,
-        "tge_pct": 0,
-        "cliff_months": 0,
-        "linear_months": 24,
-        "lock_type": "multisig_budget",
-        "lock_mechanism": "Squads multisig 'Community Rewards' vault; monthly ceiling, health-gated"
-      },
-      {
-        "name": "airdrops",
-        "parent": "staking_airdrops_community",
-        "amount": 4000000,
-        "schedule": {
-          "3": 500000,
-          "4": 500000,
-          "6": 500000,
-          "8": 500000,
-          "10": 500000,
-          "12": 500000,
-          "15": 500000,
-          "18": 500000
-        },
-        "lock_type": "multisig_budget",
-        "lock_mechanism": "Squads multisig 'Community Rewards' vault; released only on the scheduled months"
-      },
-      {
-        "name": "flock_builders_referrals",
-        "parent": "staking_airdrops_community",
-        "amount": 3000000,
-        "tge_pct": 0,
-        "cliff_months": 0,
-        "linear_months": 24,
-        "lock_type": "multisig_budget",
-        "lock_mechanism": "Squads multisig 'Community Rewards' vault; each payout vests 30 days via Streamflow"
+        "parent": "community_rewards",
+        "amount": 12000000,
+        "tranche_every_months": 3,
+        "tranches": 5,
+        "lock_type": "vesting",
+        "lock_mechanism": "Unlocks 20% every 3 months into the Squads 'Community Rewards' multisig; paid out only under the monthly health cap",
+        "vault": true
       },
       {
         "name": "staking_rewards",
-        "parent": "staking_airdrops_community",
+        "parent": "community_rewards",
+        "amount": 8000000,
+        "tranche_every_months": 3,
+        "tranches": 5,
+        "lock_type": "vesting",
+        "lock_mechanism": "Unlocks 20% every 3 months into the Squads 'Community Rewards' multisig; paid out only under the monthly health cap",
+        "vault": true
+      },
+      {
+        "name": "airdrops",
+        "parent": "community_rewards",
+        "amount": 7000000,
+        "tranche_every_months": 3,
+        "tranches": 5,
+        "lock_type": "vesting",
+        "lock_mechanism": "Unlocks 20% every 3 months into the Squads 'Community Rewards' multisig; paid out only under the monthly health cap",
+        "vault": true
+      },
+      {
+        "name": "flock_builders_referrals",
+        "parent": "community_rewards",
         "amount": 5000000,
-        "tge_pct": 0,
-        "cliff_months": 0,
-        "linear_months": 24,
-        "lock_type": "streamed",
-        "lock_mechanism": "Streamflow stream into the staking reward pool, 24 months"
+        "tranche_every_months": 3,
+        "tranches": 5,
+        "lock_type": "vesting",
+        "lock_mechanism": "Unlocks 20% every 3 months into the Squads 'Community Rewards' multisig; paid out only under the monthly health cap",
+        "vault": true
+      },
+      {
+        "name": "flock_council_grants",
+        "parent": "community_rewards",
+        "amount": 3000000,
+        "tranche_every_months": 3,
+        "tranches": 5,
+        "lock_type": "vesting",
+        "lock_mechanism": "Unlocks 20% every 3 months into the Squads 'Community Rewards' multisig; paid out only under the monthly health cap",
+        "vault": true
       },
       {
         "name": "marketing",
-        "parent": "dev_marketing_team",
-        "amount": 6000000,
-        "tge_pct": 0.125,
-        "cliff_months": 0,
-        "linear_months": 24,
+        "parent": "marketing",
+        "amount": 5000000,
+        "tranche_every_months": 3,
+        "tranches": 5,
         "lock_type": "vesting",
-        "lock_mechanism": "Streamflow: 12.5% at listing, then 24-month linear to Marketing multisig"
+        "lock_mechanism": "Streamflow vesting to the Marketing multisig"
       },
       {
         "name": "development",
-        "parent": "dev_marketing_team",
-        "amount": 6000000,
-        "tge_pct": 0,
-        "cliff_months": 3,
-        "linear_months": 18,
+        "parent": "development",
+        "amount": 5000000,
+        "tranche_every_months": 3,
+        "tranches": 5,
         "lock_type": "vesting",
-        "lock_mechanism": "Streamflow: 3-month cliff, then 18-month linear"
-      },
-      {
-        "name": "team_community_lead",
-        "parent": "dev_marketing_team",
-        "amount": 6000000,
-        "tge_pct": 0,
-        "cliff_months": 3,
-        "linear_months": 18,
-        "lock_type": "vesting",
-        "lock_mechanism": "Streamflow: 3-month cliff, then 18-month linear (community lead, Tony)"
+        "lock_mechanism": "Streamflow vesting to the Development multisig"
       },
       {
         "name": "founder",
         "parent": "founder",
-        "amount": 15000000,
-        "tge_pct": 0,
-        "cliff_months": 6,
-        "linear_months": 18,
+        "amount": 5000000,
+        "tranche_every_months": 3,
+        "tranches": 5,
         "lock_type": "vesting",
-        "lock_mechanism": "Streamflow: 6-month cliff, then 18-month linear (founder, Jason Spear); non-cancellable"
+        "lock_mechanism": "Streamflow vesting, non-cancellable (founder, Jason Spear): 1,000,000 at launch, +1,000,000 every 3 months"
+      },
+      {
+        "name": "community_lead",
+        "parent": "community_lead",
+        "amount": 2500000,
+        "tranche_every_months": 3,
+        "tranches": 5,
+        "lock_type": "vesting",
+        "lock_mechanism": "Streamflow vesting, non-cancellable (community lead, Tony): 500,000 at launch, +500,000 every 3 months"
       },
       {
         "name": "reserve",
         "parent": "reserve",
-        "amount": 5000000,
+        "amount": 5500000,
         "governance_only": true,
+        "lock_months": 12,
         "lock_type": "time_lock",
-        "lock_mechanism": "Squads multisig + 12-month Streamflow time lock; released only by Flock governance vote",
-        "lock_months": 12
+        "lock_mechanism": "Squads multisig + 12-month Streamflow time lock; released only by Flock governance vote"
       }
     ]
   }
