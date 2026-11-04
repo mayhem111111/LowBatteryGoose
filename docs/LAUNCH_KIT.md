@@ -57,16 +57,18 @@ Never post a contract address before the coin exists. No price talk, no "100x", 
 >
 > Copycats use the same name. Check the address. Meme coin, high risk, NFA.
 
-**Founder disclosure (first hour)**
-> 🪿 Transparency from the founder:
+**Founder disclosure (first hour, 2-post thread)**
+> 1/ 🪿 Team transparency:
 >
-> • Dev wallet: [FOUNDER_WALLET]
+> • Jason (founder): [FOUNDER_WALLET]
+> • Tony (team): [TONY_WALLET]
 > • Dev buy at launch: [BUY_SOL] SOL
-> • Team wallet (Tony): [TONY_WALLET]
-> • Team tokens vest over 6 months: [STREAMFLOW_LINK]
-> • No hidden wallets
+> • No hidden wallets. No team sales during launch week.
+
+> 2/ Team tokens: Jason 5%, Tony 2.5%.
+> 25% unlocks at launch, then 25% on Feb 4, May 4 and Aug 4. Locked on Streamflow: [STREAMFLOW_LINK]
 >
-> Receipts posted weekly.
+> Receipts posted weekly. 🔋
 
 **Anti-scam (pin second / repost daily)**
 > 🛡️ Goose safety:
@@ -133,7 +135,10 @@ Meme coins are speculative and can lose all value. Not financial advice.
 • Dev wallet: [FOUNDER_WALLET]
 • Dev buy at launch: [BUY_SOL] SOL
 • Team wallet (Tony): [TONY_WALLET]
-• Team tokens vest over 6 months (25% now, 25% every 2 months): [STREAMFLOW_LINK]
+• Team tokens: Jason 5% (50M LBG), Tony 2.5% (25M LBG)
+• Vesting: 25% at launch, then 25% on Feb 4, May 4 and Aug 4, 2027. Locks: [STREAMFLOW_LINK]
+• Creator fees: Jason 75%, Tony 25%
+• No team sales during launch week
 • No hidden or bundled wallets
 
 Team wallet activity and contest payouts will be posted every week. Questions welcome in the group.

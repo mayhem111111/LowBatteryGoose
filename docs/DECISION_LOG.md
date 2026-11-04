@@ -117,3 +117,8 @@ Merged main (site `lbgv6/` + creator kit) into the working branch. Full findings
 - Token holdings: Jason 5% of supply (50,000,000 LBG), Tony 2.5% (25,000,000 LBG).
 - Tony's 25M: fully released within 6 months: 25% at launch, 25% on Jan 4, Mar 4, May 4, 2027 (Streamflow).
 - Open: Jason's own unlock schedule; launch timezone (PT assumed); founder buy size.
+
+## 2026-11-04: final team vesting (founder, option A)
+- Jason 50,000,000 LBG (5%) and Tony 25,000,000 LBG (2.5%): 25% at launch (Nov 4, 2026), then 25% on Feb 4, May 4,
+  Aug 4, 2027. Fully unlocked at 9 months. Locked in Streamflow (not staked; no staking program exists yet).
+- Creator fees: Jason 75% / Tony 25%. Disclosure posts updated, including "no team sales during launch week".
