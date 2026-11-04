@@ -38,6 +38,63 @@
     const socialState = $('social-state');
     if (socialState) socialState.textContent = 'NO OFFICIAL TOKEN MINT VERIFIED · USE ONLY LINKS ON THIS PAGE';
   }
+  // Launch mode: switches the page to "live" only when site-config.js holds a valid Solana address.
+  (() => {
+    const mint = typeof links.mint === 'string' ? links.mint.trim() : '';
+    if (!/^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(mint)) return;
+    let pump = `https://pump.fun/coin/${mint}`;
+    if (typeof links.pumpFun === 'string') {
+      try {
+        const u = new URL(links.pumpFun);
+        if (u.protocol === 'https:' && (u.hostname === 'pump.fun' || u.hostname === 'www.pump.fun') && u.pathname.includes(mint)) pump = u.href;
+      } catch { /* keep the derived link */ }
+    }
+    document.documentElement.classList.add('lbg-live');
+    document.querySelectorAll('[data-live-text]').forEach(el => { el.textContent = el.getAttribute('data-live-text'); });
+    document.querySelectorAll('[data-live-only]').forEach(el => { el.hidden = false; });
+    document.querySelectorAll('[data-ca], [data-live-ca]').forEach(el => { el.textContent = mint; el.classList.remove('status-pending'); el.classList.add('ca-inline'); });
+    document.querySelectorAll('[data-pumpfun-link]').forEach(a => { a.href = pump; });
+    document.querySelectorAll('[data-solscan-link]').forEach(a => { a.href = `https://solscan.io/token/${mint}`; });
+    const caStatus = document.querySelector('[data-ca-status]');
+    document.querySelectorAll('[data-ca-copy]').forEach(btn => btn.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(mint); if (caStatus) caStatus.textContent = 'Address copied. Compare the first and last characters before you trade.'; }
+      catch { if (caStatus) caStatus.textContent = 'Copy failed here. Select the address above and copy it manually.'; }
+    }));
+    const socialState = $('social-state');
+    if (socialState) socialState.textContent = 'OFFICIAL CONTRACT SHOWN ON THIS SITE · WE NEVER DM FIRST';
+  })();
+
+  // Goose Guess: form link from site-config.js (Google Forms only); closes automatically at guessCloses.
+  (() => {
+    const btns = document.querySelectorAll('[data-guess-link]');
+    const status = document.querySelector('[data-guess-status]');
+    if (typeof links.guessForm === 'string') {
+      try {
+        const u = new URL(links.guessForm);
+        const ok = u.protocol === 'https:' && (u.hostname === 'forms.gle' || (u.hostname === 'docs.google.com' && u.pathname.startsWith('/forms/')));
+        if (ok) btns.forEach(a => { a.href = u.href; });
+      } catch { /* keep the Telegram fallback */ }
+    }
+    const closes = Date.parse(links.guessCloses || '');
+    if (!Number.isNaN(closes) && Date.now() >= closes) {
+      btns.forEach(a => { a.removeAttribute('href'); a.setAttribute('aria-disabled', 'true'); a.classList.add('is-closed'); const l = a.querySelector('[data-guess-label]'); if (l) l.textContent = 'ENTRIES CLOSED'; });
+      if (status) status.textContent = 'Entries are closed. Winner revealed Nov 5 at 6:00 PM PT in our official channels.';
+    }
+  })();
+
+  // Honker of the Week spotlight (plain text only, length-limited).
+  (() => {
+    const h = links.honker;
+    const box = document.querySelector('[data-honker]');
+    if (!box || !h || typeof h.name !== 'string' || !h.name.trim()) return;
+    const clip = (v, n) => (typeof v === 'string' ? v.trim().slice(0, n) : '');
+    const set = (sel, v) => { const el = box.querySelector(sel); if (el && v) el.textContent = v; };
+    set('[data-honker-name]', clip(h.name, 40));
+    set('[data-honker-title]', clip(h.title, 40));
+    set('[data-honker-note]', clip(h.note, 80));
+    box.hidden = false;
+  })();
+
   const fallbackReason = 'opened my inbox.';
   const image = new Image();
   image.src = 'assets/goose.png';

@@ -1,0 +1,14 @@
+# Secrets: never commit
+.env
+.env.*
+id.json
+*keypair*.json
+wallets/
+*.pem
+# Python
+__pycache__/
+*.pyc
+.claude/settings.local.json
+lbgv6-website-upload.zip
+downloads/
+LBG-site-*.zip

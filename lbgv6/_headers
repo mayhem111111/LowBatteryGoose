@@ -3,3 +3,4 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
   Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-k2ukO0YmVyT+VClnSvPlwwPIReuX4wXHA1qMx1Xywuc=' https://telegram.org; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'self' https://web.telegram.org https://*.telegram.org https://telegram.org
+  Cache-Control: no-cache

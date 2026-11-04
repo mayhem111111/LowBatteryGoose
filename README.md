@@ -32,7 +32,7 @@ Then open [http://localhost:8000](http://localhost:8000). The main page is `/`; 
 
 Deploy `lbgv6/` as the static site root. For Cloudflare Pages, use `lbgv6` as the project root directory and leave the build command empty. The `_headers` file is written in Cloudflare Pages format.
 
-Public channel URLs are configured in [`lbgv6/site-config.js`](lbgv6/site-config.js). Keep the mint and Pump.fun values unset until an official launch is verified; the page intentionally avoids presenting an unverified token link.
+Public channel URLs are configured in [`lbgv6/site-config.js`](lbgv6/site-config.js). Keep the mint and launch-link values unset until an official launch is verified; the page intentionally avoids presenting an unverified token link.
 
 ## Project Layout
 
@@ -45,3 +45,11 @@ Public channel URLs are configured in [`lbgv6/site-config.js`](lbgv6/site-config
 - `lbgv6/site-config.js` — public channel and site URLs.
 - `lbgv6/assets/` — goose artwork and social preview graphics.
 - `lbgv6/_headers` — Cloudflare Pages response headers.
+## Tokenomics and launch planning (internal)
+
+- `tokenomics/`: supply/allocation config and presale calculator (`python3 tokenomics/model.py`)
+- `docs/TOKENOMICS.md`, `docs/PRESALE_RUNBOOK.md`, `docs/DECISION_LOG.md`, `docs/AUDIT.md`
+- `CLAUDE.md` and `.claude/`: rules, agents and skills for AI assistants
+- Tests: `python3 -m unittest discover tests`
+
+These are internal planning documents, not public offers. Nothing here is financial advice or a promise of returns.

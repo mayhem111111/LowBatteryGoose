@@ -1,10 +1,20 @@
 // Official public links supplied by the project owner, November 3, 2026.
-// Token is PRELAUNCH: mint and trading link remain intentionally unset.
+// LAUNCH DAY: after the coin is created and the address is verified on Solscan, paste the
+// address into `mint` (keep the quotes), save, and redeploy the lbgv6 folder to Cloudflare Pages.
+// The whole site switches to "live" automatically. `pumpFun` can stay null: it is built from the mint.
+// Until then, leave both null so the site keeps saying no token is live.
 window.LBG_CONFIG = Object.freeze({
   x: 'https://x.com/LowBatteryGoose',
   announcements: 'https://t.me/LowBatteryGooseSOL',
   community: 'https://t.me/LowBatteryFlock',
   website: 'https://lowbatterygoose.pages.dev',
-  mint: null,
-  pumpFun: null
+  mint: null,       // e.g. mint: 'PASTE_CONTRACT_ADDRESS_HERE',
+  pumpFun: null,    // optional: full https://pump.fun/coin/... link; derived from mint when null
+  // GOOSE GUESS: paste the Google Form link (https://forms.gle/... or https://docs.google.com/forms/...).
+  // Until it is set, the Enter button sends people to the Telegram group.
+  guessForm: null,
+  guessCloses: '2026-11-05T01:00:00Z', // 5:00 PM PT, Nov 4, 2026. After this the button shows "Entries closed".
+  // HONKER OF THE WEEK: shown at the top of the homepage. Set after each reveal, replace weekly, null to hide.
+  // e.g. honker: { name: '@goosefan', title: 'THE FIRST HONKER', note: 'Goose Guess winner · Nov 5, 2026' },
+  honker: null
 });

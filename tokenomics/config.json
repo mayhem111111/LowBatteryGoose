@@ -1,0 +1,293 @@
+{
+  "_comment": "Token amounts are TOKENS, not dollars. Presale price = hard_cap_sol / presale tokens. Terms are fixed in SOL; USD is display-only.",
+  "token": {
+    "name": "Low Battery Goose",
+    "ticker": "LBG",
+    "chain": "solana",
+    "minted_total": 1000000000,
+    "burned_at_genesis": 900000000,
+    "mint_authority_revoked": true,
+    "freeze_authority_revoked": true
+  },
+  "sol_usd": {
+    "price": 92.77,
+    "source": "Crypto.com Exchange SOL_USD last",
+    "as_of": "2026-11-04T12:26:14Z"
+  },
+  "defaults": {
+    "listing_premium": 1.25,
+    "min_buy_sol": 0.05
+  },
+  "insider_buckets": [
+    "dev_marketing_team",
+    "founder"
+  ],
+  "target_multiples": [
+    1,
+    2,
+    5,
+    10,
+    25,
+    50,
+    100
+  ],
+  "scenarios": {
+    "A_as_given": {
+      "description": "Founder's allocation exactly as stated. Presale ASSUMED to be the unlisted 5M remainder (20+20+25+25+5 = 95M). UNCONFIRMED.",
+      "hard_cap_sol": 20,
+      "soft_cap_sol": 10,
+      "max_buy_sol_per_wallet": 0.25,
+      "allocation": {
+        "presale": 5000000,
+        "liquidity_pool": 20000000,
+        "staking_airdrops_community": 20000000,
+        "dev_marketing_team": 25000000,
+        "founder": 25000000,
+        "reserve": 5000000
+      }
+    },
+    "B_recommended": {
+      "description": "Rebalanced: presale 25M self-funds the LP above presale price; insiders 35% instead of 50%. Raise sized to a ~900-member community.",
+      "hard_cap_sol": 100,
+      "soft_cap_sol": 50,
+      "max_buy_sol_per_wallet": 1,
+      "allocation": {
+        "presale": 25000000,
+        "liquidity_pool": 15000000,
+        "staking_airdrops_community": 20000000,
+        "dev_marketing_team": 20000000,
+        "founder": 15000000,
+        "reserve": 5000000
+      }
+    },
+    "B_conservative": {
+      "description": "Same allocation as B, smaller raise in case demand is thin.",
+      "hard_cap_sol": 50,
+      "soft_cap_sol": 25,
+      "max_buy_sol_per_wallet": 0.5,
+      "allocation": {
+        "presale": 25000000,
+        "liquidity_pool": 15000000,
+        "staking_airdrops_community": 20000000,
+        "dev_marketing_team": 20000000,
+        "founder": 15000000,
+        "reserve": 5000000
+      }
+    },
+    "C_ecosystem": {
+      "description": "RECOMMENDED for the LBG ecosystem plan: B plus deeper LP (17M, ~89% of net raise), presale contributor vesting, slower insider unlocks. Insiders 33%.",
+      "hard_cap_sol": 100,
+      "soft_cap_sol": 50,
+      "max_buy_sol_per_wallet": 1,
+      "allocation": {
+        "presale": 25000000,
+        "liquidity_pool": 17000000,
+        "staking_airdrops_community": 20000000,
+        "dev_marketing_team": 18000000,
+        "founder": 15000000,
+        "reserve": 5000000
+      }
+    },
+    "D_founder_v2": {
+      "description": "CURRENT (founder revision 2026-11-04): founder 5M, community lead 2.5M, marketing+development 10M; every bucket unlocks 20% at launch then 20% every 3 months.",
+      "hard_cap_sol": 100,
+      "soft_cap_sol": 50,
+      "max_buy_sol_per_wallet": 1,
+      "insider_buckets": [
+        "founder",
+        "community_lead",
+        "marketing",
+        "development"
+      ],
+      "allocation": {
+        "presale": 25000000,
+        "liquidity_pool": 17000000,
+        "community_rewards": 35000000,
+        "marketing": 5000000,
+        "development": 5000000,
+        "founder": 5000000,
+        "community_lead": 2500000,
+        "reserve": 5500000
+      }
+    }
+  },
+  "platform": {
+    "name": "PinkSale (Solana presale)",
+    "fee_pct_of_raise": 0.05,
+    "fee_source": "docs.pinksale.finance/solana/create-a-presale: 'Pool fee (5% SOL raised only)'",
+    "dex": "Raydium AMM V4",
+    "lp_lock_days": 365
+  },
+  "emissions": {
+    "_comment": "Release plan for D_founder_v2. Month 0 = listing day. Every bucket: 20% at launch, +20% every 3 months (months 0,3,6,9,12). Locked tokens are always held in a vesting contract or multisig.",
+    "scenario": "D_founder_v2",
+    "horizon_months": 24,
+    "stress_sell_ratio": 0.5,
+    "presale_sell_ratio_at_listing": 0.3,
+    "vault": {
+      "name": "community",
+      "distribution_start_month": 1,
+      "monthly_cap_pct_of_pool": 0.04
+    },
+    "streams": [
+      {
+        "name": "presale_buyers",
+        "parent": "presale",
+        "amount": 25000000,
+        "tranche_every_months": 3,
+        "tranches": 5,
+        "lock_type": "vesting",
+        "lock_mechanism": "PinkSale contributor vesting: first release 20%, then 20% per 90-day cycle (verify on Solana form)"
+      },
+      {
+        "name": "liquidity_pool",
+        "parent": "liquidity_pool",
+        "amount": 17000000,
+        "in_pool": true,
+        "lock_months": 12,
+        "lock_type": "lp_lock",
+        "lock_mechanism": "PinkSale liquidity lockup 365 days; LP tokens burned after the lock if governance votes to"
+      },
+      {
+        "name": "contests_and_games",
+        "parent": "community_rewards",
+        "amount": 12000000,
+        "tranche_every_months": 3,
+        "tranches": 5,
+        "lock_type": "vesting",
+        "lock_mechanism": "Unlocks 20% every 3 months into the Squads 'Community Rewards' multisig; paid out only under the monthly health cap",
+        "vault": true
+      },
+      {
+        "name": "staking_rewards",
+        "parent": "community_rewards",
+        "amount": 8000000,
+        "tranche_every_months": 3,
+        "tranches": 5,
+        "lock_type": "vesting",
+        "lock_mechanism": "Unlocks 20% every 3 months into the Squads 'Community Rewards' multisig; paid out only under the monthly health cap",
+        "vault": true
+      },
+      {
+        "name": "airdrops",
+        "parent": "community_rewards",
+        "amount": 7000000,
+        "tranche_every_months": 3,
+        "tranches": 5,
+        "lock_type": "vesting",
+        "lock_mechanism": "Unlocks 20% every 3 months into the Squads 'Community Rewards' multisig; paid out only under the monthly health cap",
+        "vault": true
+      },
+      {
+        "name": "flock_builders_referrals",
+        "parent": "community_rewards",
+        "amount": 5000000,
+        "tranche_every_months": 3,
+        "tranches": 5,
+        "lock_type": "vesting",
+        "lock_mechanism": "Unlocks 20% every 3 months into the Squads 'Community Rewards' multisig; paid out only under the monthly health cap",
+        "vault": true
+      },
+      {
+        "name": "flock_council_grants",
+        "parent": "community_rewards",
+        "amount": 3000000,
+        "tranche_every_months": 3,
+        "tranches": 5,
+        "lock_type": "vesting",
+        "lock_mechanism": "Unlocks 20% every 3 months into the Squads 'Community Rewards' multisig; paid out only under the monthly health cap",
+        "vault": true
+      },
+      {
+        "name": "marketing",
+        "parent": "marketing",
+        "amount": 5000000,
+        "tranche_every_months": 3,
+        "tranches": 5,
+        "lock_type": "vesting",
+        "lock_mechanism": "Streamflow vesting to the Marketing multisig"
+      },
+      {
+        "name": "development",
+        "parent": "development",
+        "amount": 5000000,
+        "tranche_every_months": 3,
+        "tranches": 5,
+        "lock_type": "vesting",
+        "lock_mechanism": "Streamflow vesting to the Development multisig"
+      },
+      {
+        "name": "founder",
+        "parent": "founder",
+        "amount": 5000000,
+        "tranche_every_months": 3,
+        "tranches": 5,
+        "lock_type": "vesting",
+        "lock_mechanism": "Streamflow vesting, non-cancellable (founder, Jason Spear): 1,000,000 at launch, +1,000,000 every 3 months"
+      },
+      {
+        "name": "community_lead",
+        "parent": "community_lead",
+        "amount": 2500000,
+        "tranche_every_months": 3,
+        "tranches": 5,
+        "lock_type": "vesting",
+        "lock_mechanism": "Streamflow vesting, non-cancellable (community lead, Tony): 500,000 at launch, +500,000 every 3 months"
+      },
+      {
+        "name": "reserve",
+        "parent": "reserve",
+        "amount": 5500000,
+        "governance_only": true,
+        "lock_months": 12,
+        "lock_type": "time_lock",
+        "lock_mechanism": "Squads multisig + 12-month Streamflow time lock; released only by Flock governance vote"
+      }
+    ]
+  },
+  "presale_2wk": {
+    "_comment": "2-week tiered presale (founder request 2026-11-04, building on lowbatt_tokenomics_model_2.xlsx tier mechanics). Allocation and vesting from D_founder_v2.",
+    "scenario": "D_founder_v2",
+    "duration_days": 14,
+    "hard_cap_sol": 100,
+    "soft_cap_sol": 50,
+    "min_buy_sol": 0.05,
+    "max_buy_sol_per_wallet": 1,
+    "tier0_share": 0.1,
+    "tier0_days": 2,
+    "tiers": 6,
+    "days_per_tier": 2,
+    "price_step": 0.05,
+    "lp_share_of_net_raise": 0.86,
+    "platform_fee_pct": 0.05,
+    "avg_buy_sol": 0.5,
+    "vesting": {
+      "tge_pct": 0.2,
+      "step_pct": 0.2,
+      "every_months": 3
+    },
+    "staking_emission_split": [
+      0.5,
+      0.3,
+      0.2
+    ],
+    "staking_lock_multipliers": [
+      [
+        1,
+        1
+      ],
+      [
+        3,
+        1.5
+      ],
+      [
+        6,
+        2.5
+      ],
+      [
+        12,
+        4
+      ]
+    ]
+  }
+}
