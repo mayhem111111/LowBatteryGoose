@@ -111,3 +111,9 @@ Merged main (site `lbgv6/` + creator kit) into the working branch. Full findings
 - Founder buy recommendation: about 1 SOL, at most about 3% of supply, half locked; size to confirm.
 - Consequence: contests, games and airdrops have no automatic funding; prizes come from the team.
   LAUNCH_KIT.md disclosure posts and thread updated so nothing promises a community fee share.
+
+## 2026-11-04: team terms confirmed (founder)
+- Creator fees: Jason 75% / Tony 25% (shared to Tony's wallet from the Pump.fun coin page after creation). No community share.
+- Token holdings: Jason 5% of supply (50,000,000 LBG), Tony 2.5% (25,000,000 LBG).
+- Tony's 25M: fully released within 6 months: 25% at launch, 25% on Jan 4, Mar 4, May 4, 2027 (Streamflow).
+- Open: Jason's own unlock schedule; launch timezone (PT assumed); founder buy size.

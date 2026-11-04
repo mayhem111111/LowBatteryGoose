@@ -17,7 +17,7 @@ Never post a contract address before the coin exists. No price talk, no "100x", 
 | X | https://x.com/LowBatteryGoose |
 | Telegram | https://t.me/LowBatteryGooseSOL |
 | Pair | SOL |
-| Creator rewards | Creator (you); after creation, share 40% with Tony's wallet from the coin page (Jason 60% / Tony 40%) |
+| Creator rewards | Creator (you); after creation, share 25% with Tony's wallet from the coin page (Jason 75% / Tony 25%) |
 | Mayhem Mode | Off |
 
 ## 2. The 10 minutes after you click Create
