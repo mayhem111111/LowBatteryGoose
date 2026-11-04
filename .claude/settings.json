@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 tokenomics/model.py:*)",
+      "Bash(python3 -m unittest:*)",
+      "Bash(solana balance:*)",
+      "Bash(spl-token display:*)",
+      "Bash(spl-token supply:*)"
+    ],
+    "ask": [
+      "Bash(solana transfer:*)",
+      "Bash(solana program deploy:*)",
+      "Bash(spl-token mint:*)",
+      "Bash(spl-token burn:*)",
+      "Bash(spl-token transfer:*)",
+      "Bash(spl-token authorize:*)",
+      "Bash(spl-token create-token:*)",
+      "Bash(anchor deploy:*)",
+      "Bash(git push:*)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(**/id.json)",
+      "Read(**/*keypair*.json)",
+      "Read(**/wallets/**)",
+      "Read(~/.config/solana/**)",
+      "Bash(solana-keygen:*)",
+      "Bash(cat ~/.config/solana/*)"
+    ]
+  }
+}

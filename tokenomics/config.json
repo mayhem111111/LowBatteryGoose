@@ -1,0 +1,67 @@
+{
+  "_comment": "Token amounts are TOKENS, not dollars. Presale price = hard_cap_sol / presale tokens. Terms are fixed in SOL; USD is display-only.",
+  "token": {
+    "name": "Low Battery Goose",
+    "ticker": "LBG",
+    "chain": "solana",
+    "minted_total": 1000000000,
+    "burned_at_genesis": 900000000,
+    "mint_authority_revoked": true,
+    "freeze_authority_revoked": true
+  },
+  "sol_usd": {
+    "price": 93.85,
+    "source": "Crypto.com Exchange SOL_USD last",
+    "as_of": "2026-11-04T11:36:00Z"
+  },
+  "defaults": {
+    "listing_premium": 1.25,
+    "min_buy_sol": 0.05
+  },
+  "insider_buckets": ["dev_marketing_team", "founder"],
+  "target_multiples": [1, 2, 5, 10, 25, 50, 100],
+  "scenarios": {
+    "A_as_given": {
+      "description": "Founder's allocation exactly as stated. Presale ASSUMED to be the unlisted 5M remainder (20+20+25+25+5 = 95M). UNCONFIRMED.",
+      "hard_cap_sol": 20,
+      "soft_cap_sol": 10,
+      "max_buy_sol_per_wallet": 0.25,
+      "allocation": {
+        "presale": 5000000,
+        "liquidity_pool": 20000000,
+        "staking_airdrops_community": 20000000,
+        "dev_marketing_team": 25000000,
+        "founder": 25000000,
+        "reserve": 5000000
+      }
+    },
+    "B_recommended": {
+      "description": "Rebalanced: presale 25M self-funds the LP above presale price; insiders 35% instead of 50%. Raise sized to a ~900-member community.",
+      "hard_cap_sol": 100,
+      "soft_cap_sol": 50,
+      "max_buy_sol_per_wallet": 1,
+      "allocation": {
+        "presale": 25000000,
+        "liquidity_pool": 15000000,
+        "staking_airdrops_community": 20000000,
+        "dev_marketing_team": 20000000,
+        "founder": 15000000,
+        "reserve": 5000000
+      }
+    },
+    "B_conservative": {
+      "description": "Same allocation as B, smaller raise in case demand is thin.",
+      "hard_cap_sol": 50,
+      "soft_cap_sol": 25,
+      "max_buy_sol_per_wallet": 0.5,
+      "allocation": {
+        "presale": 25000000,
+        "liquidity_pool": 15000000,
+        "staking_airdrops_community": 20000000,
+        "dev_marketing_team": 20000000,
+        "founder": 15000000,
+        "reserve": 5000000
+      }
+    }
+  }
+}
