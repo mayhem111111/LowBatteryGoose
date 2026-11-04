@@ -130,3 +130,8 @@ Merged main (site `lbgv6/` + creator kit) into the working branch. Full findings
 - Vesting 25% at launch, then Feb 4, May 4, Aug 4, 2027. Creator fees Jason 75% / Tony 25%.
 - Optional later: public buy-and-burn from creator fees. No burn claims in launch posts.
 - Presale-era models (100M supply, D_founder_v2, presale_2wk) are shelved and do not describe this launch.
+
+## 2026-11-04: founder funds Tony's allocation (internal)
+- Tony will not buy his 2.5%. Founder buys 75M LBG (~2.28 SOL est.) at creation and locks 25M in a Streamflow stream
+  to Tony's wallet on the agreed schedule (25% at launch, Feb 4, May 4, Aug 4, 2027); optional founder-cancellable.
+- Terms, fee split (75/25) and public disclosure posts unchanged per founder instruction.
