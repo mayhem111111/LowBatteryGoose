@@ -151,3 +151,10 @@ Merged main (site `lbgv6/` + creator kit) into the working branch. Full findings
   bought in the founder's first buy (~0.27 SOL est.), held in a disclosed prize wallet.
 - Site: new #goose-guess section; Google Form link via site-config `guessForm` (Google Forms only; Telegram fallback);
   auto-closes at `guessCloses`. Tested 1280/375px, no errors. Kit: docs/GOOSE_GUESS.md.
+
+## 2026-11-04: Goose Guess revised (founder)
+- One winner only: grand prize 5,000,000 LBG (~0.17 SOL in first buy; first buy total ~90M LBG ~2.78 SOL est.).
+  Winner crowned "The First Honker" and featured at the top of the homepage for a week (site-config `honker`).
+- Eligibility: Flock Telegram member + any LBG holding in the entered wallet at the Nov 5 5 PM PT snapshot.
+  Holder bonus and 2nd/3rd prizes removed. Kept a written no-purchase entry route in the fine print as a legal
+  safety valve (founder can remove on counsel's advice).

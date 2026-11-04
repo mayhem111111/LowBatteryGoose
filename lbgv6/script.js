@@ -82,6 +82,19 @@
     }
   })();
 
+  // Honker of the Week spotlight (plain text only, length-limited).
+  (() => {
+    const h = links.honker;
+    const box = document.querySelector('[data-honker]');
+    if (!box || !h || typeof h.name !== 'string' || !h.name.trim()) return;
+    const clip = (v, n) => (typeof v === 'string' ? v.trim().slice(0, n) : '');
+    const set = (sel, v) => { const el = box.querySelector(sel); if (el && v) el.textContent = v; };
+    set('[data-honker-name]', clip(h.name, 40));
+    set('[data-honker-title]', clip(h.title, 40));
+    set('[data-honker-note]', clip(h.note, 80));
+    box.hidden = false;
+  })();
+
   const fallbackReason = 'opened my inbox.';
   const image = new Image();
   image.src = 'assets/goose.png';
