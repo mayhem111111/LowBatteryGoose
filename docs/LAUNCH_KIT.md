@@ -1,7 +1,7 @@
 # $LBG Pump.fun launch kit
 
 Replace before posting: `[LAUNCH_TIME]` (e.g. Thu Nov 5, 6:00 PM PT) · `[CONTRACT_ADDRESS]` (paste from the Pump.fun page
-after verifying on Solscan) · `[FOUNDER_WALLET]` · `[BUY_SOL]` · `[FEE_SHARE]` (% of creator fees to the community fund).
+after verifying on Solscan) · `[FOUNDER_WALLET]` · `[BUY_SOL]` · `[TONY_WALLET]` · `[STREAMFLOW_LINK]`.
 Never post a contract address before the coin exists. No price talk, no "100x", no "guaranteed" anywhere.
 
 ---
@@ -17,7 +17,7 @@ Never post a contract address before the coin exists. No price talk, no "100x", 
 | X | https://x.com/LowBatteryGoose |
 | Telegram | https://t.me/LowBatteryGooseSOL |
 | Pair | SOL |
-| Creator rewards | Creator (you); share `[FEE_SHARE]` to the community fund from the coin page |
+| Creator rewards | Creator (you); after creation, share 40% with Tony's wallet from the coin page (Jason 60% / Tony 40%) |
 | Mayhem Mode | Off |
 
 ## 2. The 10 minutes after you click Create
@@ -62,7 +62,8 @@ Never post a contract address before the coin exists. No price talk, no "100x", 
 >
 > • Dev wallet: [FOUNDER_WALLET]
 > • Dev buy at launch: [BUY_SOL] SOL
-> • [FEE_SHARE] of creator fees go to the community fund for contests and games
+> • Team wallet (Tony): [TONY_WALLET]
+> • Team tokens vest over 6 months: [STREAMFLOW_LINK]
 > • No hidden wallets
 >
 > Receipts posted weekly.
@@ -80,7 +81,7 @@ Never post a contract address before the coin exists. No price talk, no "100x", 
 >
 > 2/ Play free: 1% Honk Bingo and the Battery Check meme maker at lowbatterygoose.pages.dev. Post your result with #LowBatteryGoose.
 >
-> 3/ Coming next, voted on by the flock: weekly challenges, Honk Arcade games and the Flock Council. Creator fees fund the prizes.
+> 3/ Coming next, voted on by the flock: weekly challenges, Honk Arcade games and the Flock Council. The team funds the prizes.
 
 **Day-after recap**
 > 🪿 Day 1 of $LBG: [HOLDERS] holders, [MEMES] memes, one exhausted goose.
@@ -131,10 +132,11 @@ Meme coins are speculative and can lose all value. Not financial advice.
 
 • Dev wallet: [FOUNDER_WALLET]
 • Dev buy at launch: [BUY_SOL] SOL
-• [FEE_SHARE] of creator fees → community fund (contests, games, airdrops)
+• Team wallet (Tony): [TONY_WALLET]
+• Team tokens vest over 6 months (25% now, 25% every 2 months): [STREAMFLOW_LINK]
 • No hidden or bundled wallets
 
-Fund balances and payouts will be posted every week. Questions welcome in the group.
+Team wallet activity and contest payouts will be posted every week. Questions welcome in the group.
 ```
 
 **Flock group pinned rules**
@@ -157,6 +159,6 @@ Be kind, post memes, honk responsibly.
 Make a Low Battery Goose meme (use the Battery Check maker on our site or your own art) and post it here with #LowBatteryGoose.
 
 🗓 Ends: [CONTEST_END]
-🥇 Top 3 picked by the Flock Council vote. Prizes from the community fund: [PRIZES]
+🥇 Top 3 picked by the Flock Council vote. Prizes from the team: [PRIZES]
 Free to enter. No purchase needed. Original work only.
 ```

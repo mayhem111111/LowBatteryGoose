@@ -102,3 +102,12 @@ Merged main (site `lbgv6/` + creator kit) into the working branch. Full findings
   driven by `TOKEN_ADDRESS` and optional `LAUNCH_TIME` settings; invalid addresses ignored.
 - Posts: `docs/LAUNCH_KIT.md` (X posts all under 280 chars, Telegram posts, create-screen values, first-10-minutes steps).
 - Pending from founder: launch time, founder buy size, creator-fee share to community fund.
+
+## 2026-11-04: Pump.fun launch terms (founder decisions)
+- Launch: tonight, Nov 4, 6:00 PM (timezone assumed PT, to confirm).
+- Creator fees: NO community share (founder). Proposed split Jason 60% / Tony 40% (to confirm).
+- Tony: 25,000,000 LBG (2.5%), Streamflow vesting fully released within 6 months: 25% at launch, then 25% on
+  Jan 4, Mar 4, May 4, 2027. Funded by Tony's own buy (recommended) or from the founder buy.
+- Founder buy recommendation: about 1 SOL, at most about 3% of supply, half locked; size to confirm.
+- Consequence: contests, games and airdrops have no automatic funding; prizes come from the team.
+  LAUNCH_KIT.md disclosure posts and thread updated so nothing promises a community fee share.
