@@ -11,8 +11,8 @@
 //   AUTO_POSTS      text    "true" to enable the scheduled community posts.
 //   CHAT_ID         text    optional, defaults to @LowBatteryFlock.
 //
-// After deploying this code, re-run setup once so Telegram shows the new command menu:
-//   curl -X POST -H "X-Setup-Key: <SETUP_KEY>" https://<your-worker>.workers.dev/setup
+// After deploying, open https://<your-worker>.workers.dev/connect in a browser once.
+// (Advanced alternative: curl -X POST -H "X-Setup-Key: <SETUP_KEY>" https://<your-worker>.workers.dev/setup)
 
 const SITE = "https://lowbatterygoose.pages.dev";
 const LINKS = "🌐 lowbatterygoose.pages.dev\n🐦 x.com/LowBatteryGoose\n💬 t.me/LowBatteryFlock\n📢 t.me/LowBatteryGooseSOL";
@@ -39,6 +39,17 @@ const POSTS = [
   "🚨 GOOSE NEWS: Local bird operating with one remaining brain cell. Experts recommend additional honking.",
   "🪿 What's your official goose nickname today? I'll start: Captain Caffeine Failure.",
   "🛡️ Reminder: admins never DM first. The only official $LBG address is on our website and from /contract."
+];
+
+const COMMANDS = [
+  { command: "help", description: "See all commands" },
+  { command: "launch", description: "Launch status" },
+  { command: "contract", description: "Official contract address" },
+  { command: "pumpfun", description: "Official Pump.fun page" },
+  { command: "links", description: "Official links" },
+  { command: "safety", description: "Stay safe from scams" },
+  { command: "games", description: "Play Honk Bingo" },
+  { command: "volunteer", description: "Help the flock" }
 ];
 
 const MINT_RE = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/;
@@ -87,6 +98,22 @@ export default {
     if (url.pathname === "/health") {
       return new Response(`Honk Commander is running. Token live: ${mint(env) ? "yes" : "no"}`);
     }
+    // Open https://<worker>/connect in any browser to link the bot to this Worker. No keys needed:
+    // it only points Telegram at this Worker's own /telegram address with this Worker's own secret,
+    // so running it again is harmless.
+    if (url.pathname === "/connect" && request.method === "GET") {
+      if (!env.BOT_TOKEN || !env.WEBHOOK_SECRET) {
+        return new Response("Missing setting: add BOT_TOKEN and WEBHOOK_SECRET under Settings > Variables and Secrets, Deploy, then open /connect again.", { status: 500 });
+      }
+      try {
+        await tg(env, "setWebhook", { url: `${url.origin}/telegram`, secret_token: env.WEBHOOK_SECRET, allowed_updates: ["message"] });
+        await tg(env, "setMyCommands", { commands: COMMANDS });
+        const info = (await tg(env, "getWebhookInfo", {})).result;
+        return new Response(`Connected. Telegram will send commands to: ${info.url}\nNow send /help to the bot.`);
+      } catch (e) {
+        return new Response(`Telegram refused: ${e.message}\nIf it says Unauthorized or Not Found, the BOT_TOKEN setting is wrong: copy it again from @BotFather, Deploy, then open /connect again.`, { status: 502 });
+      }
+    }
     if (url.pathname === "/setup" && request.method === "POST") {
       if (!env.SETUP_KEY || request.headers.get("X-Setup-Key") !== env.SETUP_KEY) {
         return new Response("Unauthorized", { status: 401 });
@@ -96,18 +123,7 @@ export default {
         secret_token: env.WEBHOOK_SECRET,
         allowed_updates: ["message"]
       });
-      await tg(env, "setMyCommands", {
-        commands: [
-          { command: "help", description: "See all commands" },
-          { command: "launch", description: "Launch status" },
-          { command: "contract", description: "Official contract address" },
-          { command: "pumpfun", description: "Official Pump.fun page" },
-          { command: "links", description: "Official links" },
-          { command: "safety", description: "Stay safe from scams" },
-          { command: "games", description: "Play Honk Bingo" },
-          { command: "volunteer", description: "Help the flock" }
-        ]
-      });
+      await tg(env, "setMyCommands", { commands: COMMANDS });
       return new Response("Webhook and commands configured");
     }
     if (url.pathname !== "/telegram" || request.method !== "POST") {
