@@ -158,3 +158,12 @@ Merged main (site `lbgv6/` + creator kit) into the working branch. Full findings
 - Eligibility: Flock Telegram member + any LBG holding in the entered wallet at the Nov 5 5 PM PT snapshot.
   Holder bonus and 2nd/3rd prizes removed. Kept a written no-purchase entry route in the fine print as a legal
   safety valve (founder can remove on counsel's advice).
+
+## 2026-11-04: website fixes + walking goose (founder request)
+- Fixed: hero goose image stretched (1024x1024 shown 538x1041) via img height:auto + aspect-ratio; now 520x520.
+- Fixed: [hidden] boxes (Honker spotlight, pre-launch contract box) were visible because component CSS overrode the
+  hidden attribute; added [hidden]{display:none!important}.
+- Added lbgv6/goose.js: a goose that walks the bottom of the page, honks, steals letters (max 3, always returned,
+  never from contract/safety/fine print), crashes into cards with feathers, naps, zoomies. Click = honk (+ sound
+  only after a click). On/off toggle remembered per visitor; off in the Telegram mini-app; still under reduced motion.
+  Tested 1366px and 375px: letters restored, no errors, toggle persists.

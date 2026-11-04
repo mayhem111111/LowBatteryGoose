@@ -74,3 +74,9 @@
 .honker-label{font-size:11px;font-weight:950;letter-spacing:.1em}
 .honker-name{font-size:24px;font-weight:950;letter-spacing:-.02em;word-break:break-word}
 .honker-note{font-size:12px;font-weight:700}
+
+/* Layout fixes: keep pictures in proportion and hidden elements hidden. */
+[hidden]{display:none!important}
+img{height:auto}
+.hero-art img{aspect-ratio:1/1;object-fit:cover}
+.hero-art{max-width:520px;justify-self:center}
