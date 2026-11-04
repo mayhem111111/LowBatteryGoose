@@ -414,6 +414,7 @@
     ['What rank do you start at in Pass the Goose?', ['Egg', 'Honker', 'Golden Goose'], 0],
     ['What is the Golden Honk challenge about?', ['Your funniest battery-drain story', 'Trading', 'Running a marathon'], 0],
     // The goose
+    ["What is the goose's name?", ['Gooferson', 'Sir Honksalot', 'Duckworth'], 0],
     ['What battery % is the goose running on?', ['1%', '50%', '100%'], 0],
     ["Finish the slogan: Running on 1%. Still…", ['honking.', 'charging.', 'sleeping.'], 0],
     ['What does the goose drink to recharge?', ['Coffee', 'Battery acid', 'Lemonade'], 0],
@@ -458,7 +459,7 @@
   hintChip.type = 'button';
   hintChip.className = 'lbg-chip hint';
   hintChip.hidden = true;
-  hintChip.textContent = '👀 THE GOOSE IS HIDING! FIND HIM';
+  hintChip.textContent = '👀 GOOFERSON IS HIDING! FIND HIM';
   chips.prepend(hintChip);
   const triviaChip = document.createElement('button');
   triviaChip.type = 'button';
@@ -485,7 +486,7 @@
     const peek = document.createElement('button');
     peek.type = 'button';
     peek.className = 'lbg-hidden-goose';
-    peek.setAttribute('aria-label', 'You found the goose! Answer his question');
+    peek.setAttribute('aria-label', 'You found Gooferson! Answer his question');
     peek.innerHTML = SVG;
     const left = window.scrollX + r.left + rand(10, Math.max(12, r.width - 80));
     const top = window.scrollY + r.top - 52;
@@ -495,7 +496,7 @@
     hideEl = peek; hiding = true;
     goose.style.visibility = 'hidden';
     honk(pick(['bye 👋', 'catch me', 'hide and honk!']));
-    hintChip.hidden = false; hintChip.textContent = '👀 THE GOOSE IS HIDING! FIND HIM';
+    hintChip.hidden = false; hintChip.textContent = '👀 GOOFERSON IS HIDING! FIND HIM';
     clearTimeout(hideTimer);
     hideTimer = setTimeout(() => endHide('nobody found me. rude.'), 75000);
     return true;
@@ -523,7 +524,7 @@
     const box = document.createElement('div');
     box.className = 'lbg-quiz'; box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true'); box.setAttribute('aria-label', 'Goose question');
     const close = document.createElement('button'); close.type = 'button'; close.className = 'close'; close.textContent = '×'; close.setAttribute('aria-label', 'Close');
-    const h = document.createElement('h3'); h.textContent = '🪿 YOU FOUND ME. ANSWER THIS:';
+    const h = document.createElement('h3'); h.textContent = '🪿 YOU FOUND GOOFERSON. ANSWER THIS:';
     const qp = document.createElement('p'); qp.textContent = question;
     const opts = document.createElement('div'); opts.className = 'opts';
     const result = document.createElement('div'); result.className = 'result'; result.setAttribute('role', 'status');
@@ -599,7 +600,7 @@
     goose = document.createElement('button');
     goose.type = 'button';
     goose.className = 'lbg-goose';
-    goose.setAttribute('aria-label', 'Poke the goose');
+    goose.setAttribute('aria-label', 'Poke Gooferson the goose');
     goose.innerHTML = `<span class="g-flip">${SVG}</span>`;
     document.body.append(goose);
     x = reduce ? 16 : rand(0, Math.max(0, W() - gw()));
@@ -607,7 +608,7 @@
     goose.addEventListener('click', poke);
     running = true; last = 0; nextAct = performance.now() + 4000; nextHide = performance.now() + rand(12000, 20000);
     requestAnimationFrame(frame);
-    setTimeout(() => honk(pick(['HONK! I live here now.', 'running on 1%. hi.', 'poke me. I dare you.'])), 1200);
+    setTimeout(() => honk(pick(["I'm Gooferson. HONK.", 'Gooferson. 1%. hi.', 'Gooferson here. poke me. I dare you.'])), 1200);
   }
 
   function stop() {

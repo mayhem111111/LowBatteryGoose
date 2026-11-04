@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <title>Gooferson, the Low Battery Goose</title>
+  <defs>
+    <style>
+      .ink{stroke:#19251e;stroke-linecap:round;stroke-linejoin:round}
+      .t{font-family:'Arial Black','Arial',Helvetica,sans-serif;font-weight:900}
+    </style>
+  </defs>
+  <!-- background -->
+  <rect width="1024" height="1024" rx="96" fill="#cdf45c"/>
+  <circle cx="512" cy="470" r="360" fill="#b7dc49"/>
+  <g fill="#19251e" opacity=".12"><circle cx="150" cy="170" r="10"/><circle cx="880" cy="140" r="14"/><circle cx="905" cy="560" r="9"/><circle cx="110" cy="610" r="12"/></g>
+
+  <!-- zzz + sweat -->
+  <g class="t" fill="#19251e"><text x="820" y="150" font-size="54" transform="rotate(12 820 150)">z</text><text x="870" y="96" font-size="76" transform="rotate(12 870 96)">Z</text></g>
+  <path d="M596 152 q-16 30 0 44 q16 -14 0 -44z" fill="#fffceb" class="ink" stroke-width="8"/>
+
+  <!-- ground shadow -->
+  <ellipse cx="510" cy="842" rx="250" ry="26" fill="#19251e" opacity=".16"/>
+
+  <!-- legs -->
+  <g class="ink" fill="none" stroke-width="22">
+    <path d="M440 770 L420 838 L470 838" stroke="#ff9b48"/>
+    <path d="M560 772 L552 838 L604 838" stroke="#ff9b48"/>
+  </g>
+  <g class="ink" fill="none" stroke-width="7">
+    <path d="M440 770 L420 838 L470 838"/>
+    <path d="M560 772 L552 838 L604 838"/>
+  </g>
+
+  <!-- body -->
+  <path class="ink" d="M236 600 Q190 440 350 430 L520 440 L536 286 Q536 160 660 160 Q792 160 792 290 L782 560 Q782 790 512 790 Q300 790 236 600Z"
+        fill="#fffceb" stroke-width="18"/>
+  <!-- belly shading -->
+  <path d="M300 640 Q380 760 560 744 Q700 730 744 610" fill="none" stroke="#e9e4c8" stroke-width="26" stroke-linecap="round"/>
+  <!-- wing -->
+  <path class="ink" d="M300 560 Q330 690 512 664" fill="none" stroke-width="14"/>
+
+  <!-- messy tuft -->
+  <g class="ink" fill="none" stroke-width="13">
+    <path d="M622 168 Q610 110 650 132"/>
+    <path d="M656 160 Q662 96 702 130"/>
+    <path d="M700 166 Q724 120 748 150"/>
+  </g>
+
+  <!-- beak (slightly open, mid-yawn) -->
+  <path class="ink" d="M784 236 L918 270 L784 300Z" fill="#ff9b48" stroke-width="13"/>
+  <path class="ink" d="M784 300 L896 306 L786 348Z" fill="#ff9b48" stroke-width="13"/>
+  <path d="M790 302 L880 305" stroke="#c96a1f" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- eye: tired, half-lidded, with bags -->
+  <circle class="ink" cx="690" cy="262" r="44" fill="#fff" stroke-width="12"/>
+  <circle cx="704" cy="278" r="17" fill="#19251e"/>
+  <circle cx="711" cy="271" r="5" fill="#fff"/>
+  <path class="ink" d="M644 262 A46 46 0 0 1 736 262 Z" fill="#fffceb" stroke-width="12"/>
+  <path class="ink" d="M650 322 Q690 340 732 320" fill="none" stroke-width="7"/>
+  <path class="ink" d="M664 342 Q692 354 720 340" fill="none" stroke-width="6"/>
+  <!-- droopy brow -->
+  <path class="ink" d="M636 198 Q690 186 744 206" fill="none" stroke-width="14"/>
+
+  <!-- battery on chest: 1% -->
+  <rect class="ink" x="560" y="520" width="150" height="80" rx="16" fill="#fffceb" stroke-width="13"/>
+  <rect x="712" y="542" width="18" height="36" rx="5" fill="#19251e"/>
+  <rect x="576" y="536" width="20" height="48" rx="5" fill="#f46b54"/>
+  <text class="t" x="640" y="576" font-size="34" fill="#19251e">1%</text>
+
+  <!-- coffee mug held at the wing -->
+  <g>
+    <g class="ink" fill="none" stroke-width="9">
+      <path d="M236 432 q-18 -30 0 -54 q18 -24 0 -54"/>
+      <path d="M284 432 q-18 -30 0 -54 q18 -24 0 -54"/>
+    </g>
+    <path class="ink" d="M196 450 h132 v104 q0 36 -36 36 h-60 q-36 0 -36 -36z" fill="#fffceb" stroke-width="14"/>
+    <path class="ink" d="M328 476 q48 0 48 40 q0 40 -48 40" fill="none" stroke-width="14"/>
+    <rect x="203" y="494" width="118" height="38" fill="#cdf45c"/>
+    <text class="t" x="232" y="525" font-size="30" fill="#19251e">1%</text>
+    <path class="ink" d="M196 450 h132" stroke-width="14"/>
+  </g>
+
+  <!-- name plate -->
+  <g transform="rotate(-3 512 920)">
+    <rect x="182" y="866" width="660" height="118" rx="26" fill="#19251e"/>
+    <rect x="182" y="866" width="660" height="118" rx="26" fill="none" stroke="#19251e" stroke-width="6" transform="translate(10 10)" opacity=".35"/>
+    <text class="t" x="512" y="904" font-size="22" fill="#cdf45c" text-anchor="middle" letter-spacing="6">THE LOW BATTERY GOOSE</text>
+    <text class="t" x="512" y="968" font-size="72" fill="#fffceb" text-anchor="middle" letter-spacing="2">GOOFERSON</text>
+  </g>
+</svg>

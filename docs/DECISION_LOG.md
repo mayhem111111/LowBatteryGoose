@@ -192,3 +192,8 @@ Merged main (site `lbgv6/` + creator kit) into the working branch. Full findings
 - Trivia: 40 questions (coin, safety, community, goose, slang); "Play Goose Trivia" button on the site (#goose-trivia)
   and as a corner chip, starts the hunt immediately; first automatic hide after 12-20s. Tested 1366/375px.
 - Micro-airdrops for trivia: founder will provide later (needs server-side answer checking + wallets).
+
+## 2026-11-04: mascot named Gooferson (founder)
+- The tired cartoon goose is officially **Gooferson**. Brand portrait: lbgv6/assets/gooferson.svg + 1024px PNG.
+- Site: goose introduces himself as Gooferson; hide-and-seek and quiz copy use his name; new trivia question
+  "What is the goose's name?" (41 questions). Package: LBG-site-v6-gooferson.zip.

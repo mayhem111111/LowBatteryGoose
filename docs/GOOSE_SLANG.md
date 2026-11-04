@@ -1,4 +1,6 @@
 # The Goose Lexicon 🪿🔋
+
+**Meet the mascot: Gooferson.** Our tired cartoon goose. Permanently at 1%, powered by coffee, allergic to mornings, honks anyway. Art: `lbgv6/assets/gooferson.png` / `.svg`.
 Slang, slogans, captions and hashtags for X, Telegram, memes and Spaces.
 Safe for public use: fun, community and battery jokes only. Never pair them with price claims ("moon", "100x", "pump it").
 
