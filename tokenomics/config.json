@@ -18,8 +18,19 @@
     "listing_premium": 1.25,
     "min_buy_sol": 0.05
   },
-  "insider_buckets": ["dev_marketing_team", "founder"],
-  "target_multiples": [1, 2, 5, 10, 25, 50, 100],
+  "insider_buckets": [
+    "dev_marketing_team",
+    "founder"
+  ],
+  "target_multiples": [
+    1,
+    2,
+    5,
+    10,
+    25,
+    50,
+    100
+  ],
   "scenarios": {
     "A_as_given": {
       "description": "Founder's allocation exactly as stated. Presale ASSUMED to be the unlisted 5M remainder (20+20+25+25+5 = 95M). UNCONFIRMED.",
@@ -63,5 +74,12 @@
         "reserve": 5000000
       }
     }
+  },
+  "platform": {
+    "name": "PinkSale (Solana presale)",
+    "fee_pct_of_raise": 0.05,
+    "fee_source": "docs.pinksale.finance/solana/create-a-presale: 'Pool fee (5% SOL raised only)'",
+    "dex": "Raydium AMM V4",
+    "lp_lock_days": 365
   }
 }

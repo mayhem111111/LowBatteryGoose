@@ -44,13 +44,14 @@ That creates two problems:
 | Per-wallet min / max | **0.05 SOL / 1 SOL** (max = 250,000 LBG = 0.25% of supply) |
 | Wallets needed to fill | 100 minimum (≈ 200 at 0.5 SOL average, about 22% of a 900-member TG) |
 | Listing price | **200,000 LBG per SOL** (presale buyers start +25%) |
-| LP at listing | 15M LBG + 75 SOL (75% of the raise, LP locked/burned) |
-| Treasury | 25 SOL (multisig) |
+| Platform fee | 5% of raise (PinkSale), 5 SOL at hard cap |
+| LP at listing | ≈ 14.82M LBG + 74.1 SOL (PinkSale liquidity 78%, locked 365 days) |
+| Treasury | ≈ 20.9 SOL (multisig) |
 | Presale FDV → listing FDV | ≈ $37.5k → ≈ $46.9k |
 
-If the presale ends between the soft and hard caps: keep the same price, put 75% of the SOL in
-the LP, and burn the unsold presale tokens plus the proportional unused LP tokens. That keeps
-the listing price at 1.25x.
+If the presale ends between the soft and hard caps, PinkSale keeps the same rates, puts 78% of the net SOL in
+the LP and burns the unsold tokens (Refund type = Burn). The listing price stays at 1.25x.
+Exact PinkSale form values are in `docs/PLATFORM_DECISION.md`.
 
 **Smaller fallback (B_conservative):** 50 SOL hard cap, 0.5 SOL max per wallet, 500,000 LBG per SOL.
 

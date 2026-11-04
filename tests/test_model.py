@@ -21,13 +21,13 @@ class TestModel(unittest.TestCase):
         r = model.evaluate("B_recommended", CFG)
         self.assertEqual(r.lp_sol_shortfall, 0)
         self.assertAlmostEqual(r.lp_sol_required, 75)
-        self.assertAlmostEqual(r.treasury_sol, 25)
+        self.assertAlmostEqual(r.treasury_sol, 20)
         self.assertAlmostEqual(r.presale_price_sol, 0.000004)
         self.assertAlmostEqual(r.max_wallet_tokens, 250_000)
 
     def test_as_given_has_lp_shortfall(self):
         r = model.evaluate("A_as_given", CFG)
-        self.assertAlmostEqual(r.lp_sol_shortfall, 80)
+        self.assertAlmostEqual(r.lp_sol_shortfall, 81)
 
     def test_listing_above_presale(self):
         for name in CFG["scenarios"]:
@@ -55,6 +55,18 @@ class TestModel(unittest.TestCase):
     def test_insider_share_recommended_at_most_35pct(self):
         r = model.evaluate("B_recommended", CFG)
         self.assertLessEqual(r.insider_pct, 0.35)
+
+    def test_pinksale_form_recommended(self):
+        f = model.pinksale_form(model.evaluate("B_recommended", CFG))
+        self.assertEqual(f["presale_rate_tokens_per_sol"], 250_000)
+        self.assertEqual(f["listing_rate_tokens_per_sol"], 200_000)
+        self.assertEqual(f["liquidity_pct"], 78)
+        self.assertLessEqual(f["lp_tokens_used"], 15_000_000)
+        self.assertEqual(f["issues"], [])
+
+    def test_pinksale_flags_as_given(self):
+        f = model.pinksale_form(model.evaluate("A_as_given", CFG))
+        self.assertTrue(any("LP needs" in i for i in f["issues"]))
 
 
 if __name__ == "__main__":

@@ -16,7 +16,7 @@ kit ZIP, secret scan, CSP hash verification, headless-browser smoke test (1280px
 | **Plan consistency** | **CRITICAL CONFLICT.** See C1 |
 
 ## Critical
-**C1. The public site, README and creator kit say "Pump.fun launch". The founder's current plan is a presale
+**C1. [Site + README FIXED 2026-11-04; creator kit FAQ still open] The public site, README and creator kit say "Pump.fun launch". The founder's current plan is a presale
 with a 900M burn and fixed allocations. These can't both be true.**
 - Pump.fun mints a fixed 1B supply sold on a bonding curve. It has no presale, no team/founder/staking
   allocations and no burn-to-100M. The allocation in `tokenomics/config.json` is impossible on Pump.fun.

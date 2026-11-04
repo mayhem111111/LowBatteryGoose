@@ -25,6 +25,9 @@ class Result:
     listing_price_sol: float
     hard_cap_sol: float
     soft_cap_sol: float
+    min_buy_sol: float
+    platform_fee_sol: float
+    net_raise_sol: float
     max_buy_sol: float
     lp_tokens: int
     lp_sol_required: float
@@ -60,9 +63,11 @@ def evaluate(name: str, cfg: dict) -> Result:
     listing = price * p["listing_premium"]
     lp_tokens = alloc["liquidity_pool"]
     lp_sol_req = lp_tokens * listing
-    lp_from_presale = min(lp_sol_req, p["hard_cap_sol"])
-    shortfall = max(0.0, lp_sol_req - p["hard_cap_sol"])
-    treasury = max(0.0, p["hard_cap_sol"] - lp_sol_req)
+    fee = cfg.get("platform", {}).get("fee_pct_of_raise", 0.0)
+    net_raise = p["hard_cap_sol"] * (1 - fee)
+    lp_from_presale = min(lp_sol_req, net_raise)
+    shortfall = max(0.0, lp_sol_req - net_raise)
+    treasury = max(0.0, net_raise - lp_sol_req)
     insiders = sum(alloc[b] for b in cfg["insider_buckets"]) / circ
     return Result(
         name=name,
@@ -72,6 +77,9 @@ def evaluate(name: str, cfg: dict) -> Result:
         listing_price_sol=listing,
         hard_cap_sol=p["hard_cap_sol"],
         soft_cap_sol=p["soft_cap_sol"],
+        min_buy_sol=p["min_buy_sol"],
+        platform_fee_sol=p["hard_cap_sol"] - net_raise,
+        net_raise_sol=net_raise,
         max_buy_sol=p["max_buy_sol_per_wallet"],
         lp_tokens=lp_tokens,
         lp_sol_required=lp_sol_req,
@@ -83,6 +91,41 @@ def evaluate(name: str, cfg: dict) -> Result:
         min_wallets_to_fill=p["hard_cap_sol"] / p["max_buy_sol_per_wallet"],
         allocation=alloc,
     )
+
+
+def pinksale_form(r: Result) -> dict:
+    """Values to enter in PinkSale's Solana 'Create Presale' form, plus constraint checks.
+
+    Assumes PinkSale's Liquidity % applies to the raise AFTER its fee (VERIFY in the form:
+    it displays the total tokens required before you sign).
+    """
+    max_pct = int((r.lp_tokens * r.listing_price_sol) / r.net_raise_sol * 100) if r.net_raise_sol else 0
+    liq_pct = min(100, max_pct)  # floor, so LP never needs more tokens than allocated
+    lp_sol = r.net_raise_sol * liq_pct / 100
+    lp_tokens_used = lp_sol / r.listing_price_sol
+    issues = []
+    if r.soft_cap_sol < 0.25 * r.hard_cap_sol:
+        issues.append("PinkSale requires soft cap >= 25% of hard cap")
+    if liq_pct < 25:
+        issues.append("PinkSale requires liquidity >= 25%")
+    if r.lp_sol_shortfall > 0:
+        issues.append(f"LP needs {r.lp_sol_shortfall:,.1f} SOL more than the net raise; PinkSale caps liquidity at 100%")
+    return {
+        "presale_rate_tokens_per_sol": round(1 / r.presale_price_sol),
+        "listing_rate_tokens_per_sol": round(1 / r.listing_price_sol),
+        "soft_cap_sol": r.soft_cap_sol,
+        "hard_cap_sol": r.hard_cap_sol,
+        "min_buy_sol": r.min_buy_sol,
+        "max_buy_sol": r.max_buy_sol,
+        "liquidity_pct": liq_pct,
+        "lp_sol_at_hard_cap": lp_sol,
+        "lp_tokens_used": lp_tokens_used,
+        "lp_tokens_unused_to_burn": r.lp_tokens - lp_tokens_used,
+        "tokens_to_deposit_approx": r.presale_tokens + lp_tokens_used,
+        "treasury_sol_at_hard_cap": r.net_raise_sol - lp_sol,
+        "unsold_tokens": "burn",
+        "issues": issues,
+    }
 
 
 def report(r: Result, sol_usd: float, multiples: list[int]) -> str:
@@ -100,11 +143,16 @@ def report(r: Result, sol_usd: float, multiples: list[int]) -> str:
     out.append(f"LP: {r.lp_tokens:,} tokens + {r.lp_sol_required:,.0f} SOL (${usd(r.lp_sol_required):,.0f})")
     out.append(f"  funded by presale        {r.lp_sol_from_presale:,.0f} SOL")
     out.append(f"  SHORTFALL team must add  {r.lp_sol_shortfall:,.0f} SOL (${usd(r.lp_sol_shortfall):,.0f})")
-    out.append(f"Treasury after LP          {r.treasury_sol:,.0f} SOL (${usd(r.treasury_sol):,.0f})")
+    out.append(f"Platform fee               {r.platform_fee_sol:,.1f} SOL -> net raise {r.net_raise_sol:,.1f} SOL")
+    out.append(f"Treasury after LP          {r.treasury_sol:,.1f} SOL (${usd(r.treasury_sol):,.0f})")
     out.append(f"Insider share (team+fdr)   {r.insider_pct:.0%}")
     out.append("Bucket values at listing price:")
     for k, v in r.allocation.items():
         out.append(f"  {k:28s} {v:>12,}  ${usd(v*r.listing_price_sol):>12,.0f}")
+    f = pinksale_form(r)
+    out.append("PinkSale form values:")
+    for k, v in f.items():
+        out.append(f"  {k:30s} {v:,.2f}" if isinstance(v, float) else f"  {k:30s} {v}")
     out.append("Price targets vs presale price (FDV = fully diluted, 100M supply):")
     for m in multiples:
         px = r.presale_price_sol * m

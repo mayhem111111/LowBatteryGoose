@@ -5,7 +5,7 @@ Items marked **[B]** are blocking: if one isn't done, the result is NO-GO.
 
 ## Phase 0: decisions (before anything is announced)
 - [ ] **[B]** Presale allocation confirmed (5M as given, or 25M as recommended)
-- [ ] **[B]** Presale platform chosen (Metaplex Genesis, or another audited, widely used launchpad). No SOL sent to a personal wallet
+- [ ] **[B]** Presale platform approved (recommended: PinkSale Solana; see `docs/PLATFORM_DECISION.md`). No SOL sent to a personal wallet
 - [ ] **[B]** Hard cap, soft cap, per-wallet min/max and price in LBG per SOL, all from `tokenomics/model.py`
 - [ ] **[B]** Refund rule if the soft cap is missed, and an end time
 - [ ] **[B]** Legal review of the presale terms (governance + presale = securities risk)

@@ -32,3 +32,10 @@ Merged main (site `lbgv6/` + creator kit) into the working branch. Full findings
 - CRITICAL: Public site/kit say "Pump.fun launch"; the founder plan is a presale with a burn + allocations. Founder must choose.
 - CRITICAL: No on-chain infra exists for a presale on 2026-11-05.
 - Site, CSP and secret scan: clean.
+
+## 2026-11-04: launch method = PRESALE (founder decision)
+- **Decided (founder):** $LBG launches via a community presale, not Pump.fun. Expect many revisions.
+- **Platform research:** see `docs/PLATFORM_DECISION.md`. Recommended PinkSale Solana presale. **Awaiting approval.**
+- Model now includes PinkSale's 5% fee: treasury at hard cap ≈ 20.9 SOL; PinkSale liquidity 78%.
+- Site copy (`lbgv6/index.html`) and README: "Pump.fun" changed to "community presale planned, details TBA". No numbers published.
+- Still open: allocation choice (A vs B), hard cap, presale date, legal review, creator kit FAQ update.
