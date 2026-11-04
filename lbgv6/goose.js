@@ -384,21 +384,51 @@
 
   // --- Hide & seek + quiz: find the hiding goose, answer a question, win or lose Honk Points (just for fun, no token value) ---
   const QUESTIONS = [
+    // The coin
     ['What is the Low Battery Goose ticker?', ['$LBG', '$HONK', '$GOOSE'], 0],
     ['Where does $LBG launch?', ['Pump.fun', 'A private presale', 'Bitcoin'], 0],
     ['Which blockchain is $LBG on?', ['Solana', 'Ethereum', 'Dogecoin'], 0],
-    ['What battery % is the goose running on?', ['1%', '50%', '100%'], 0],
-    ["Finish the slogan: Running on 1%. Still…", ['honking.', 'charging.', 'sleeping.'], 0],
-    ['What is the community Telegram group called?', ['The Low Battery Flock', 'Goose Gang', 'Honk Club'], 0],
+    ['What time does $LBG launch on Nov 4?', ['6:00 PM PT', '6:00 AM PT', 'Midnight UTC'], 0],
+    ['How many LBG tokens exist in total?', ['1,000,000,000', '21,000,000', 'Infinite'], 0],
+    ['Can anyone mint more LBG after launch?', ['No, supply is fixed', 'Yes, the dev can', 'Only on Tuesdays'], 0],
+    ['Where does $LBG trade after the Pump.fun curve fills?', ['PumpSwap', 'The goose pond', 'A bank'], 0],
+    ['How do team tokens unlock?', ['25% at launch, then every 3 months', 'All at once on day one', 'Never'], 0],
+    ['What will the team never do during launch week?', ['Sell team tokens', 'Post memes', 'Honk'], 0],
+    // Safety
     ['Admins of Low Battery Goose will never…', ['DM you first', 'post memes', 'play Honk Bingo'], 0],
     ['Who should you share your seed phrase with?', ['Nobody. Ever.', 'An admin who DMs you', 'The goose'], 0],
     ['Where is the only official contract address?', ['Our website and official channels', 'Any DM you get', 'The first reply under a post'], 0],
-    ['What is the free mini-game on the site called?', ['1% Honk Bingo', 'Goose Poker', 'Battery Blackjack'], 0],
+    ['Someone DMs you a "special $LBG presale". What is it?', ['A scam', 'A gift', 'The goose being nice'], 0],
+    ['Which Telegram command shows the verified contract?', ['/contract', '/moon', '/giveme'], 0],
+    ['What should you check before trading?', ['The contract address matches our site', 'The price only', 'A random link'], 0],
+    ['Copycat coins use the same name. How do you spot the real one?', ['Check the contract address', 'Pick the cheapest', 'Pick the loudest'], 0],
+    // Community
+    ['What is the community Telegram group called?', ['The Low Battery Flock', 'Goose Gang', 'Honk Club'], 0],
+    ['What is the official X account?', ['@LowBatteryGoose', '@GooseMoon', '@HonkBank'], 0],
+    ['What is the announcement channel?', ['@LowBatteryGooseSOL', '@GooseNews', '@LBGAlpha'], 0],
     ['Which hashtag is the weekly meme challenge?', ['#PassTheGoose', '#GooseMoon', '#HonkPump'], 0],
+    ['In #PassTheGoose, how many friends do you tag?', ['3', '1', '30'], 0],
     ['What is the Goose Guess winner crowned?', ['The First Honker', 'Goose King', 'Battery Boss'], 0],
+    ['What does the Goose Guess ask you to predict?', ['Flock members at launch', 'The price tomorrow', "The goose's age"], 0],
+    ['What is the top Flock Rank?', ['Golden Goose', 'Mega Egg', 'Duck'], 0],
+    ['What rank do you start at in Pass the Goose?', ['Egg', 'Honker', 'Golden Goose'], 0],
+    ['What is the Golden Honk challenge about?', ['Your funniest battery-drain story', 'Trading', 'Running a marathon'], 0],
+    // The goose
+    ['What battery % is the goose running on?', ['1%', '50%', '100%'], 0],
+    ["Finish the slogan: Running on 1%. Still…", ['honking.', 'charging.', 'sleeping.'], 0],
+    ['What does the goose drink to recharge?', ['Coffee', 'Battery acid', 'Lemonade'], 0],
     ['What happens if you poke the goose too many times?', ['He rages and chases you', 'He gives you coffee', 'Nothing'], 0],
+    ['What does the goose do with letters on the website?', ['Steals and throws them', 'Eats them forever', 'Spell-checks them'], 0],
+    ['What is printed on the goose\'s coffee mug?', ['1%', 'HODL', 'World\'s Best Goose'], 0],
+    ['What is the free mini-game on the site called?', ['1% Honk Bingo', 'Goose Poker', 'Battery Blackjack'], 0],
+    ['How many in a row win Honk Bingo?', ['3', '5', '9'], 0],
+    ['What badge do you unlock in Honk Bingo?', ['Certified Honker', 'Goose Lord', 'Battery Saver'], 0],
+    // Slang
     ['What does "dead batt" mean in the flock?', ['Completely done', 'Fully charged', 'A bug in the site'], 0],
-    ['What does the goose drink to recharge?', ['Coffee', 'Battery acid', 'Lemonade'], 0]
+    ['What is a "1%er"?', ['Someone running on nothing but still showing up', 'A whale', 'A bot'], 0],
+    ['What is a "Honk Storm"?', ['Everyone posting memes at once', 'A weather alert', 'A price crash'], 0],
+    ['What does "get goosed" mean?', ['Get tagged into #PassTheGoose', 'Get scammed', 'Get banned'], 0],
+    ['What is "the nest"?', ['The Telegram group', 'A wallet', 'The goose\'s house on-chain'], 0]
   ];
 
   const qcss = document.createElement('style');
@@ -430,6 +460,19 @@
   hintChip.hidden = true;
   hintChip.textContent = '👀 THE GOOSE IS HIDING! FIND HIM';
   chips.prepend(hintChip);
+  const triviaChip = document.createElement('button');
+  triviaChip.type = 'button';
+  triviaChip.className = 'lbg-chip';
+  triviaChip.textContent = '🎯 PLAY GOOSE TRIVIA';
+  chips.prepend(triviaChip);
+  const playTrivia = () => {
+    if (!goose) { store.set('lbg-goose', 'on'); setLabel(); start(); }
+    sound = true;
+    if (hiding && hideEl) { hideEl.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' }); return; }
+    setTimeout(() => { if (startHide() && hideEl && !reduce) hintChip.textContent = '👀 FIND HIM! (TAP HERE FOR A HINT)'; }, goose ? 0 : 1200);
+  };
+  triviaChip.addEventListener('click', playTrivia);
+  document.addEventListener('click', e => { if (e.target.closest('[data-goose-trivia]')) { e.preventDefault(); playTrivia(); } });
   hintChip.addEventListener('click', () => { if (hideEl) hideEl.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' }); hintChip.textContent = '👀 GETTING WARMER…'; });
 
   function startHide() {
@@ -562,7 +605,7 @@
     x = reduce ? 16 : rand(0, Math.max(0, W() - gw()));
     goose.style.setProperty('--gx', x + 'px');
     goose.addEventListener('click', poke);
-    running = true; last = 0; nextAct = performance.now() + 4000; nextHide = performance.now() + rand(25000, 40000);
+    running = true; last = 0; nextAct = performance.now() + 4000; nextHide = performance.now() + rand(12000, 20000);
     requestAnimationFrame(frame);
     setTimeout(() => honk(pick(['HONK! I live here now.', 'running on 1%. hi.', 'poke me. I dare you.'])), 1200);
   }
@@ -572,6 +615,7 @@
     stolen.forEach(span => restore(span, null));
     document.querySelectorAll('.lbg-flying,.lbg-bubble,.lbg-feather').forEach(n => n.remove());
     if (hiding) endHide(null);
+    if (quizOpen) document.querySelectorAll('.lbg-quiz-back').forEach(n => n.remove()), quizOpen = false;
     if (goose) { goose.remove(); goose = null; }
     scoreChip.hidden = true;
   }

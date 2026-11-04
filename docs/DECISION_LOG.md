@@ -185,3 +185,10 @@ Merged main (site `lbgv6/` + creator kit) into the working branch. Full findings
   proposed as phase 2 after launch (points feed the weekly Flock Drop).
 - Letters now fly off-screen fading out and fade back into place (no more dead stops).
 - Tested: hide, quiz right/wrong scoring, rage, letter return; no errors.
+
+## 2026-11-04: trivia live-ready; deploy mix-up found
+- Live site was still running the first goose version: the last uploads did not reach production (same zip name
+  each time, likely an older copy uploaded). Zips now get unique names (LBG-site-v5-trivia.zip).
+- Trivia: 40 questions (coin, safety, community, goose, slang); "Play Goose Trivia" button on the site (#goose-trivia)
+  and as a corner chip, starts the hunt immediately; first automatic hide after 12-20s. Tested 1366/375px.
+- Micro-airdrops for trivia: founder will provide later (needs server-side answer checking + wallets).

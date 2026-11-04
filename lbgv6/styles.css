@@ -80,3 +80,6 @@
 img{height:auto}
 .hero-art img{aspect-ratio:1/1;object-fit:cover}
 .hero-art{max-width:520px;justify-self:center}
+.trivia-strip{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:22px;padding:20px 24px;border:var(--hair);border-radius:18px;background:var(--cream);box-shadow:6px 6px 0 var(--ink)}
+.trivia-strip>div{display:grid;gap:6px;min-width:0}.trivia-strip strong{font-size:13px;letter-spacing:.1em}.trivia-strip span{font-size:15px;line-height:1.45}
+@media(max-width:700px){.trivia-strip{flex-direction:column;align-items:stretch}}
