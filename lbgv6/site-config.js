@@ -9,5 +9,9 @@ window.LBG_CONFIG = Object.freeze({
   community: 'https://t.me/LowBatteryFlock',
   website: 'https://lowbatterygoose.pages.dev',
   mint: null,       // e.g. mint: 'PASTE_CONTRACT_ADDRESS_HERE',
-  pumpFun: null     // optional: full https://pump.fun/coin/... link; derived from mint when null
+  pumpFun: null,    // optional: full https://pump.fun/coin/... link; derived from mint when null
+  // GOOSE GUESS: paste the Google Form link (https://forms.gle/... or https://docs.google.com/forms/...).
+  // Until it is set, the Enter button sends people to the Telegram group.
+  guessForm: null,
+  guessCloses: '2026-11-05T01:00:00Z'  // 5:00 PM PT, Nov 4, 2026. After this the button shows "Entries closed".
 });

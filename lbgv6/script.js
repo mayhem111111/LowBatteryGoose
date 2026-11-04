@@ -64,6 +64,24 @@
     if (socialState) socialState.textContent = 'OFFICIAL CONTRACT SHOWN ON THIS SITE · WE NEVER DM FIRST';
   })();
 
+  // Goose Guess: form link from site-config.js (Google Forms only); closes automatically at guessCloses.
+  (() => {
+    const btns = document.querySelectorAll('[data-guess-link]');
+    const status = document.querySelector('[data-guess-status]');
+    if (typeof links.guessForm === 'string') {
+      try {
+        const u = new URL(links.guessForm);
+        const ok = u.protocol === 'https:' && (u.hostname === 'forms.gle' || (u.hostname === 'docs.google.com' && u.pathname.startsWith('/forms/')));
+        if (ok) btns.forEach(a => { a.href = u.href; });
+      } catch { /* keep the Telegram fallback */ }
+    }
+    const closes = Date.parse(links.guessCloses || '');
+    if (!Number.isNaN(closes) && Date.now() >= closes) {
+      btns.forEach(a => { a.removeAttribute('href'); a.setAttribute('aria-disabled', 'true'); a.classList.add('is-closed'); const l = a.querySelector('[data-guess-label]'); if (l) l.textContent = 'ENTRIES CLOSED'; });
+      if (status) status.textContent = 'Entries are closed. Winner revealed Nov 5 at 6:00 PM PT in our official channels.';
+    }
+  })();
+
   const fallbackReason = 'opened my inbox.';
   const image = new Image();
   image.src = 'assets/goose.png';

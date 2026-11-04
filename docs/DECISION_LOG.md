@@ -142,3 +142,12 @@ Merged main (site `lbgv6/` + creator kit) into the working branch. Full findings
   5,000 LBG base for verified sign-ups (first 1,000), quests up to 15,000 per person, Season 1 to Nov 18, single payout
   after bot review. Free; no purchase/holding required. Run on a quest platform (Zealy/Galxe/TaskOn).
 - Wording: no profit/"spectacular opportunity"/dollar-value language. Strategy: docs/MARKETING_STRATEGY.md.
+
+## 2026-11-04: The Goose Guess launch game (founder request)
+- Guess the Flock Telegram member count at launch (6 PM PT Nov 4); entries close 5 PM PT; reveal 6 PM PT Nov 5.
+- Founder asked: must be in the community (adopted) and must hold tokens to win (adapted): holding is a BONUS that
+  doubles the prize, not a requirement, so no purchase is necessary to enter or win (avoids lottery/inducement risk).
+- Prizes: 2.5M / 1M / 500K LBG; doubled for wallets holding 100,000+ LBG at the Nov 5 5 PM PT snapshot. Max pool 8M LBG,
+  bought in the founder's first buy (~0.27 SOL est.), held in a disclosed prize wallet.
+- Site: new #goose-guess section; Google Form link via site-config `guessForm` (Google Forms only; Telegram fallback);
+  auto-closes at `guessCloses`. Tested 1280/375px, no errors. Kit: docs/GOOSE_GUESS.md.
