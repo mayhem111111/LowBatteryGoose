@@ -5,6 +5,7 @@ This directory is the canonical, version-controlled source for the project's pub
 - [White Paper](WHITEPAPER.md)
 - [Tokenomics](TOKENOMICS.md)
 - [Roadmap](ROADMAP.md)
+- [Public Wallet Register](WALLET_REGISTER.md)
 
 ## Publication and verification standard
 
