@@ -4,6 +4,7 @@
 
 **Status:** Public project overview and operating framework. Any token, wallet, purchase, vesting, treasury, or security-control detail that requires chain evidence remains subject to verification. This document does not claim that an unverified launch, vesting stream, multisig deployment, staking program, bridge, or reward program is live.
 
+
 > **Governance sign-up sheet:** [Open the Governance Board & Community application page](https://lowbatterygoose.pages.dev/governance.html) to review roles and express interest. *Submissions remain subject to the secure Airtable connection being enabled.*
 
 ## Abstract
@@ -73,7 +74,9 @@ The companion [Tokenomics document](TOKENOMICS.md) is the detailed source for th
 
 Governance is intended to provide a documented way to consider proposals, priorities, program budgets, and material changes. The process should identify who may propose, review, and approve a decision, how conflicts are disclosed, and how the community can understand the outcome.
 
+
 **Interested in serving?** [Open the Governance Board & Community sign-up sheet](https://lowbatterygoose.pages.dev/governance.html). Review the available roles and express interest. *Application submissions remain subject to the secure Airtable connection being enabled.*
+
 
 Governance approval does not grant an individual unilateral custody or spending power. A committee chair, including the head of the Governance Committee, is responsible for oversight of the process but cannot release project-controlled assets without the second independent authorized signature.
 
