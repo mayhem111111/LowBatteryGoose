@@ -212,3 +212,9 @@ Merged main (site `lbgv6/` + creator kit) into the working branch. Full findings
 - **Print buttons:** inline `onclick` (blocked by CSP) replaced with `data-print` handled by `documents/doc-tools.js`.
 - **Navigation:** GOVERNANCE link added to the main nav on the white paper and document pages.
 - Submissions still require the `AIRTABLE_TOKEN` secret to be set in Cloudflare Pages (Production); until then the API returns 503.
+
+## 2026-11-05: Governance link moved to header; governance documents published on-site (Claude Code)
+- **Header:** GOVERNANCE removed from the main nav on every page and added as its own highlighted link in the header socials block (beside X / Telegram). The governance page header now carries the socials block too. `styles.css` cache version bumped to `20261105c`.
+- **On-site documents (founder request):** `BOARD_GOVERNANCE_CHARTER` published unchanged as `documents/BOARD_GOVERNANCE_CHARTER.{html,md}`. A public `documents/GOVERNANCE_ROLES.{html,md}` was derived from `docs/GOVERNANCE_BOARD_APPLICATION.md` with the internal sections (admin review record, publication checklist) and the form template (replaced by the live sign-up form) left out. Both pages are labelled "PROPOSED ... NOT YET APPROVED OR ACTIVE". `docs/` sources are unchanged.
+- **Links:** governance page and document library now link to the on-site copies instead of GitHub blob URLs on the `governance-board-intake` branch.
+- No change to roles, rules, numbers, or tokenomics.
