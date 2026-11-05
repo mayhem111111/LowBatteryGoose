@@ -197,3 +197,11 @@ Merged main (site `lbgv6/` + creator kit) into the working branch. Full findings
 - The tired cartoon goose is officially **Gooferson**. Brand portrait: lbgv6/assets/gooferson.svg + 1024px PNG.
 - Site: goose introduces himself as Gooferson; hide-and-seek and quiz copy use his name; new trivia question
   "What is the goose's name?" (41 questions). Package: LBG-site-v6-gooferson.zip.
+
+
+## 2026-11-05: founder correction — sole named founder/team member
+- **Founder clarification:** Jason Speer is the sole named founder/team member in the current Low Battery Goose plan.
+- Remove any second-person team role, community-lead allocation, beneficiary stream, creator-reward split, wallet recipient, or marketing responsibility from current plans and launch-facing copy.
+- The Jason Speer public founder/development wallet supplied by the founder is recorded in `docs/WALLET_REGISTER.md`; its use as Pump.fun creator/initial-buy wallet remains to be confirmed.
+- The prior 50M LBG / 5% founder purchase target and founder vesting schedule remain planning targets until confirmed by transactions and a deployed stream.
+- Historical entries above mentioning other proposed participants are retained as historical project notes only and are superseded for current launch and disclosures.
