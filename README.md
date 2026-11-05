@@ -47,8 +47,11 @@ Public channel URLs are configured in [`lbgv6/site-config.js`](lbgv6/site-config
 - `lbgv6/_headers` — Cloudflare Pages response headers.
 ## Tokenomics and launch planning (internal)
 
-- `tokenomics/`: supply/allocation config and presale calculator (`python3 tokenomics/model.py`)
-- `docs/TOKENOMICS.md`, `docs/PRESALE_RUNBOOK.md`, `docs/DECISION_LOG.md`, `docs/AUDIT.md`
+- `docs/TOKENOMICS.md`: current Pump.fun launch tokenomics and verification checklist.
+- `docs/WALLET_REGISTER.md`: public wallet and vesting disclosure register. Never add private keys or seed phrases.
+- `tokenomics/config.json` and `tokenomics/model.py`: legacy presale research only; not applicable to the current Pump.fun plan.
+- `docs/ECOSYSTEM_PLAN.md` and `docs/PRESALE_RUNBOOK.md`: archived presale research; do not use as launch instructions.
+- `docs/DECISION_LOG.md` and `docs/AUDIT.md`: decision history and repository audit.
 - `CLAUDE.md` and `.claude/`: rules, agents and skills for AI assistants
 - Tests: `python3 -m unittest discover tests`
 

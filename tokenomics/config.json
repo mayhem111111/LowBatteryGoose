@@ -1,4 +1,5 @@
 {
+  "_status": "LEGACY PRESALE RESEARCH ONLY — NOT CURRENT PUMPFUN LAUNCH CONFIG. See docs/TOKENOMICS.md.",
   "_comment": "Token amounts are TOKENS, not dollars. Presale price = hard_cap_sol / presale tokens. Terms are fixed in SOL; USD is display-only.",
   "token": {
     "name": "Low Battery Goose",

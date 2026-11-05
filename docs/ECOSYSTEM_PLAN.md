@@ -1,5 +1,8 @@
 # Low Battery Goose ($LBG): presale and ecosystem tokenomics plan
 
+> **SUPERSEDED — HISTORICAL PRESALE MODEL.** This plan describes a PinkSale presale and 100M post-burn supply. Those assumptions do not apply to the current Pump.fun launch. Use [docs/TOKENOMICS.md](TOKENOMICS.md) as the plan of record.
+
+
 > Internal planning document, v2 (2026-11-04, founder revision). Expect revisions.
 > Every number comes from `tokenomics/config.json` (scenario **D_founder_v2**) via
 > `python3 tokenomics/model.py` and `python3 tokenomics/emissions.py`. SOL/USD $93.85 (Crypto.com, 2026-11-04 11:36 UTC).
