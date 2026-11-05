@@ -205,3 +205,16 @@ Merged main (site `lbgv6/` + creator kit) into the working branch. Full findings
 - The Jason Speer public founder/development wallet supplied by the founder is recorded in `docs/WALLET_REGISTER.md`; its use as Pump.fun creator/initial-buy wallet remains to be confirmed.
 - The prior 50M LBG / 5% founder purchase target and founder vesting schedule remain planning targets until confirmed by transactions and a deployed stream.
 - Historical entries above mentioning other proposed participants are retained as historical project notes only and are superseded for current launch and disclosures.
+
+## 2026-11-05: site fix — white paper anchors/scroll and governance sign-up submission
+- **CSP:** `connect-src` changed from `'none'` to `'self'` in `lbgv6/_headers` so the governance form can POST to `/api/governance-application`. No third-party origins added.
+- **White paper scroll:** `whitepaper-top.js` no longer strips `#hash` links; it opens at top only when no hash is present. Added ids `#governance` and `#treasury-security` to sections 4 and 5.
+- **Print buttons:** inline `onclick` (blocked by CSP) replaced with `data-print` handled by `documents/doc-tools.js`.
+- **Navigation:** GOVERNANCE link added to the main nav on the white paper and document pages.
+- Submissions still require the `AIRTABLE_TOKEN` secret to be set in Cloudflare Pages (Production); until then the API returns 503.
+
+## 2026-11-05: Governance link moved to header; governance documents published on-site (Claude Code)
+- **Header:** GOVERNANCE removed from the main nav on every page and added as its own highlighted link in the header socials block (beside X / Telegram). The governance page header now carries the socials block too. `styles.css` cache version bumped to `20261105c`.
+- **On-site documents (founder request):** `BOARD_GOVERNANCE_CHARTER` published unchanged as `documents/BOARD_GOVERNANCE_CHARTER.{html,md}`. A public `documents/GOVERNANCE_ROLES.{html,md}` was derived from `docs/GOVERNANCE_BOARD_APPLICATION.md` with the internal sections (admin review record, publication checklist) and the form template (replaced by the live sign-up form) left out. Both pages are labelled "PROPOSED ... NOT YET APPROVED OR ACTIVE". `docs/` sources are unchanged.
+- **Links:** governance page and document library now link to the on-site copies instead of GitHub blob URLs on the `governance-board-intake` branch.
+- No change to roles, rules, numbers, or tokenomics.

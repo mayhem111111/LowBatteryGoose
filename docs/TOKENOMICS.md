@@ -39,7 +39,7 @@ Community initiatives do not automatically receive supply at mint. Any prize or 
 
 | Program | Internal plan | Publication rule |
 |---|---|---|
-| Goose Guess | Website displays a 5,000,000 LBG grand prize | Confirm final rules and prove prize funding in a disclosed wallet/account before calling it funded or available |
+| Goose Guess | Website displays a 1,000,000 LBG grand prize | Confirm final rules and prove prize funding in a disclosed wallet/account before calling it funded or available |
 | Flock Drop | Marketing plan proposes a 10,000,000 LBG pool | Proposal only until founder approval, final rules, live quest system, and funded disclosed wallet |
 | Future contests, games, airdrops | Possible future community activity | Announce only with budget, eligibility, source wallet, and funded balance |
 
@@ -64,7 +64,17 @@ Do not claim any of the following until verified from Solana data:
 
 A later buy-and-burn could be a separately approved action with a verifiable burn transaction. It is not part of the initial launch plan.
 
-## 7. Wallet register and treasury separation
+## 7. Universal two-signature release policy
+
+**Nothing under project control—tokens or funds—may be released without at least two independent authorized signatures. Every release. Every time.**
+
+This rule applies across the entire Low Battery Goose community and ecosystem, regardless of role, title, department, allocation, or asset type. It applies to project-controlled tokens, SOL, treasury balances, reserves, community rewards, contest prizes, marketing or production budgets, and any other assets held, controlled, or administered by the project.
+
+No founder, governance chair, committee head, developer, administrator, or department lead may authorize a project-controlled release alone. Governance oversight does not create unilateral custody or spending authority. Every release must have a documented purpose, amount, recipient, approved program or budget reference, two independent approvals, and a transaction record where available.
+
+The intended technical enforcement is a properly configured multisignature wallet or equivalent controls. Publish the wallet address, signer set, threshold, and operational status only after they are independently verified. Until then, this is the required policy—not a claim that a multisig is already operational. This rule governs project-controlled assets and does not control independent holders' self-custodied wallets.
+
+## 8. Wallet register and treasury separation
 
 See [WALLET_REGISTER.md](WALLET_REGISTER.md). The public Jason Speer founder/development wallet supplied by the founder is recorded there. Its use as the Pump.fun creator and initial-buy wallet still needs confirmation.
 
@@ -78,7 +88,7 @@ Recommended separation:
 
 Governance is not another wallet by itself. If a Realm or other governance program is implemented later, publish its program/Realm address and explain what treasury authority it controls.
 
-## 8. Launch verification checklist
+## 9. Launch verification checklist
 
 - [ ] Create the coin and copy the mint from the official Pump.fun page.
 - [ ] Verify name, ticker, token supply, token program, authorities, and creator on Solscan.
