@@ -1,80 +1,98 @@
-# $LBG tokenomics and presale numbers
+# $LBG tokenomics — current Pump.fun launch plan
 
-> **Superseded for planning by `docs/ECOSYSTEM_PLAN.md` (scenario C_ecosystem).** This page keeps the A vs B analysis.
+> **Plan of record:** Solana / Pump.fun launch, no presale, and no planned 900,000,000-token genesis burn.
+> **Important:** This is the current project plan, not proof of blockchain state. Values marked as planned or intended must be verified after the coin is created. This document is not an offer, price forecast, or promise of returns.
 
-> Generated from `tokenomics/config.json` via `python3 tokenomics/model.py`.
-> SOL/USD = $93.85 (Crypto.com, 2026-11-04 11:36 UTC). **Refresh this on presale morning.**
-> Internal planning only. Nothing here is a price forecast or a promise to buyers.
+## 1. Launch structure
 
-## Supply
-| | Tokens |
-|---|---|
-| Minted | 1,000,000,000 |
-| Burned at genesis | 900,000,000 |
-| **Circulating / max supply** | **100,000,000** (mint and freeze authority revoked) |
-
-The 900M burn has no economic effect on price. Price and market cap are calculated on the 100M
-that exist. That's why every figure below uses 100M. Publish the burn tx so buyers can verify it.
-
-## Finding 1: the allocation as given doesn't add up to a working presale
-The listed buckets total 20 + 20 + 25 + 25 + 5 = **95M**, so the presale can only be the remaining **5M (5%)**.
-That creates two problems:
-
-1. **The presale can't fund the LP.** The LP holds 20M tokens, 4x the presale tokens. To list
-   above the presale price, the LP needs about 5x the SOL the presale raises. The team would have
-   to add 80 SOL of its own at a 20 SOL raise. If the team only adds the presale SOL, the listing
-   price lands about 75% *below* what presale buyers paid, and they're instantly underwater.
-2. **Insiders hold 50%** (founder 25% + team 25%). On-chain scanners (RugCheck, Bubblemaps, etc.)
-   flag this immediately. It undermines the "we're not a rug" message the presale is meant to send.
-
-## Recommended allocation (Scenario B)
-| Bucket | Tokens | % | Vesting / lock (recommended) |
-|---|---|---|---|
-| Presale | 25,000,000 | 25% | 100% at listing (or 50% at listing + 50% after 30 days) |
-| Liquidity pool | 15,000,000 | 15% | LP tokens burned or locked 12 months |
-| Staking / airdrops / community | 20,000,000 | 20% | Multisig, emitted over 12–24 months |
-| Dev / marketing / team | 20,000,000 | 20% | 3-month cliff, then 12-month linear |
-| Founder | 15,000,000 | 15% | 6-month cliff, then 12-month linear |
-| Reserve | 5,000,000 | 5% | Multisig, Flock Council visibility |
-| **Total** | **100,000,000** | 100% | Insiders 35% |
-
-## Presale terms (Scenario B, recommended)
-| Item | Value |
-|---|---|
-| Presale price | **250,000 LBG per SOL** (0.000004 SOL ≈ $0.000375 per LBG) |
-| Hard cap / soft cap | **100 SOL / 50 SOL** (refunds if soft cap is missed) |
-| Per-wallet min / max | **0.05 SOL / 1 SOL** (max = 250,000 LBG = 0.25% of supply) |
-| Wallets needed to fill | 100 minimum (≈ 200 at 0.5 SOL average, about 22% of a 900-member TG) |
-| Listing price | **200,000 LBG per SOL** (presale buyers start +25%) |
-| Platform fee | 5% of raise (PinkSale), 5 SOL at hard cap |
-| LP at listing | ≈ 14.82M LBG + 74.1 SOL (PinkSale liquidity 78%, locked 365 days) |
-| Treasury | ≈ 20.9 SOL (multisig) |
-| Presale FDV → listing FDV | ≈ $37.5k → ≈ $46.9k |
-
-If the presale ends between the soft and hard caps, PinkSale keeps the same rates, puts 78% of the net SOL in
-the LP and burns the unsold tokens (Refund type = Burn). The listing price stays at 1.25x.
-Exact PinkSale form values are in `docs/PLATFORM_DECISION.md`.
-
-**Smaller fallback (B_conservative):** 50 SOL hard cap, 0.5 SOL max per wallet, 500,000 LBG per SOL.
-
-## What 100x means
-| Multiple vs presale | Price / LBG | Market cap (FDV) needed |
+| Item | Current plan | Evidence required |
 |---|---|---|
-| 10x | $0.00375 | $375k |
-| 25x | $0.00939 | $939k |
-| 50x | $0.01877 | $1.88M |
-| **100x** | **$0.03754** | **$3.75M** |
+| Token | Low Battery Goose ($LBG) | Confirm name and ticker on the official coin page and Solscan |
+| Network | Solana | Verify mint |
+| Launch | Pump.fun | Official coin page after creation |
+| Planned initial supply | 1,000,000,000 LBG | Verify actual mint supply |
+| Presale | None | No presale sale or presale allocation under this plan |
+| Genesis burn | None planned | Do not claim a burn without a confirmed burn transaction |
+| Planned post-launch supply | 1,000,000,000 LBG before any separately verified later burns | Verify on-chain |
+| Mint/freeze authority | Not yet verified | Read actual authority status on-chain; never infer revocation from a config file |
 
-The starting valuation is the main lever. Starting small (about $37.5k FDV) means 100x needs a $3.75M
-market cap. Starting at $750k would need $75M. That's why this plan sizes the raise to the
-community you have rather than a big number.
+The old presale model based on a 900M genesis burn and 100M remaining supply is shelved. Pump.fun's launch curve distributes the token; this plan does not create separate presale, LP, staking, marketing, development, or reserve token allocations at mint time.
 
-No allocation design produces a 100x. Demand does: sustained buyers, volume, listings and
-community growth. Most meme coins never reach 10x. Treat 100x as a stretch target for internal
-planning, **never as public messaging**. Saying it publicly creates legal exposure for a
-governance token sold in a presale.
+## 2. Team holdings — intended purchases, not mint allocations
 
-## Bucket values at listing (B)
-Presale $11.7k · LP $7.0k · Community $9.4k · Team $9.4k · Founder $7.0k · Reserve $2.3k.
-At 100x the founder bucket would be worth ≈ $563k on paper. Realizable value depends on liquidity.
-A 75 SOL LP can't absorb large sells, which is why vesting matters for everyone.
+The founder's latest recorded instructions target the following team positions, funded through the launch purchase. These amounts are not pre-allocated balances; actual quantities must be evidenced by transaction signatures and wallet balances.
+
+| Beneficiary | Intended tokens | Share of planned 1B supply | Status |
+|---|---:|---:|---|
+| Jason Speer — founder | 50,000,000 LBG | 5.0% | Target; purchase and wallet balance require verification |
+| Tony — community lead | 25,000,000 LBG | 2.5% | Target funded by founder per recorded instruction; recipient and transfer/stream require verification |
+| **Combined target** | **75,000,000 LBG** | **7.5%** | Not an on-chain allocation |
+
+Recorded intended vesting for each position: 25% at launch, then 25% on February 4, May 4, and August 4, 2027. The recorded plan specifies Streamflow vesting and non-cancellable streams. Do not describe tokens as locked until each stream exists and its mint, amount, beneficiary, schedule, and cancellation settings are publicly verifiable.
+
+At the target amounts, each 25% tranche is 12,500,000 LBG for Jason and 6,250,000 LBG for Tony. Adjust all figures to match actual transactions and deployed streams.
+
+## 3. Creator rewards
+
+The founder's intended creator-reward split is Jason 75% / Tony 25%, with no community-fee share. This is an intended setting, not a verified configuration. After coin creation, inspect the official Pump.fun coin page and verify the recipients and split before publicly claiming that it is active.
+
+## 4. Community programs
+
+Community initiatives do not automatically receive supply at mint. Any prize or reward must be purchased/acquired, funded, and disclosed separately. Avoid double-counting the same tokens across team holdings, prize pools, and reward programs.
+
+| Program | Internal plan | Publication rule |
+|---|---|---|
+| Goose Guess | Website displays a 5,000,000 LBG grand prize | Confirm final rules and prove prize funding in a disclosed wallet/account before calling it funded or available |
+| Flock Drop | Marketing plan proposes a 10,000,000 LBG pool | Proposal only until approved by founder, quest system and rules are live, and wallet is funded |
+| Future contests, games, airdrops | Possible future community activity | Announce only with a published budget, eligibility, source wallet, and funded balance |
+
+The Flock Drop, prize wallet, and any additional community allocations must be budgeted against actual purchased holdings. They are not included in the 75M team target and must not be represented as funded by it unless the purchase receipt and remaining balance demonstrate that.
+
+## 5. Liquidity and trading
+
+- Initial trading is expected to take place through Pump.fun's bonding-curve launch mechanism.
+- No fixed presale price, listing premium, hard cap, soft cap, or presale raise target applies.
+- Do not claim project-owned liquidity is locked, burned, or controlled by a multisig unless a pool/LP position actually exists and custody/lock evidence is available.
+- A separate Liquidity Management multisig is optional and only useful if the project later manages additional liquidity capital or LP positions.
+
+## 6. Supply, authorities, and burn claims
+
+Do not make any of these claims until verified from Solana data:
+- 900M tokens burned;
+- 100M total or maximum supply;
+- mint or freeze authority revoked;
+- metadata update authority renounced;
+- liquidity locked or LP tokens burned;
+- team or community balances locked in vesting;
+- staking or governance operational.
+
+A later buy-and-burn may be considered as a separate, approved transaction, with the exact burn amount and transaction signature published. It is not part of the initial launch plan.
+
+## 7. Wallet register and treasury separation
+
+See [WALLET_REGISTER.md](WALLET_REGISTER.md) for the public address register. The founder wallet supplied by the founder is listed there as founder/development wallet; its role in the Pump.fun creator account and initial buy still needs confirmation.
+
+A separate “tokenomics wallet” is not required. Tokenomics is the accounting policy, not a custody role.
+
+Recommended separation:
+1. Founder / creator / initial-buy wallet.
+2. Tony beneficiary and creator-reward recipient wallet.
+3. Community Rewards multisig, when funded.
+4. Optional Liquidity Management multisig, only if project-managed liquidity assets later exist.
+5. Separate prize or airdrop wallet only when a program has approved rules and committed funding.
+
+Governance is not another wallet by itself. If a Realm or other governance program is implemented, publish its program/Realm address and explain what treasury authority it controls. Do not claim governance is operational until voting and execution are live.
+
+## 8. Launch verification checklist
+
+- [ ] Create the coin and copy the mint from the official Pump.fun page.
+- [ ] Verify name, ticker, token supply, token program, authorities, and creator on Solscan.
+- [ ] Verify founder purchase transactions and public wallet balances.
+- [ ] Verify Tony's beneficiary address and any transfer/vesting stream.
+- [ ] Confirm the creator-reward split on the coin page.
+- [ ] Create and verify Streamflow streams before claiming tokens are locked.
+- [ ] Create and verify the Community Rewards multisig before describing it as funded.
+- [ ] Prove the Goose Guess and Flock Drop prize/reward funds before announcing them as available.
+- [ ] Update site, bot, X, and Telegram with the same verified mint and links.
+
+Historical PinkSale/presale models, presale pricing, the 900M burn scenario, and 100M post-burn supply remain only as historical research and do not describe this launch.
