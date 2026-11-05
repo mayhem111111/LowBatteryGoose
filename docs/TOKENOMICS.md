@@ -39,7 +39,7 @@ Community initiatives do not automatically receive supply at mint. Any prize or 
 
 | Program | Internal plan | Publication rule |
 |---|---|---|
-| Goose Guess | Website displays a 5,000,000 LBG grand prize | Confirm final rules and prove prize funding in a disclosed wallet/account before calling it funded or available |
+| Goose Guess | Website displays a 1,000,000 LBG grand prize | Confirm final rules and prove prize funding in a disclosed wallet/account before calling it funded or available |
 | Flock Drop | Marketing plan proposes a 10,000,000 LBG pool | Proposal only until founder approval, final rules, live quest system, and funded disclosed wallet |
 | Future contests, games, airdrops | Possible future community activity | Announce only with budget, eligibility, source wallet, and funded balance |
 
