@@ -1,8 +1,6 @@
 # $LBG Pump.fun launch kit
 
-Replace before posting: `[LAUNCH_TIME]` (e.g. Thu Nov 5, 6:00 PM PT) · `[CONTRACT_ADDRESS]` (paste from the Pump.fun page
-after verifying on Solscan) · `[FOUNDER_WALLET]` · `[BUY_SOL]` · `[TONY_WALLET]` · `[STREAMFLOW_LINK]`.
-Never post a contract address before the coin exists. No price talk, no "100x", no "guaranteed" anywhere.
+Replace before posting: `[LAUNCH_TIME]` · `[CONTRACT_ADDRESS]` (copy from Pump.fun and verify on Solscan) · `[FOUNDER_WALLET]` (Jason's public address) · `[BUY_SOL]` (actual SOL amount from the transaction receipt) · `[STREAMFLOW_LINK]` (only after a verified stream exists). Jason Speer is the sole named project founder/team member. Never post a contract address before the coin exists. No price talk, no "100x", no "guaranteed" anywhere.
 
 ---
 
@@ -17,7 +15,7 @@ Never post a contract address before the coin exists. No price talk, no "100x", 
 | X | https://x.com/LowBatteryGoose |
 | Telegram | https://t.me/LowBatteryGooseSOL |
 | Pair | SOL |
-| Creator rewards | Creator (you); after creation, share 25% with Tony's wallet from the coin page (Jason 75% / Tony 25%) |
+| Creator rewards | Creator wallet only; do not add a third-party recipient or fee split |
 | Mayhem Mode | Off |
 
 ## 2. The 10 minutes after you click Create
@@ -58,15 +56,14 @@ Never post a contract address before the coin exists. No price talk, no "100x", 
 > Copycats use the same name. Check the address. Meme coin, high risk, NFA.
 
 **Founder disclosure (first hour, 2-post thread)**
-> 1/ 🪿 Team transparency:
+> 1/ 🪿 Founder transparency:
 >
-> • Jason (founder): [FOUNDER_WALLET]
-> • Tony (team): [TONY_WALLET]
-> • Dev buy at launch: [BUY_SOL] SOL
-> • No hidden wallets. No team sales during launch week.
-
-> 2/ Team tokens: Jason 5%, Tony 2.5%.
-> 25% unlocks at launch, then 25% on Feb 4, May 4 and Aug 4. Locked on Streamflow: [STREAMFLOW_LINK]
+> • Jason Speer (sole named founder/team member): [FOUNDER_WALLET]
+> • Actual founder buy: [BUY_SOL] SOL (publish transaction receipt)
+> • Other project-controlled wallets, if created, will be listed separately with their purpose and public address.
+>
+> 2/ Founder holding target: Jason 5% (50M LBG), subject to actual purchase verification.
+> Intended vesting: 25% at launch, then 25% on Feb 4, May 4 and Aug 4, 2027. Publish the Streamflow link only after it is live and verified: [STREAMFLOW_LINK]
 >
 > Receipts posted weekly. 🔋
 
@@ -132,16 +129,14 @@ Meme coins are speculative and can lose all value. Not financial advice.
 ```
 🪿 FOUNDER TRANSPARENCY
 
-• Dev wallet: [FOUNDER_WALLET]
-• Dev buy at launch: [BUY_SOL] SOL
-• Team wallet (Tony): [TONY_WALLET]
-• Team tokens: Jason 5% (50M LBG), Tony 2.5% (25M LBG)
-• Vesting: 25% at launch, then 25% on Feb 4, May 4 and Aug 4, 2027. Locks: [STREAMFLOW_LINK]
-• Creator fees: Jason 75%, Tony 25%
-• No team sales during launch week
-• No hidden or bundled wallets
+• Founder / development wallet: [FOUNDER_WALLET]
+• Actual founder buy: [BUY_SOL] SOL (publish transaction receipt)
+• Founder holding target: 50,000,000 LBG (5% of planned 1B supply), subject to actual purchase verification
+• Intended vesting: 25% at launch, then 25% on Feb 4, May 4 and Aug 4, 2027. Publish the Streamflow link only after it is live: [STREAMFLOW_LINK]
+• No third-party creator-reward share is authorized
+• Any additional project-controlled wallets will be disclosed by purpose and public address
 
-Team wallet activity and contest payouts will be posted every week. Questions welcome in the group.
+Founder wallet activity and contest payouts will be reported with public transaction links. Questions welcome in the group.
 ```
 
 **Flock group pinned rules**
