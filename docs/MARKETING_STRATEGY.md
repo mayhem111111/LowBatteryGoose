@@ -1,5 +1,8 @@
 # Low Battery Goose ($LBG): launch marketing strategy
 
+> **Internal proposal only:** The Flock Drop figures below are not proof that the campaign is approved, configured, or funded. Do not announce it as live until the founder approves final rules, a real quest URL exists, and a disclosed wallet is funded. Verify every advertised token prize before describing it as available.
+
+
 Launch: Pump.fun, Nov 4, 2026, 6:00 PM PT. Owner: Jason (dev). Community lead: Tony.
 SOL/USD $96.61 (Crypto.com, 2026-11-04 16:59 UTC). Pump.fun figures are estimates from the standard curve; the create screen is authoritative.
 
