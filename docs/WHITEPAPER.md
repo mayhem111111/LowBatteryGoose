@@ -2,21 +2,21 @@
 
 **Community edition · Version 1.0 · 4 November 2026**
 
-**Document status:** Project overview and operating framework. Token and wallet details that require chain evidence remain pending verification. This document does not claim that an unverified token launch, multisignature deployment, staking program, bridge, or reward program is live.
+**Status:** Public project overview and operating framework. Any token, wallet, purchase, vesting, treasury, or security-control detail that requires chain evidence remains subject to verification. This document does not claim that an unverified launch, vesting stream, multisig deployment, staking program, bridge, or reward program is live.
 
 ## Abstract
 
-Low Battery Goose (LBG) is a community-driven digital project built around a playful goose identity and a broader ambition: to create a welcoming ecosystem for games, creative media, practical education, community participation, and useful digital experiences. The project begins with a Solana-first foundation and has a longer-term cross-chain research vision.
+Low Battery Goose (LBG) is a community-driven digital project built around a playful goose identity and a broader ambition: to create a welcoming ecosystem for games, creative media, practical education, community participation, and useful digital experiences. The project is Solana-first, with a longer-term cross-chain research vision.
 
-The project is intended to be more than a token. Its direction includes accessible browser games, community events, video and YouTube production, cryptocurrency and AI education, security awareness, contributor opportunities, and carefully evaluated utility. These are development goals, not promises that every feature is already available.
+The project aims to be more than a token. Its direction includes accessible browser games, community events, videography and YouTube content, cryptocurrency and AI education, security awareness, contributor opportunities, and carefully evaluated utility. These are development goals, not promises that every feature is already available.
 
-The project's central operating commitment is transparency and accountability. **No project-controlled token or fund may be released without at least two independent authorized signatures.** This rule applies throughout the ecosystem—including governance, development, production, marketing, community programs, rewards, and every other department or allocation. No individual, including the head of the Governance Committee, may authorize a project-controlled release alone.
+Transparency and accountability are foundational. **No project-controlled token or fund may be released without at least two independent authorized signatures.** This rule applies throughout the ecosystem—including governance, development, production, marketing, community programs, and every other project workstream. No individual, including the head of the Governance Committee, may authorize a project-controlled release alone.
 
-## 1. Project identity and purpose
+## 1. Purpose and principles
 
 Low Battery Goose uses humor and a recognizable community identity to make participation approachable. The project aims to give members ways to contribute, learn, create, play, and collaborate without making token ownership a prerequisite for joining the community or enjoying free games.
 
-The project's guiding principles are:
+The operating principles are:
 
 - **Transparency:** distinguish verified facts from proposals, plans, and work in progress.
 - **Accountability:** document decisions, budgets, approvals, recipients, and project-controlled transactions.
@@ -41,7 +41,7 @@ Rules, scoring, eligibility, prize terms, and selection methods should be publis
 
 ### 2.3 Media, videography, and YouTube
 
-The project intends to develop community-led media, including videography, editing, animation, graphics, short-form content, and a potential YouTube education and entertainment presence. Content may cover project updates, community stories, cryptocurrency fundamentals, Solana, AI tools, and responsible technology use.
+The project intends to develop community-led media, including videography, editing, animation, graphics, short-form content, and a potential YouTube presence. Content may cover project updates, community stories, cryptocurrency fundamentals, Solana, AI tools, and responsible technology use.
 
 Media work funded by project resources must have a documented production plan, budget, deliverables, responsible contributors, and independent approvals. No department or individual may release project funds alone.
 
@@ -53,23 +53,23 @@ Educational material should encourage independent research and explain risks cle
 
 ### 2.5 Utility and cross-chain research
 
-The project has a longer-term cross-chain vision. Research may examine interoperability, practical community tools, integrations, and ways to make ecosystem experiences more accessible. Any bridge, cross-chain asset movement, smart-contract integration, or new utility introduces technical and operational risks and must be evaluated before implementation.
+The project has a longer-term cross-chain vision. Research may examine interoperability, practical community tools, integrations, and ways to make ecosystem experiences more accessible. Any bridge, cross-chain asset movement, smart-contract integration, or custody arrangement introduces technical and operational risks and must be evaluated before implementation.
 
-Cross-chain functionality is a goal for research and development—not a claim that a bridge or cross-chain product is currently live. Proposed utility must be assessed for actual user benefit, feasibility, security, maintenance, and cost before being funded or advertised as available.
+Cross-chain functionality is a research and development goal—not a claim that a bridge or cross-chain product is currently live. Proposed utility must be assessed for actual user benefit, feasibility, security, maintenance, and cost before it is funded or advertised as available.
 
-## 3. Token framework
+## 3. Token and launch framework
 
-The current tokenomics planning framework uses a target maximum supply of **1,000,000,000 LBG** on Solana and has **no presale allocation or presale program**. This figure is a planning target until the mint address, decimals, mint authority status, and actual on-chain supply are independently verified.
+The current project plan is a Solana / Pump.fun launch with a target initial supply of **1,000,000,000 LBG**, **no presale**, and **no planned 900,000,000-token genesis burn**. The older PinkSale/presale model and 100-million post-burn scenario are shelved and do not describe the current plan.
 
-The current proposed allocation framework is described in the companion [Tokenomics document](TOKENOMICS.md). It includes founder and developer categories, liquidity, governance and operations, and staking/vesting/rewards programs. The percentage framework is not proof of actual balances, purchases, locks, or entitlements.
+The planned supply is not proof that a mint exists or that the on-chain supply, mint authority, freeze authority, or metadata authority has been verified. The mint address and actual token details must be checked against the official coin page and Solana records before publication as facts.
 
-The founder's purchase was described as approximately **130 SOL**, and the Doobie developer purchase as approximately **50 SOL**. The actual LBG received, transaction signatures, and percentages of verified supply must be confirmed from the relevant Solana transactions before being published as completed purchase facts. Do not infer a token quantity from the SOL amount or treat a proposed allocation percentage as the actual purchased position.
+The current tokenomics plan identifies Jason Speer as the sole named founder/team member and records a **50,000,000 LBG target (5% of the planned one-billion supply)** as an intended founder position—not a confirmed balance or completed purchase. The actual purchase, tokens received, and wallet balance require on-chain verification. No third-party creator-reward recipient or revenue split is authorized in the current plan unless the official coin-page settings later prove otherwise.
 
-No unverified mint, treasury, purchase wallet, or transaction signature is represented as confirmed in this edition. Public token information should link to verifiable chain records once those details are supplied and reconciled.
+The companion [Tokenomics document](TOKENOMICS.md) is the detailed source for the current launch plan. A planning amount does not create an allocation or entitlement. Community prizes and rewards must be separately approved, funded, and disclosed; the same tokens must never be counted twice across founder holdings and program pools.
 
 ## 4. Governance and decision-making
 
-Governance is intended to provide a documented way to consider proposals, priorities, program budgets, and material changes. The project's governance process should identify who may propose, review, and approve a decision, how conflicts are disclosed, and how the community can understand the outcome.
+Governance is intended to provide a documented way to consider proposals, priorities, program budgets, and material changes. The process should identify who may propose, review, and approve a decision, how conflicts are disclosed, and how the community can understand the outcome.
 
 Governance approval does not grant an individual unilateral custody or spending power. A committee chair, including the head of the Governance Committee, is responsible for oversight of the process but cannot release project-controlled assets without the second independent authorized signature.
 
@@ -83,17 +83,17 @@ Program budgets are proposals until approved through the documented process. Dep
 
 The rule applies to the entire Low Battery Goose community and ecosystem, without exceptions based on role, title, department, allocation, or urgency. It covers project-controlled SOL, tokens, treasury funds, reserves, liquidity assets while controlled by the project, grants, rewards, prizes, marketing budgets, production budgets, game funds, staking or vesting distributions, airdrops, and cross-chain reserves.
 
-It also applies to founder and developer allocations for as long as those assets remain held, controlled, or administered by project-controlled wallets. Assets held independently in a person's own self-custody wallet are outside project custody; the policy does not claim the ability to control an independent holder's transactions.
+It applies to any assets held, controlled, or administered by project-controlled wallets. It does not claim control over an independent holder's self-custodied wallet or that person's independent transactions.
 
 ### 5.2 No unilateral release authority
 
 No founder, governance chair, committee head, developer, department lead, administrator, or other individual may authorize a project-controlled release alone. A job title, committee role, governance vote, emergency label, or verbal instruction does not replace the second independent signature.
 
-The Governance Committee head oversees adherence to this standard but does not receive unilateral release authority. Governance, development, production, marketing, and other departments all operate under the same rule.
+The Governance Committee head oversees adherence to this standard but does not receive unilateral release authority. Governance, development, production, marketing, and all other departments operate under the same rule.
 
 ### 5.3 Required records
 
-Each project-controlled release should have a documented purpose, asset and quantity, destination address, approved budget or program reference, supporting records, two independent approvals, and a publicly verifiable transaction signature or equivalent record where the network provides one. The project should maintain records of incoming contributions, balances, approvals, budgets, recipients, milestones, releases, and reconciliations.
+Each project-controlled release should have a documented purpose, asset and quantity, destination address, approved budget or program reference, supporting records, two independent approvals, and a publicly verifiable transaction signature or equivalent record where available. The project should maintain records of incoming contributions, balances, approvals, budgets, recipients, milestones, releases, and reconciliations.
 
 ### 5.4 Technical enforcement and honest status
 
@@ -105,7 +105,7 @@ A written two-signature policy is not proof that a multisig wallet is already co
 
 Project resources should be allocated through documented programs and approved budgets. Each program should have a purpose, scope, responsible workstream, deliverables or milestones, recipient information, and reporting expectations. Funds should be released in stages where appropriate and only after the required approvals.
 
-The governance and operations program may support governance oversight, community management, website and platform operations, media and creative work, advertising and promotions, games, marketing coordination, production and videography, and software development. These categories are proposed budget areas, not guaranteed departmental entitlements.
+Any proposed community, governance, marketing, development, production, games, or education budget must be approved and reported before funds are committed. A department does not own a wallet or receive an automatic entitlement merely because a budget category exists. A separate wallet is a custody and control decision, not a substitute for transparent accounting.
 
 Liquidity, reserves, rewards, staking, vesting, and airdrop funds must be described according to their actual custody and status. Assets must not be called locked, deposited, secured, funded, or distributed without evidence. Public reporting should be meaningful while respecting personal privacy and operational security.
 
@@ -113,9 +113,9 @@ Liquidity, reserves, rewards, staking, vesting, and airdrop funds must be descri
 
 Rewards, airdrops, staking, and vesting are potential program components, not guaranteed benefits. Any program must publish its funding source, eligibility, allocation, timing, anti-abuse measures, claim process, and risks before launch.
 
-The current planning discussion includes staggered unlock concepts: a proposed 25% initial release for founder-associated and Doobie developer positions followed by quarterly releases, with development and marketing-related schedules beginning later and staggered to avoid coincident unlocks. These concepts are proposals only. Exact amounts, start dates, durations, wallet addresses, and lock mechanisms require final reconciliation and verification. No vesting contract or locked balance is claimed to exist unless proven.
+The current founder vesting plan records a target 50,000,000 LBG position with four proposed 25% releases: at launch, then February 4, May 4, and August 4, 2027. The recorded plan calls for a non-cancellable Streamflow stream. This remains a target and intended schedule, not proof that the tokens have been purchased or that a stream exists. Do not describe tokens as locked until the stream's mint, amount, beneficiary, schedule, and cancellation settings are publicly verifiable.
 
-No staking yield, reward rate, airdrop, or financial return is promised. Any staking or rewards implementation must be separately designed, reviewed, funded, and documented before being represented as active.
+No third-party creator-reward recipient or revenue split is authorized in the current plan. Community rewards such as the Goose Guess grand prize or Flock Drop pool remain proposals until final rules, approvals, and funded balances are verified and disclosed. No staking yield, reward rate, airdrop, or financial return is promised.
 
 ## 8. Security and member safety
 
@@ -154,15 +154,15 @@ No profit, price appreciation, liquidity outcome, yield, reward, airdrop, or fin
 
 This white paper is informational and does not constitute an offer, solicitation, or individualized investment, legal, or tax advice. Readers should conduct independent research and consult qualified advisers where appropriate.
 
-## 12. Verification register and publication checklist
+## 12. Verification register
 
 Before publishing details as verified, the project should attach or link evidence for:
 
-- The Solana mint address, token decimals, mint authority status, and actual supply.
-- The founder's approximately 130 SOL purchase: transaction signature, actual tokens received, and percentage of verified supply.
-- The Doobie developer's approximately 50 SOL purchase: transaction signature, actual tokens received, and percentage of verified supply.
-- The identity of the additional launch developer and any verified position.
+- The Solana mint address, token decimals, mint authority status, freeze authority, metadata authority, and actual supply.
+- The founder's intended 50,000,000 LBG position: actual purchase transactions, tokens received, wallet balance, and verified vesting stream.
+- The official Pump.fun coin page and actual creator-reward recipient/settings.
 - The project treasury and multisignature wallet address, independent signer set, threshold, and technical enforcement status.
+- Any funded Goose Guess or Flock Drop prize/reward balance and its rules.
 - Actual liquidity and reserve balances, custody, deposits, locks, and any vesting contracts.
 - Approved governance decisions and transaction records for project-controlled releases.
 
@@ -170,8 +170,6 @@ Until the relevant evidence is available, the corresponding details must remain 
 
 ---
 
-**Low Battery Goose**
-
-*Running on 1%. Still honking.*
+**Low Battery Goose — Running on 1%. Still honking.**
 
 **Core commitment:** transparency and accountability across the whole ecosystem, with at least two independent authorized signatures required before every release of project-controlled tokens or funds.
