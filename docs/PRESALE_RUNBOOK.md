@@ -1,5 +1,8 @@
 # $LBG presale runbook (go/no-go)
 
+> **ARCHIVED — NOT FOR CURRENT LAUNCH.** The current founder plan is Pump.fun with no presale and no planned 900M genesis burn. This file is retained as historical research only.
+
+
 Every on-chain step requires the founder's explicit written approval. Rehearse it on devnet first.
 Items marked **[B]** are blocking: if one isn't done, the result is NO-GO.
 
