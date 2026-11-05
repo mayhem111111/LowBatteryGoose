@@ -1,4 +1,4 @@
-"""Presale / listing / target-price model for the LowBatteryGoose token.
+"""LEGACY presale / listing / target-price calculator. Not applicable to current Pump.fun plan; see docs/TOKENOMICS.md.
 
 Usage:
     python3 tokenomics/model.py                 # uses tokenomics/config.json
