@@ -3,7 +3,7 @@
 > **Internal proposal only:** The Flock Drop figures below are not proof that the campaign is approved, configured, or funded. Do not announce it as live until the founder approves final rules, a real quest URL exists, and a disclosed wallet is funded. Verify every advertised token prize before describing it as available.
 
 
-Launch: Pump.fun, Nov 4, 2026, 6:00 PM PT. Owner: Jason (dev). Community lead: Tony.
+Launch: Pump.fun, Nov 4, 2026, 6:00 PM PT. Owner: Jason Speer (founder and sole named project team member).
 SOL/USD $96.61 (Crypto.com, 2026-11-04 16:59 UTC). Pump.fun figures are estimates from the standard curve; the create screen is authoritative.
 
 ## 1. Positioning (what every post says)
@@ -87,8 +87,8 @@ I won't invent influencer handles: fake or wrong names waste your night. Categor
 | # | Target | Action |
 |---|---|---|
 | 15 | X: @LowBatteryGoose | LIVE post pinned, hourly dev posts, Flock Drop |
-| 16 | X: Jason's dev account | Personal thank-you posts (DEV_POSTS.md) |
-| 17 | X: Tony's account | Quote-posts labeled "team" |
+| 16 | Jason's public X account | Personal founder updates and thank-you posts (DEV_POSTS.md) |
+
 | 18 | X Spaces | Launch Space at 5:30 PM, then a weekly Space |
 | 19 | Telegram announcements (@LowBatteryGooseSOL) | LIVE post, Flock Drop, daily recap |
 | 20 | Telegram Flock group | Contests, `/contract`, Flock Drop help |
@@ -104,7 +104,7 @@ I won't invent influencer handles: fake or wrong names waste your night. Categor
 ### Communities (permission first, never spam)
 | # | Target | Action |
 |---|---|---|
-| 25–34 | 10 Solana meme-coin Telegram groups | Tony messages **admins** to ask for a cross-AMA or one launch post. Find them: groups of recently graduated Pump.fun coins, linked from their DexScreener pages |
+| 25–34 | 10 Solana meme-coin Telegram groups | The founder or an authorized moderator messages admins to ask for a cross-AMA or one launch post. Find them: groups of recently graduated Pump.fun coins, linked from their DexScreener pages |
 | 35–37 | 3 X Communities (Solana and memecoins) | Post the launch and the Flock Drop where the rules allow it |
 | 38 | Reddit r/solana | No shilling: post the Honk Bingo game or a "we built a free meme game" story |
 | 39 | Reddit memecoin subs | Only where launch posts are allowed; read the rules first |
@@ -128,11 +128,11 @@ Outreach message (admins and creators, one at a time, never a mass DM):
 ## 4. Timeline
 | When | What |
 |---|---|
-| Now → 3 PM | Set up the quest board; Tony contacts 10 group admins; post the 10 AM–2 PM dev posts; contact 5 micro-KOLs and 2 Spaces hosts |
+| Now → 3 PM | Set up the quest board; the founder or an authorized moderator contacts group admins; post the 10 AM–2 PM dev posts; contact 5 micro-KOLs and 2 Spaces hosts |
 | 3 PM | Announce the Flock Drop (link live, rewards start at launch) |
 | 5:30 PM | X Space |
-| 6:00 PM | Create the coin (first buy ≈85M LBG: Jason 50M, Tony 25M, Flock Drop 10M); LIVE posts; website and bot live |
-| 6–7 PM | DexScreener, GMGN and Birdeye profiles; disclosure thread listing all three wallets |
+| 6:00 PM | Create the coin (founder initial-buy amount TBD; do not use the old 85M combined-buy estimate); LIVE posts; website and bot live |
+| 6–7 PM | DexScreener, GMGN and Birdeye profiles; disclosure thread listing only verified project-controlled wallets |
 | 7–10 PM | Hourly thank-you posts, contest, Flock Drop reminders, partner group posts |
 | Day 2–3 | Paid micro-KOL posts (disclosed); daily recap; first contest winners |
 | Day 7 | Team update, first community vote, Spaces guest spots |
