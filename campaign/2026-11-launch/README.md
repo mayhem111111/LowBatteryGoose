@@ -12,7 +12,7 @@ The repository does **not** currently establish a live token or verified contrac
 - `docs/TOKENOMICS.md` describes a Solana/Pump.fun plan, while `docs/DECISION_LOG.md` records a later founder decision to use a presale and says platform approval is still pending.
 - The supplied campaign brief says recent operational direction points to TON, conflicting with the repository's Solana references.
 
-**Therefore: chain, launch mechanism, token address, launch date/time, tokenomics, and trading status are founder-verification blockers.** Do not publish any chain, platform, contract/mint address, buy link, or LIVE claim until reconciled against the actual deployment and a verified official announcement. Do not infer TON or Solana from planning documents.
+**Campaign-wide rule: token address is excluded from every marketing asset and post, permanently.** The address field remains blank in campaign materials. Only the founder may publish the address separately through the founder's own official announcement, at the founder's discretion. The campaign team must never copy, paste, link, hint at, or distribute it—not during TEASE, SHORTLY, or LIVE. The campaign may announce community/project updates without including token-address information. Chain, launch mechanism, launch date/time, tokenomics, and trading status remain unpublished unless separately approved by the founder.
 
 ## Files
 
@@ -39,7 +39,7 @@ Use this convention when adding finished media. Do not create placeholder folder
 
 ## Team-wide rules
 
-No spam bursts, duplicate posts, unsolicited DMs, fake accounts, bought engagement, bots, fake testimonials, return/price promises, unverified listings, unauthorized giveaways, fabricated utility/partnerships, or unverified token addresses. Respect each community's rules. Disclose affiliation. Each participant posts in their own voice and engages genuinely.
+No spam bursts, duplicate posts, unsolicited DMs, fake accounts, bought engagement, bots, fake testimonials, return/price promises, unverified listings, unauthorized giveaways, fabricated utility/partnerships, or token-address references in campaign materials. Respect each community's rules. Disclose affiliation. Each participant posts in their own voice and engages genuinely.
 
 ## How to use
 
@@ -48,4 +48,4 @@ No spam bursts, duplicate posts, unsolicited DMs, fake accounts, bought engageme
 3. Members create original artwork/video from their brief; never all publish the same asset.
 4. Squad leads stagger activity and log post URLs and outcomes.
 5. Founder issues signals; any PAUSE overrides every schedule.
-6. LIVE assets remain locked until deployment and official address are verified.
+6. LIVE campaign assets remain address-free. The founder handles any separate token-address publication independently.
