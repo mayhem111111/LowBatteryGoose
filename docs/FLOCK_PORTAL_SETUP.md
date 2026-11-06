@@ -83,7 +83,7 @@ The login library is pinned to @supabase/supabase-js 2.119.0 through jsDelivr. T
 ## Security boundaries and operational notes
 
 - The browser receives only the Supabase publishable/anon key. Never expose the Supabase service-role key.
-- Passwords and TOTP secrets are handled by Supabase Auth. The app does not store passwords, TOTP seeds, recovery codes, or refresh tokens in its own database.
+- Passwords and TOTP secrets are handled by Supabase Auth. Access and refresh tokens remain in the login page's JavaScript memory only and are cleared after the signed portal cookie is issued. The short-lived PKCE code verifier is the only auth-flow value stored temporarily in localStorage; it is removed when the code is exchanged.
 - Supabase validates the access token at /auth/v1/user; the Pages Function then checks the signed JWT's aal2 and totp claims before creating the portal cookie.
 - The portal cookie is HMAC-signed with COMMUNITY_SESSION_SECRET, HttpOnly, Secure, SameSite=Strict, scoped to /flock, and expires within one hour. The session is stateless, so a stolen cookie cannot be individually revoked server-side before it expires; changing COMMUNITY_SESSION_SECRET invalidates all portal cookies.
 - Logging out clears the browser's portal cookie. Changing an account password or removing an MFA factor at the provider invalidates the underlying Supabase session, but an already-issued stateless portal cookie can remain usable until its expiry or until the session secret is rotated.
