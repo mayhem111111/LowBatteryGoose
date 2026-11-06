@@ -7,6 +7,21 @@ const recoveryPanel = byId("recovery-panel");
 const forgotPanel = byId("forgot-panel");
 const statusBox = byId("status");
 let supabase = null;
+const authMemory = new Map();
+const authStorage = {
+  async getItem(key) {
+    if (key.endsWith("-code-verifier")) return window.localStorage.getItem(key);
+    return authMemory.has(key) ? authMemory.get(key) : null;
+  },
+  async setItem(key, value) {
+    if (key.endsWith("-code-verifier")) window.localStorage.setItem(key, value);
+    else authMemory.set(key, value);
+  },
+  async removeItem(key) {
+    if (key.endsWith("-code-verifier")) window.localStorage.removeItem(key);
+    else authMemory.delete(key);
+  }
+};
 let authMode = "signin";
 let factorId = null;
 let challengeId = null;
@@ -56,6 +71,11 @@ async function issuePortalSession() {
   });
   const result = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(result.error || "The secure portal session could not be created.");
+  // The Supabase access/refresh session remains in memory only. Clear it as
+  // soon as the HttpOnly portal cookie has been issued.
+  await supabase.auth.signOut({ scope: "local" });
+  authMemory.clear();
+  window.localStorage.removeItem("lbg-flock-auth-code-verifier");
   message("Two-factor verification complete. Welcome to the Flock.", "success");
   window.location.assign("/flock/");
 }
@@ -180,8 +200,11 @@ async function boot() {
     supabase = createClient(config.supabaseUrl, config.supabaseAnonKey, {
       auth: {
         autoRefreshToken: false,
-        persistSession: false,
-        detectSessionInUrl: false
+        persistSession: true,
+        detectSessionInUrl: false,
+        flowType: "pkce",
+        storageKey: "lbg-flock-auth",
+        storage: authStorage
       }
     });
     try {
