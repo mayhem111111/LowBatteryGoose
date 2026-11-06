@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#19251e">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Enter the Flock · Low Battery Goose</title>
+  <link rel="icon" href="/assets/goose.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/flock/login.css">
+  <script type="module" src="/flock/login.js"></script>
+</head>
+<body>
+  <main class="auth-shell">
+    <a class="back-link" href="/">← LOW BATTERY GOOSE</a>
+    <section class="auth-card" aria-labelledby="page-title">
+      <div class="brand-mark" aria-hidden="true">🪿</div>
+      <p class="eyebrow">THE PRIVATE SIDE OF THE FLOCK</p>
+      <h1 id="page-title">Come on <em>in.</em></h1>
+      <p class="intro">Your community space is behind a two-step sign-in. Create an account or return to your Flock.</p>
+
+      <div id="setup-warning" class="notice notice-warning" hidden>
+        The member login is not configured yet. The project team must finish the secure authentication setup before accounts can be created.
+      </div>
+      <div id="status" class="notice" role="status" aria-live="polite" hidden></div>
+
+      <section id="account-panel">
+        <div class="tab-row" role="group" aria-label="Account action">
+          <button type="button" class="tab is-active" id="signin-tab" aria-pressed="true">SIGN IN</button>
+          <button type="button" class="tab" id="signup-tab" aria-pressed="false">CREATE ACCOUNT</button>
+        </div>
+        <form id="account-form" novalidate>
+          <label for="email">EMAIL ADDRESS</label>
+          <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required placeholder="you@example.com">
+          <label for="password">PASSWORD</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" minlength="12" required placeholder="At least 12 characters">
+          <div id="confirm-wrap" hidden>
+            <label for="confirm-password">CONFIRM PASSWORD</label>
+            <input id="confirm-password" name="confirmPassword" type="password" autocomplete="new-password" minlength="12" placeholder="Enter your password again">
+          </div>
+          <button class="primary-button" id="account-submit" type="submit">SIGN IN <span>↗</span></button>
+        </form>
+        <div class="small-links">
+          <button type="button" id="forgot-link">Forgot password?</button>
+          <a href="https://t.me/LowBatteryFlock" target="_blank" rel="noopener noreferrer">Need help? Ask the Flock</a>
+        </div>
+      </section>
+
+      <section id="recovery-panel" hidden>
+        <h2>Reset your password</h2>
+        <p class="panel-copy">Enter the new password for your account. You will still need your authenticator code before entering the portal.</p>
+        <form id="recovery-form">
+          <label for="new-password">NEW PASSWORD</label>
+          <input id="new-password" type="password" autocomplete="new-password" minlength="12" required>
+          <label for="new-password-confirm">CONFIRM NEW PASSWORD</label>
+          <input id="new-password-confirm" type="password" autocomplete="new-password" minlength="12" required>
+          <button class="primary-button" type="submit">SAVE PASSWORD <span>↗</span></button>
+        </form>
+      </section>
+
+      <section id="forgot-panel" hidden>
+        <h2>Get a reset link</h2>
+        <p class="panel-copy">We will send a password-reset link to the email address on your account.</p>
+        <form id="forgot-form">
+          <label for="recovery-email">EMAIL ADDRESS</label>
+          <input id="recovery-email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com">
+          <button class="primary-button" type="submit">SEND RESET LINK <span>↗</span></button>
+        </form>
+        <button class="text-button" type="button" id="back-to-signin">← Back to sign in</button>
+      </section>
+
+      <section id="mfa-panel" hidden>
+        <div class="step-indicator"><span>02</span> / TWO-FACTOR VERIFICATION</div>
+        <h2 id="mfa-title">One more step.</h2>
+        <p class="panel-copy" id="mfa-description">Enter the current six-digit code from your authenticator app.</p>
+        <div id="enrollment-box" class="enrollment-box" hidden>
+          <p class="enroll-label">1. SCAN THIS QR CODE</p>
+          <img id="totp-qr" alt="Authenticator setup QR code">
+          <p class="enroll-label">Or enter this setup key manually:</p>
+          <code id="totp-secret"></code>
+          <p class="security-note">Keep this setup key private. Anyone who has it can generate your authenticator codes.</p>
+        </div>
+        <form id="mfa-form">
+          <label for="totp-code">AUTHENTICATOR CODE</label>
+          <input id="totp-code" name="code" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" minlength="6" maxlength="6" required placeholder="000000">
+          <button class="primary-button" id="mfa-submit" type="submit">VERIFY AND ENTER <span>↗</span></button>
+        </form>
+        <button class="text-button" id="cancel-auth" type="button">Cancel and return to sign in</button>
+      </section>
+
+      <div class="trust-note">
+        <span aria-hidden="true">🛡️</span>
+        <span>Your password and authenticator code are verified by the authentication provider. The portal receives a short-lived, secure session—not your password or authenticator secret.</span>
+      </div>
+    </section>
+    <footer>RUNNING ON 1%. STILL HONKING.</footer>
+  </main>
+</body>
+</html>
