@@ -93,12 +93,15 @@ export async function onRequest({ request, env }) {
 
   const methods = Array.isArray(claims.amr) ? claims.amr : [];
   const hasTotp = methods.some((method) => method && method.method === "totp");
+  const audiences = Array.isArray(claims.aud) ? claims.aud : [claims.aud];
+  const expectedIssuer = supabaseUrl + "/auth/v1";
   const now = Math.floor(Date.now() / 1000);
   const tokenExpiry = Number(claims.exp);
   if (
     !claims.sub ||
     claims.sub !== user.id ||
-    claims.aud !== "authenticated" ||
+    claims.iss !== expectedIssuer ||
+    !audiences.includes("authenticated") ||
     claims.aal !== "aal2" ||
     !hasTotp ||
     !Number.isFinite(tokenExpiry) ||
