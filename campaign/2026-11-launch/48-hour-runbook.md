@@ -15,7 +15,7 @@ Variants:
 4. Emergency flock bulletin: honk reserves critically low. LOW BATTERY GOOSE ($LBG) is preparing for launch within 48 hours.
 5. A goose-shaped disturbance is approaching the internet. Follow LOW BATTERY GOOSE ($LBG) for the founder's verified launch update.
 
-Do not add a chain, platform, address, price, exchange, allocation, utility or launch clock time unless verified and approved.
+Do not include a token address, contract/mint identifier, wallet string, purchase link, QR code, or token-address placeholder in any campaign material at any stage. The campaign does not publish or distribute the address. The founder may publish it separately, outside this campaign, only when ready. Also omit chain, platform, price, exchange, allocation, utility or launch clock time unless separately approved.
 
 ## 2. Relative schedule
 
@@ -28,11 +28,11 @@ Do not add a chain, platform, address, price, exchange, allocation, utility or l
 | T-24h | 24-hour reminder only if launch window still approved; link to official channel | TEASE | Squads G–H |
 | T-18h | Community challenge and reply-led discovery | TEASE | All squads, staggered |
 | T-12h | High-energy but non-repetitive countdown; verify every launch detail again | TEASE | Leads + founder |
-| T-6h | Final preflight; no address graphics; correct stale copy | TEASE | Founder + moderators |
+| T-6h | Final preflight; confirm all campaign assets remain address-free; correct stale copy | TEASE | Founder + moderators |
 | T-60m | Fresh countdown creative; distribute new assignments | SHORTLY | Founder + leads |
 | T-15m | Final safety check; keep LIVE copy locked | SHORTLY | Founder + security lead |
-| T0 | Publish official launch announcement only after actual deployment and verification | LIVE | Founder |
-| T+15m | Repost official announcement; monitor fake addresses and impersonators | LIVE | Leads |
+| T0 | Publish address-free campaign LIVE creative after founder's LIVE signal | LIVE | Founder |
+| T+15m | Continue address-free campaign posts; monitor impersonators and suspicious messages | LIVE | Leads |
 | T+1h | Publish factual recap; no invented performance claims | LIVE | Founder + comms |
 
 If the launch time changes, recalculate all relative times. If any blocker remains open, pause countdown content that implies a confirmed deployment time.
@@ -79,6 +79,6 @@ Report at T-24h, T-12h, T-60m, T+1h and T+24h. Compare meaningful replies, share
 - [ ] No price, return, profit, listing, utility, partnership or prize claims without evidence and approval.
 - [ ] Affiliation is disclosed where relevant.
 - [ ] Community/subreddit rules checked before posting.
-- [ ] No token address or buy link until independently verified and announced officially.
+- [ ] No token address, contract/mint identifier, wallet string, QR code, or purchase link appears in any campaign asset or post—even after LIVE.
 - [ ] Platform advertising rules checked before any paid placement.
 - [ ] Moderation and PAUSE escalation route is active.
