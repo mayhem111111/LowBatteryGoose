@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [main]
   push:
-    branches: [main, work/platform-intake-flock-docs, fix/flock-clean-url-routing, fix/site-quality-and-auth-tests]
+    branches: [main, work/platform-intake-flock-docs, fix/flock-clean-url-routing, fix/site-quality-and-auth-tests, fix/governance-rate-limiter]
 
 permissions:
   contents: read
@@ -19,3 +19,5 @@ jobs:
           node-version: 22
       - name: Run repository checks
         run: node --test tests/*.test.mjs
+      - name: Validate rate limiter Worker configuration
+        run: npx --yes wrangler@4.36.0 deploy --dry-run --config workers/governance-rate-limiter/wrangler.toml

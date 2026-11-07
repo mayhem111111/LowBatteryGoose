@@ -26,7 +26,8 @@ const validPayload = {
 function makeRequest(body, options = {}) {
   const headers = new Headers({
     Origin: options.origin ?? "https://lowbatterygoose.pages.dev",
-    "Content-Type": options.contentType ?? "application/json"
+    "Content-Type": options.contentType ?? "application/json",
+    "CF-Connecting-IP": options.ip ?? "203.0.113.5"
   });
   return new Request("https://lowbatterygoose.pages.dev/api/governance-application", {
     method: options.method ?? "POST",
@@ -47,7 +48,11 @@ test("governance intake API validation and Airtable mapping", async (t) => {
       headers: { "Content-Type": "application/json" }
     });
   };
-  const env = { AIRTABLE_TOKEN: "test-token", GOVERNANCE_INTAKE_ENABLED: "true" };
+  const env = {
+    AIRTABLE_TOKEN: "test-token",
+    GOVERNANCE_INTAKE_ENABLED: "true",
+    GOVERNANCE_RATE_LIMITER: { fetch: async () => new Response(null, { status: 204 }) }
+  };
 
   try {
     await t.test("intake remains closed unless explicitly enabled", async () => {
@@ -101,6 +106,39 @@ test("governance intake API validation and Airtable mapping", async (t) => {
         env
       });
       assert.equal(response.status, 202);
+      assert.equal(airtableCalls, 0);
+    });
+
+    await t.test("fails closed when the rate limiter binding is missing", async () => {
+      const response = await endpoint.onRequestPost({
+        request: makeRequest(validPayload),
+        env: { AIRTABLE_TOKEN: "test-token", GOVERNANCE_INTAKE_ENABLED: "true" }
+      });
+      assert.equal(response.status, 503);
+      assert.equal(airtableCalls, 0);
+    });
+
+    await t.test("blocks requests rejected by the rate limiter before Airtable", async () => {
+      const response = await endpoint.onRequestPost({
+        request: makeRequest(validPayload),
+        env: {
+          ...env,
+          GOVERNANCE_RATE_LIMITER: { fetch: async () => new Response(null, { status: 429 }) }
+        }
+      });
+      assert.equal(response.status, 429);
+      assert.equal(airtableCalls, 0);
+    });
+
+    await t.test("fails closed if the rate limiter service is unavailable", async () => {
+      const response = await endpoint.onRequestPost({
+        request: makeRequest(validPayload),
+        env: {
+          ...env,
+          GOVERNANCE_RATE_LIMITER: { fetch: async () => { throw new Error("unavailable"); } }
+        }
+      });
+      assert.equal(response.status, 503);
       assert.equal(airtableCalls, 0);
     });
 

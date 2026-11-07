@@ -51,15 +51,28 @@ function validPortfolio(value) {
 }
 
 export async function onRequestGet({ env }) {
-  if (env.GOVERNANCE_INTAKE_ENABLED !== "true" || !env.AIRTABLE_TOKEN) {
-    return json({ available: false, message: "Applications are temporarily closed while the secure intake connection is being verified." }, 503);
+  if (env.GOVERNANCE_INTAKE_ENABLED !== "true" || !env.AIRTABLE_TOKEN || !env.GOVERNANCE_RATE_LIMITER) {
+    return json({ available: false, message: "Applications are temporarily closed while the secure intake connection and spam protection are being verified." }, 503);
   }
   return json({ available: true });
 }
 
 export async function onRequestPost({ request, env }) {
   if (!validOrigin(request)) return json({ error: "Request origin not allowed." }, 403);
-  if (env.GOVERNANCE_INTAKE_ENABLED !== "true" || !env.AIRTABLE_TOKEN) return json({ error: "Application intake is temporarily closed. Please check back shortly." }, 503);
+  if (env.GOVERNANCE_INTAKE_ENABLED !== "true" || !env.AIRTABLE_TOKEN || !env.GOVERNANCE_RATE_LIMITER) return json({ error: "Application intake is temporarily closed. Please check back shortly." }, 503);
+
+  const sourceIp = request.headers.get("CF-Connecting-IP");
+  if (!sourceIp) return json({ error: "The request could not be verified. Please try again later." }, 503);
+  try {
+    const rateCheck = await env.GOVERNANCE_RATE_LIMITER.fetch("https://governance-rate-limiter.internal/check", {
+      method: "POST",
+      headers: { "CF-Connecting-IP": sourceIp }
+    });
+    if (rateCheck.status === 429) return json({ error: "Too many applications were submitted from this network. Please wait a minute and try again." }, 429);
+    if (!rateCheck.ok) return json({ error: "Application intake protection is temporarily unavailable." }, 503);
+  } catch {
+    return json({ error: "Application intake protection is temporarily unavailable." }, 503);
+  }
 
   const contentType = request.headers.get("Content-Type") || "";
   if (!/^application\/json(?:\s*;|\s*$)/i.test(contentType)) {

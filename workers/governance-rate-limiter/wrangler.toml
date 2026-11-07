@@ -1,0 +1,13 @@
+name = "lbg-governance-rate-limiter"
+main = "src/index.js"
+compatibility_date = "2026-11-06"
+account_id = "0d0aa5904fe4fb9568094f1518dd3693"
+workers_dev = false
+
+[[ratelimits]]
+name = "GOVERNANCE_LIMITER"
+namespace_id = "93820117"
+
+  [ratelimits.simple]
+  limit = 5
+  period = 60
