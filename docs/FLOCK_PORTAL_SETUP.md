@@ -125,3 +125,20 @@ Later request to /flock/*
        ├─ valid   → serve private portal page/asset
        └─ invalid → redirect to /flock/login.html
 ~~~
+
+
+## Governance intake rate-limiting service
+
+Cloudflare Pages Functions do not expose the Workers Rate Limiting binding directly. This repository therefore includes a small internal Worker at `workers/governance-rate-limiter/`, called through a Pages Service binding. Cloudflare's rate-limiting binding is approximate and local to each Cloudflare location; it is a useful abuse-control layer, not a globally strict quota.
+
+1. Add the GitHub Actions repository secret `CLOUDFLARE_API_TOKEN` with permission to deploy Workers Scripts in this account. The Worker config contains the account ID; no token belongs in the repository.
+2. Run the **Deploy governance rate limiter** workflow (or push a change under `workers/governance-rate-limiter/`). It deploys the Worker named `lbg-governance-rate-limiter` with a limit of 5 checks per 60 seconds per source IP.
+3. In Cloudflare Pages → `lowbatterygoose` → Settings → Bindings → Add → Service binding, create:
+   - Variable name: `GOVERNANCE_RATE_LIMITER`
+   - Service: `lbg-governance-rate-limiter`
+4. Save and redeploy the Pages project so the binding is available to the Function.
+5. Confirm `GET /api/governance-application` returns an available response only when the Airtable token, service binding, and explicit enable flag are all present.
+
+The Pages Function fails closed (503) if the service binding is absent or unavailable and returns 429 when the Worker reports a limit breach. The Worker has no public `workers.dev` endpoint; it is intended to be called only through the Pages service binding.
+
+Keep `GOVERNANCE_INTAKE_ENABLED=false` until the Airtable personal access token has been rotated, scoped to the application base with record-create permission only, and verified with an owner-approved test record. Then enable intake explicitly and verify the public form readiness message. Do not create a real applicant record as a test.
