@@ -28,7 +28,7 @@ Do not use the service-role key in the website or in these Pages variables. It i
 In Authentication → URL Configuration:
 
 - Set the Site URL to https://lowbatterygoose.pages.dev.
-- Add https://lowbatterygoose.pages.dev/flock/login.html to the allowed redirect URLs.
+- Add https://lowbatterygoose.pages.dev/flock/login to the allowed redirect URLs (Cloudflare Pages clean URLs remove the `.html` suffix).
 - Do not use wildcard redirect URLs for production.
 
 In Authentication → Sign In / Providers → Email:

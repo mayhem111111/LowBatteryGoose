@@ -242,7 +242,7 @@ byId("account-form").addEventListener("submit", async (event) => {
       const result = await supabase.auth.signUp({
         email,
         password,
-        options: { emailRedirectTo: window.location.origin + "/flock/login.html" }
+        options: { emailRedirectTo: window.location.origin + "/flock/login" }
       });
       if (result.error) throw result.error;
       if (result.data.session) {
@@ -300,7 +300,7 @@ byId("forgot-form").addEventListener("submit", async (event) => {
   setBusy(button, true, "SENDING LINK…");
   try {
     const result = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: window.location.origin + "/flock/login.html"
+      redirectTo: window.location.origin + "/flock/login"
     });
     if (result.error) throw result.error;
     message("If that address belongs to an account, a password-reset email will arrive shortly.", "success");

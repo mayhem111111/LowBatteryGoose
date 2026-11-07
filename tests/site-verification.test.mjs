@@ -169,7 +169,7 @@ const middleware = await import("data:text/javascript;base64," + Buffer.from(mid
 
 test("Flock middleware never redirects public login resources", async (t) => {
   const env = { COMMUNITY_SESSION_SECRET: "x".repeat(64) };
-  for (const path of ["/flock/login.html", "/flock/login.css", "/flock/login.js"]) {
+  for (const path of ["/flock/login", "/flock/login.html", "/flock/login.css", "/flock/login.js"]) {
     await t.test(path + " is served without a redirect", async () => {
       let nextCalls = 0;
       const request = new Request("https://lowbatterygoose.pages.dev" + path);
@@ -212,7 +212,7 @@ test("Flock middleware protects the portal without redirecting between slash var
       next: async () => new Response("should not be served", { status: 200 })
     });
     assert.equal(response.status, 302);
-    assert.equal(response.headers.get("Location"), "/flock/login.html");
+    assert.equal(response.headers.get("Location"), "/flock/login");
   }
 });
 
