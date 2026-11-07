@@ -8,8 +8,10 @@ The Markdown files in this directory are the canonical source for public project
 - [Tokenomics](TOKENOMICS.md)
 - [Roadmap](ROADMAP.md)
 - [Public Wallet Register](WALLET_REGISTER.md)
+- [Governance Board Charter](BOARD_GOVERNANCE_CHARTER.md)
+- [Governance Roles & Application Guide](GOVERNANCE_ROLES.md)
 
-The website HTML pages are publication renditions, not independent authorities. When a document changes, update its public HTML rendition in the same pull request and verify that material claims match the Markdown source. The public document index must list each document exactly once.
+The Markdown publication copies under `lbgv6/documents/` must match these canonical files exactly. A regression test enforces this. Website HTML pages are styled publication renditions, not independent authorities; update them in the same pull request and verify that their material claims match the canonical Markdown. The public document index must list each document exactly once.
 
 ## Publication and verification standard
 
@@ -21,7 +23,7 @@ The project policy requires at least two independent authorized signatures for e
 
 Never commit API tokens, Supabase service-role keys, session secrets, private keys, seed phrases, recovery codes, applicant data, or production credentials. Store runtime secrets in Cloudflare Pages environment variables/secrets. Limit the Airtable token to the application base and only the permissions required for record creation.
 
-Governance intake must be protected by Cloudflare edge rate limiting and bot controls. The Pages Function honeypot and validation are supplementary controls, not a substitute for edge rate limiting. Do not use process-local in-memory counters as production rate limiting on edge workers.
+Governance intake remains disabled until the Airtable credential has been rotated and verified, and an effective rate-limiting control is in place. Pages Function honeypot and validation are supplementary controls, not a substitute for edge rate limiting. Do not use process-local in-memory counters as production rate limiting on edge workers.
 
 ## Legacy material
 
