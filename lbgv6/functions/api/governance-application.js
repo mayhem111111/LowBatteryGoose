@@ -51,15 +51,15 @@ function validPortfolio(value) {
 }
 
 export async function onRequestGet({ env }) {
-  if (!env.AIRTABLE_TOKEN) {
-    return json({ available: false, message: "Application intake is temporarily unavailable." }, 503);
+  if (env.GOVERNANCE_INTAKE_ENABLED !== "true" || !env.AIRTABLE_TOKEN) {
+    return json({ available: false, message: "Applications are temporarily closed while the secure intake connection is being verified." }, 503);
   }
   return json({ available: true });
 }
 
 export async function onRequestPost({ request, env }) {
   if (!validOrigin(request)) return json({ error: "Request origin not allowed." }, 403);
-  if (!env.AIRTABLE_TOKEN) return json({ error: "Application intake is temporarily unavailable. Please check back shortly." }, 503);
+  if (env.GOVERNANCE_INTAKE_ENABLED !== "true" || !env.AIRTABLE_TOKEN) return json({ error: "Application intake is temporarily closed. Please check back shortly." }, 503);
 
   const contentType = request.headers.get("Content-Type") || "";
   if (!/^application\/json(?:\s*;|\s*$)/i.test(contentType)) {
