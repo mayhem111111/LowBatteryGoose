@@ -1,5 +1,6 @@
 const COOKIE_NAME = "__Secure-lbg_flock";
-const LOGIN_PATH = "/flock/login.html";
+const LOGIN_PATH = "/flock/login";
+const LOGIN_HTML_PATH = "/flock/login.html";
 
 function readCookie(header, name) {
   if (!header) return null;
@@ -71,6 +72,7 @@ export async function onRequest({ request, env, next }) {
   // the public login screen in a redirect loop.
   const publicLoginAsset = [
     LOGIN_PATH,
+    LOGIN_HTML_PATH,
     "/flock/login.css",
     "/flock/login.js"
   ].includes(url.pathname);
