@@ -257,6 +257,7 @@ test("logout endpoint enforces POST and same-origin and expires the portal cooki
   });
 });
 
+
 test("every public HTML page has complete metadata and valid document boundaries", async () => {
   const files = await walk(siteRoot);
   const htmlFiles = files.filter((path) => path.endsWith(".html"));
@@ -265,20 +266,20 @@ test("every public HTML page has complete metadata and valid document boundaries
   for (const file of htmlFiles) {
     const source = await readFile(file, "utf8");
     const label = relative(siteRoot, file);
-    assert.match(source, /<html\\b[^>]*\\blang=["'][^"']+["']/i, label + " missing html language");
-    assert.match(source, /<title>[^<]+<\\/title>/i, label + " missing title");
-    const description = source.match(/<meta\\s+name=["']description["']\\s+content=["']([^"']+)["']/i);
+    assert.match(source, /<html\b[^>]*\blang=["'][^"']+["']/i, label + " missing html language");
+    assert.match(source, /<title>[^<]+<\/title>/i, label + " missing title");
+    const description = source.match(/<meta\s+name=["']description["']\s+content=["']([^"']+)["']/i);
     assert.ok(description && description[1].trim(), label + " missing meta description");
 
     const end = source.toLowerCase().indexOf("</html>");
     assert.ok(end >= 0, label + " missing closing html tag");
     assert.equal(source.slice(end + 7).trim(), "", label + " contains markup after closing html");
 
-    for (const imageTag of source.match(/<img\\b[^>]*>/gi) || []) {
-      assert.match(imageTag, /\\balt=/i, label + " contains an image without alt text");
+    for (const imageTag of source.match(/<img\b[^>]*>/gi) || []) {
+      assert.match(imageTag, /\balt=/i, label + " contains an image without alt text");
     }
-    for (const anchor of source.match(/<a\\b[^>]*target=["']_blank["'][^>]*>/gi) || []) {
-      assert.match(anchor, /\\brel=["'][^"']*noopener/i, label + " opens a new tab without noopener");
+    for (const anchor of source.match(/<a\b[^>]*target=["']_blank["'][^>]*>/gi) || []) {
+      assert.match(anchor, /\brel=["'][^"']*noopener/i, label + " opens a new tab without noopener");
     }
   }
 });
@@ -295,11 +296,11 @@ test("public HTML document headings stay aligned with canonical Markdown", async
   for (const [name, markdownPath, htmlPath] of pairs) {
     const markdown = await readFile(join(root, markdownPath), "utf8");
     const html = await readFile(join(root, htmlPath), "utf8");
-    const markdownHeadings = markdown.split("\\n")
-      .filter((line) => /^#{2,3}\\s/.test(line))
-      .map((line) => line.replace(/^#+\\s*/, "").replace(/\\\\\\*/g, "").replace(/\\*/g, "").replace(/\\\\_/g, "_").replace(/\\s+/g, " ").trim());
-    const htmlHeadings = [...html.matchAll(/<h[2-3]\\b[^>]*>([\\s\\S]*?)<\\/h[2-3]>/gi)]
-      .map((match) => match[1].replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/&nbsp;/g, " ").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\\s+/g, " ").trim());
+    const markdownHeadings = markdown.split("\n")
+      .filter((line) => /^#{2,3}\s/.test(line))
+      .map((line) => line.replace(/^#+\s*/, "").replace(/\\\*/g, "").replace(/\*/g, "").replace(/\\_/g, "_").replace(/\s+/g, " ").trim());
+    const htmlHeadings = [...html.matchAll(/<h[2-3]\b[^>]*>([\s\S]*?)<\/h[2-3]>/gi)]
+      .map((match) => match[1].replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/&nbsp;/g, " ").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\s+/g, " ").trim());
     assert.deepEqual(htmlHeadings, markdownHeadings, name + " HTML headings differ from canonical Markdown");
   }
 });
