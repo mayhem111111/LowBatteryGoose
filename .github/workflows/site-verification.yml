@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [main]
   push:
-    branches: [main, work/platform-intake-flock-docs, fix/flock-clean-url-routing, fix/site-quality-and-auth-tests, fix/governance-rate-limiter]
+    branches: [main, work/platform-intake-flock-docs, fix/flock-clean-url-routing, fix/site-quality-and-auth-tests, fix/governance-rate-limiter, fix/site-metadata-audit]
 
 permissions:
   contents: read
