@@ -23,7 +23,7 @@ The project policy requires at least two independent authorized signatures for e
 
 Never commit API tokens, Supabase service-role keys, session secrets, private keys, seed phrases, recovery codes, applicant data, or production credentials. Store runtime secrets in Cloudflare Pages environment variables/secrets. Limit the Airtable token to the application base and only the permissions required for record creation.
 
-Governance intake remains disabled until the Airtable credential has been rotated and verified, and an effective rate-limiting control is in place. Pages Function honeypot and validation are supplementary controls, not a substitute for edge rate limiting. Do not use process-local in-memory counters as production rate limiting on edge workers.
+Governance intake remains disabled until the Airtable credential has been rotated and verified, and the internal Cloudflare rate-limiter Worker is deployed and bound to Pages as `GOVERNANCE_RATE_LIMITER`. Pages Function honeypot and validation are supplementary controls, not a substitute for edge rate limiting. The rate-limiter binding is approximate per Cloudflare location; do not describe it as a globally strict quota. Do not use process-local in-memory counters as production rate limiting on edge workers.
 
 ## Legacy material
 
