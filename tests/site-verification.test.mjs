@@ -212,7 +212,7 @@ test("Flock middleware protects the portal without redirecting between slash var
       next: async () => new Response("should not be served", { status: 200 })
     });
     assert.equal(response.status, 302);
-    assert.equal(response.headers.get("Location"), "/flock/login.html");
+    assert.equal(response.headers.get("Location"), "/flock/login");
   }
 });
 
