@@ -163,3 +163,70 @@ test("document index local links resolve to published files", async () => {
     }
   }
 });
+
+const middlewareSource = await readFile(join(root, "lbgv6/functions/_middleware.js"), "utf8");
+const middleware = await import("data:text/javascript;base64," + Buffer.from(middlewareSource).toString("base64"));
+
+test("Flock middleware never redirects public login resources", async (t) => {
+  const env = { COMMUNITY_SESSION_SECRET: "x".repeat(64) };
+  for (const path of ["/flock/login.html", "/flock/login.css", "/flock/login.js"]) {
+    await t.test(path + " is served without a redirect", async () => {
+      let nextCalls = 0;
+      const request = new Request("https://lowbatterygoose.pages.dev" + path);
+      const response = await middleware.onRequest({
+        request,
+        env,
+        next: async () => {
+          nextCalls += 1;
+          return new Response("login asset", { status: 200 });
+        }
+      });
+      assert.equal(response.status, 200);
+      assert.equal(nextCalls, 1);
+      assert.equal(response.headers.get("Location"), null);
+      assert.equal(response.headers.get("Cache-Control"), "no-store");
+    });
+  }
+
+  await t.test("an invalid/stale cookie cannot redirect the login page", async () => {
+    const request = new Request("https://lowbatterygoose.pages.dev/flock/login.html", {
+      headers: { Cookie: "__Secure-lbg_flock=expired.invalid" }
+    });
+    const response = await middleware.onRequest({
+      request,
+      env,
+      next: async () => new Response("login page", { status: 200 })
+    });
+    assert.equal(response.status, 200);
+    assert.equal(response.headers.get("Location"), null);
+  });
+});
+
+test("Flock middleware protects the portal without redirecting between slash variants", async () => {
+  const env = { COMMUNITY_SESSION_SECRET: "x".repeat(64) };
+  for (const path of ["/flock", "/flock/"]) {
+    const request = new Request("https://lowbatterygoose.pages.dev" + path);
+    const response = await middleware.onRequest({
+      request,
+      env,
+      next: async () => new Response("should not be served", { status: 200 })
+    });
+    assert.equal(response.status, 302);
+    assert.equal(response.headers.get("Location"), "/flock/login.html");
+  }
+});
+
+test("Flock middleware leaves community API routes outside the portal gate", async () => {
+  let nextCalls = 0;
+  const request = new Request("https://lowbatterygoose.pages.dev/api/community/config");
+  const response = await middleware.onRequest({
+    request,
+    env: {},
+    next: async () => {
+      nextCalls += 1;
+      return new Response("config", { status: 200 });
+    }
+  });
+  assert.equal(response.status, 200);
+  assert.equal(nextCalls, 1);
+});
