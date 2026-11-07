@@ -65,39 +65,41 @@ function clearCookie() {
 export async function onRequest({ request, env, next }) {
   const url = new URL(request.url);
   const isFlockPath = url.pathname === "/flock" || url.pathname.startsWith("/flock/");
-  if (!isFlockPath) return next();
 
-  if (url.pathname === "/flock") {
-    return Response.redirect(new URL("/flock/", url), 308);
-  }
-
-  // The login page and its local assets remain public. All portal pages,
-  // scripts, styles and future classroom routes are protected by this gate.
+  // Always serve the login page and its local assets directly. Do this before
+  // reading cookies or redirecting so a stale/invalid session can never trap
+  // the public login screen in a redirect loop.
   const publicLoginAsset = [
     LOGIN_PATH,
     "/flock/login.css",
     "/flock/login.js"
   ].includes(url.pathname);
 
-  const session = await validSession(request, env.COMMUNITY_SESSION_SECRET || "");
-  if (publicLoginAsset) {
-    if (url.pathname === LOGIN_PATH && session) {
-      return Response.redirect(new URL("/flock/", url), 303);
-    }
+  if (!isFlockPath || publicLoginAsset) {
     const response = await next();
+    if (!isFlockPath) return response;
     const headers = new Headers(response.headers);
     headers.set("Cache-Control", "no-store");
     headers.set("X-Robots-Tag", "noindex, nofollow");
-    if (!session && readCookie(request.headers.get("Cookie"), COOKIE_NAME)) {
-      headers.append("Set-Cookie", clearCookie());
-    }
-    return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
+    return new Response(response.body, {
+      status: response.status,
+      statusText: response.statusText,
+      headers
+    });
   }
+
+  // Treat both /flock and /flock/ as protected routes. Never redirect between
+  // the two directory spellings; unauthenticated visitors go straight to login.
+  const session = await validSession(request, env.COMMUNITY_SESSION_SECRET || "");
 
   if (!env.COMMUNITY_SESSION_SECRET || env.COMMUNITY_SESSION_SECRET.length < 32) {
     return new Response("The Flock portal is not configured yet. Please check back soon.", {
       status: 503,
-      headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" }
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Cache-Control": "no-store",
+        "X-Robots-Tag": "noindex, nofollow"
+      }
     });
   }
 
@@ -107,6 +109,7 @@ export async function onRequest({ request, env, next }) {
       headers: {
         Location: LOGIN_PATH,
         "Cache-Control": "no-store",
+        "X-Robots-Tag": "noindex, nofollow",
         "Set-Cookie": clearCookie()
       }
     });
@@ -117,5 +120,9 @@ export async function onRequest({ request, env, next }) {
   headers.set("Cache-Control", "no-store");
   headers.set("X-Robots-Tag", "noindex, nofollow");
   headers.set("Vary", "Cookie");
-  return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers
+  });
 }

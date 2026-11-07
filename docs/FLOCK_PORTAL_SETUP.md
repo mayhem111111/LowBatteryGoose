@@ -29,6 +29,7 @@ In Authentication → URL Configuration:
 
 - Set the Site URL to https://lowbatterygoose.pages.dev.
 - Add https://lowbatterygoose.pages.dev/flock/login.html to the allowed redirect URLs.
+- Do not use wildcard redirect URLs for production.
 
 In Authentication → Sign In / Providers → Email:
 
@@ -63,7 +64,22 @@ openssl rand -hex 32
 
 Set the same three variables in Preview only if you intend to test member login on preview deployments. Prefer a separate Supabase test project and separate session secret for previews.
 
-## 4. Deploy and verify
+## 4. Configure the governance intake separately
+
+The public governance application endpoint is separate from the Flock login. Add these in Cloudflare Pages → Settings → Variables and Secrets for Production:
+
+| Variable | Value |
+|---|---|
+| AIRTABLE_TOKEN | Airtable personal access token restricted to the application base and record creation only |
+| GOVERNANCE_INTAKE_ENABLED | Keep `false` until the endpoint, Airtable token, and edge rate limit have been verified; set to `true` only when ready to accept applications |
+
+The endpoint intentionally returns a closed status until both values are present and the enable flag is exactly `true`. The browser checks this status before enabling the submit button. Do not use a token with workspace-wide access or read/write access to unrelated bases.
+
+Create a Cloudflare WAF rate-limiting rule scoped to `POST /api/governance-application`, keyed by source IP. Start conservatively (for example, 5 POST requests per 10 minutes per IP) and block or managed-challenge requests that exceed the threshold. Tune after observing legitimate community traffic. The form honeypot and server validation are not rate limiting and do not replace this edge rule. The current form does not integrate a CAPTCHA provider; do not claim CAPTCHA protection is active.
+
+Do not submit a real applicant record as a connectivity test without authorization. Validate the field mapping and use a designated test record or an owner-approved test submission, then remove the test record according to the retention policy. Only enable the intake after the successful write has been confirmed in Airtable.
+
+## 5. Deploy and verify
 
 Deploy the lbgv6/ directory as the Cloudflare Pages project root, as the existing site does. There is no build command.
 
@@ -80,7 +96,7 @@ After deployment, test the following in a private browser window:
 
 The login library is pinned to @supabase/supabase-js 2.119.0 through jsDelivr. The Content Security Policy allows that pinned CDN and the default *.supabase.co API host. If using a custom Supabase domain, update connect-src in lbgv6/_headers to that exact host.
 
-## Security boundaries and operational notes
+## 6. Security boundaries and operational notes
 
 - The browser receives only the Supabase publishable/anon key. Never expose the Supabase service-role key.
 - Passwords and TOTP secrets are handled by Supabase Auth. Access and refresh tokens remain in the login page's JavaScript memory only and are cleared after the signed portal cookie is issued. The short-lived PKCE code verifier is the only auth-flow value stored temporarily in localStorage; it is removed when the code is exchanged.
@@ -88,7 +104,7 @@ The login library is pinned to @supabase/supabase-js 2.119.0 through jsDelivr. T
 - The portal cookie is HMAC-signed with COMMUNITY_SESSION_SECRET, HttpOnly, Secure, SameSite=Strict, scoped to /flock, and expires within one hour. The session is stateless, so a stolen cookie cannot be individually revoked server-side before it expires; changing COMMUNITY_SESSION_SECRET invalidates all portal cookies.
 - Logging out clears the browser's portal cookie. Changing an account password or removing an MFA factor at the provider invalidates the underlying Supabase session, but an already-issued stateless portal cookie can remain usable until its expiry or until the session secret is rotated.
 - Members who lose their authenticator currently need an account-recovery procedure administered through Supabase. Do not bypass the AAL2 check to recover access.
-- Enable Supabase Auth CAPTCHA / bot protection and review provider rate limits before opening registration broadly.
+- Review Supabase Auth rate limits and abuse controls before opening registration broadly. CAPTCHA is not integrated by the current login page, so do not enable a CAPTCHA requirement until the client-side integration is implemented and tested.
 - This implementation is authentication, not classroom authorization. Everyone who can create and verify an account is a member; there are no admin/moderator roles yet.
 - The public website's existing governance application endpoint is unchanged. The portal does not grant governance, treasury, wallet, or signing privileges.
 
