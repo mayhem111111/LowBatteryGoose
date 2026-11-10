@@ -1,15 +1,13 @@
 // Official public links supplied by the project owner, November 3, 2026.
-// LAUNCH DAY: after the coin is created and the address is verified on Solscan, paste the
-// address into `mint` (keep the quotes), save, and redeploy the lbgv6 folder to Cloudflare Pages.
-// The whole site switches to "live" automatically. `pumpFun` can stay null: it is built from the mint.
-// Until then, leave both null so the site keeps saying no token is live.
+// Official $LBG mint supplied by the project owner for the live launch page.
+// The homepage uses this value to display the contract and derive Pump.fun and Solscan links.
 window.LBG_CONFIG = Object.freeze({
   x: 'https://x.com/LowBatteryGoose',
   announcements: 'https://t.me/LowBatteryGooseSOL',
   community: 'https://t.me/LowBatteryFlock',
   website: 'https://lowbatterygoose.pages.dev',
-  mint: null,       // e.g. mint: 'PASTE_CONTRACT_ADDRESS_HERE',
-  pumpFun: null,    // optional: full https://pump.fun/coin/... link; derived from mint when null
+  mint: '9g7waf9sid91WiTAp4HXaA8iiPWacWyJiqty9Z4Kpump',
+  pumpFun: null,    // derived from the mint above
   // GOOSE GUESS: paste the Google Form link (https://forms.gle/... or https://docs.google.com/forms/...).
   // Until it is set, the Enter button sends people to the Telegram group.
   guessForm: null,
