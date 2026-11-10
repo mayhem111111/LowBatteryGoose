@@ -52,7 +52,7 @@
   });
   function shareText() {
     const items = names();
-    return `🪿🔋 1% HONK BINGO!\n${hasBingo ? '🏆 CERTIFIED HONKER — BINGO!' : 'Still collecting my battery drains...'}\n${items.length}/9 squares: ${items.join(' · ') || 'none yet'}\nWhat drained YOUR battery? Join the flock 👇\nhttps://t.me/LowBatteryFlock\n#LowBatteryGoose`;
+    return `🪿🔋 1% HONK BINGO!\n${hasBingo ? '🏆 CERTIFIED HONKER — BINGO!' : 'Still collecting my battery drains...'}\n${items.length}/9 squares: ${items.join(' · ') || 'none yet'}\nWhat drained YOUR battery? Join the flock 👇\nhttps://t.me/LowBatteryFlock\nPlay: https://lowbatterygoose.pages.dev/#honk-bingo\n#LowBatteryGoose`;
   }
   document.getElementById('bingo-copy').addEventListener('click', async () => {
     const message = shareText();

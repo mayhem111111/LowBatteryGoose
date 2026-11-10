@@ -14,8 +14,8 @@ Jason Speer is the sole named founder/team member in the current plan. No other 
 
 | Role | Public address / identifier | Status | Notes |
 |---|---|---|---|
-| LBG mint / contract address | Pending | Not created / not verified | Copy from the official Pump.fun coin page, then verify the mint and metadata on Solscan. |
-| Pump.fun coin page | Pending | Not created | Publish only after the coin exists. |
+| LBG mint / contract address | `9g7waf9sid91WiTAp4HXaA8iiPWacWyJiqty9Z4Kpump` | Live. Supplied by founder; matched against the Pump.fun coin page, DexScreener and GeckoTerminal on 2026-11-10 | Token name "Low Battery Goose", ticker LBG. Mint, freeze and metadata authority status still to be read on Solscan and recorded here. |
+| Pump.fun coin page | https://pump.fun/coin/9g7waf9sid91WiTAp4HXaA8iiPWacWyJiqty9Z4Kpump | Live (bonding curve, not graduated as of 2026-11-10) | Links to the official X, Telegram and website were present on the coin page on 2026-11-10. |
 | Jason Streamflow vesting stream | Pending | Not verified | If used, publish token mint, amount, beneficiary, schedule, and non-cancellable status. |
 | Actual creator-reward recipient | Pending verification | Not verified | Verify the creator wallet and settings on the coin page; no third-party split is authorized. |
 
@@ -47,6 +47,6 @@ A separate “governance wallet” is not needed simply to publish tokenomics. G
 1. Confirm whether Jason's supplied wallet is also the Pump.fun creator wallet and will make the initial buy.
 2. Supply the Community Rewards multisig address and signer threshold once created.
 3. Confirm whether a separate Liquidity Management multisig will be created later.
-4. After launch, provide the mint address, actual purchase transaction(s), creator settings evidence, and vesting-stream link.
+4. The mint address is recorded above. Still needed: actual purchase transaction(s), creator settings evidence, and vesting-stream link.
 
 Only public addresses are needed here. Never send a private key or seed phrase.
