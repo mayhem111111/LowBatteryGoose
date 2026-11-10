@@ -16,6 +16,8 @@
     announcements: new Set(['t.me', 'www.t.me']),
     community: new Set(['t.me', 'www.t.me'])
   };
+  const siteUrl = 'https://lowbatterygoose.pages.dev';
+  const isLive = () => document.documentElement.classList.contains('lbg-live');
   let linked = 0;
   for (const [kind, hosts] of Object.entries(officialDomains)) {
     const raw = links[kind];
@@ -55,10 +57,19 @@
     document.querySelectorAll('[data-ca], [data-live-ca]').forEach(el => { el.textContent = mint; el.classList.remove('status-pending'); el.classList.add('ca-inline'); });
     document.querySelectorAll('[data-pumpfun-link]').forEach(a => { a.href = pump; });
     document.querySelectorAll('[data-solscan-link]').forEach(a => { a.href = `https://solscan.io/token/${mint}`; });
-    const caStatus = document.querySelector('[data-ca-status]');
+    document.querySelectorAll('[data-dexscreener-link]').forEach(a => { a.href = `https://dexscreener.com/solana/${mint}`; });
+    // Pre-filled X post: the visitor still reviews and sends it themselves.
+    const post = `Running on 1%. Still honking. 🪿🔋\n\n$LBG is live on Solana.\nCA: ${mint}\n\n${siteUrl}`;
+    document.querySelectorAll('[data-share-x]').forEach(a => { a.href = `https://x.com/intent/post?text=${encodeURIComponent(post)}`; });
+    // Each copy button reports in its own section, so the message appears next to the button that was pressed.
+    const say = (btn, message) => {
+      const scope = btn.closest('section') || document;
+      const target = scope.querySelector('[data-ca-status]') || document.querySelector('[data-ca-status]');
+      if (target) target.textContent = message;
+    };
     document.querySelectorAll('[data-ca-copy]').forEach(btn => btn.addEventListener('click', async () => {
-      try { await navigator.clipboard.writeText(mint); if (caStatus) caStatus.textContent = 'Address copied. Compare the first and last characters before you trade.'; }
-      catch { if (caStatus) caStatus.textContent = 'Copy failed here. Select the address above and copy it manually.'; }
+      try { await navigator.clipboard.writeText(mint); say(btn, 'Address copied. Compare the first and last characters before you trade.'); }
+      catch { say(btn, 'Copy failed here. Select the address above and copy it manually.'); }
     }));
     const socialState = $('social-state');
     if (socialState) socialState.textContent = 'OFFICIAL CONTRACT SHOWN ON THIS SITE · WE NEVER DM FIRST';
@@ -100,7 +111,7 @@
   image.src = 'assets/goose.png';
 
   const caption = () => (reason.value.trim() || fallbackReason);
-  const shareText = () => `🪿🔋 THE GREAT BATTERY DRAIN\nBattery: ${percent.value}%\nWhat drained me: ${caption()}\nRunning on 1%. Still honking.\nhttps://lowbatterygoose.pages.dev/#battery-check #LowBatteryGoose`;
+  const shareText = () => `🪿🔋 THE GREAT BATTERY DRAIN\nBattery: ${percent.value}%\nWhat drained me: ${caption()}\nRunning on 1%. Still honking.\n${siteUrl}/#battery-check #LowBatteryGoose${isLive() ? ' $LBG' : ''}`;
 
   function refresh() {
     percentOutput.value = `${percent.value}%`;
@@ -215,8 +226,10 @@
       ctx.textAlign = 'left';
       ctx.font = '900 24px Arial, sans-serif';
       ctx.fillText('RUNNING ON 1%. STILL HONKING.', 66, 1030);
+      // Saved cards travel without the page, so the footer carries the way back to it.
       ctx.textAlign = 'right';
-      ctx.fillText('✳', 1014, 1030);
+      ctx.font = '900 20px Arial, sans-serif';
+      ctx.fillText(isLive() ? '$LBG · LOWBATTERYGOOSE.PAGES.DEV' : 'LOWBATTERYGOOSE.PAGES.DEV', 1014, 1030);
       const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
       if (!blob) throw new Error('PNG export failed');
       const url = URL.createObjectURL(blob);

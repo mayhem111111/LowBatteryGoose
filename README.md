@@ -6,7 +6,13 @@ Low Battery Goose is a static community website and free mini-game built around 
 
 ## Project Status
 
-This is a prelaunch community project. A Solana token launch on Pump.fun has been planned, but **no official token has been deployed or verified, and trading is not live**. The proposed ticker is `$LBG`; it is not a token address or proof of an official token. Do not send funds or share wallet credentials with anyone claiming otherwise.
+**$LBG is live on Solana.** It launched on Pump.fun on November 10, 2026 (UTC) and trades on the Pump.fun bonding curve.
+
+- Official contract (mint): `9g7waf9sid91WiTAp4HXaA8iiPWacWyJiqty9Z4Kpump`
+- Coin page: [pump.fun/coin/9g7waf9sid91WiTAp4HXaA8iiPWacWyJiqty9Z4Kpump](https://pump.fun/coin/9g7waf9sid91WiTAp4HXaA8iiPWacWyJiqty9Z4Kpump)
+- Explorer: [Solscan](https://solscan.io/token/9g7waf9sid91WiTAp4HXaA8iiPWacWyJiqty9Z4Kpump)
+
+Copycat tokens reuse the name and ticker, so check the full address against the one shown on the live site. Nobody from the project will DM you first, ask for a seed phrase, or ask you to send funds. Meme coins are speculative and can lose all value; nothing here is financial advice or a promise of returns.
 
 The public website and games are free to use and do not require a wallet. Game selections and battery-check content stay in the browser unless a visitor chooses to share or save them; game scores are not automatically submitted. The separate Flock member portal at /flock uses email/password plus authenticator-app two-factor authentication and requires Cloudflare Pages Functions and Supabase configuration. Its classroom areas are placeholders for the community to define.
 
@@ -35,7 +41,7 @@ Deploy `lbgv6/` as the static site root. For Cloudflare Pages, use `lbgv6` as th
 
 The Flock portal also uses Cloudflare Pages Functions. The simple Python static server above previews public pages only; it does not execute the protected portal middleware or authentication endpoints. Configure the Supabase and Cloudflare environment variables before testing member sign-in. See [Flock Portal Setup](docs/FLOCK_PORTAL_SETUP.md).
 
-Public channel URLs are configured in [`lbgv6/site-config.js`](lbgv6/site-config.js). Keep the mint and launch-link values unset until an official launch is verified; the page intentionally avoids presenting an unverified token link.
+Public channel URLs and the official mint are configured in [`lbgv6/site-config.js`](lbgv6/site-config.js). A valid `mint` value switches the whole site to live mode (banner, contract box, how-to steps, facts). Change it only for an address that has been verified on-chain.
 
 ## Project Layout
 
